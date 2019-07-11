@@ -1,0 +1,33 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3647638, 2018-09-27T09:10:22-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: CeraPRO-Bold by TypeMates
+ * URL: https://www.myfonts.com/fonts/typemates/cera/pro-bold/
+ * 
+ * Webfont: CeraPRO-Regular by TypeMates
+ * URL: https://www.myfonts.com/fonts/typemates/cera/pro-regular/
+ * 
+ * 
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3647638
+ * Licensed pageviews: 20,000
+ * Webfonts copyright: Copyright (c) 2015 by Jakob Runge, under exclusive license to TypeMates, Runge Thomsen GbR. All rights reserved.
+ * 
+ * © 2018 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/37a896");
+
+  
+@font-face {font-family: 'CeraPRO-Bold';src: url('webfonts/37A896_0_0.eot');src: url('webfonts/37A896_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/37A896_0_0.woff2') format('woff2'),url('webfonts/37A896_0_0.woff') format('woff'),url('webfonts/37A896_0_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'CeraPRO-Regular';src: url('webfonts/37A896_1_0.eot');src: url('webfonts/37A896_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/37A896_1_0.woff2') format('woff2'),url('webfonts/37A896_1_0.woff') format('woff'),url('webfonts/37A896_1_0.ttf') format('truetype');}

@@ -1,0 +1,76 @@
+{
+  "name": "cv",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.3.4",
+    "antd": "^3.20.1",
+    "classnames": "^2.2.6",
+    "indexof": "0.0.1",
+    "meteor-node-stubs": "^0.4.1",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "styled-components": "^4.3.2"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 100
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module",
+      "allowImportExportEverywhere": true,
+      "ecmaVersion": "2018"
+    },
+    "plugins": [
+      "import",
+      "meteor",
+      "prettier",
+      "react"
+    ],
+    "extends": [
+      "plugin:react/recommended",
+      "plugin:meteor/recommended",
+      "prettier"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.test.js",
+          "tests/**/*.js"
+        ],
+        "rules": {
+          "max-lines": "off"
+        }
+      }
+    ],
+    "settings": {
+      "react": {
+        "version": "16.0"
+      }
+    },
+    "rules": {
+      "max-lines": "off",
+      "prettier/prettier": "error",
+      "react/require-default-props": "off",
+      "react/no-unescaped-entities": "off",
+      "react/no-deprecated": "off",
+      "newline-per-chained-call": "off"
+    }
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.jsx",
+      "server": "server/main.js"
+    },
+    "testModule": "tests/main.js"
+  }
+}

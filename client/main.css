@@ -1,0 +1,304 @@
+@import '../imports/styles/fonts.css'
+
+body {
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: 100%;
+}
+
+:root {
+  /* colors */
+  --color-accent: #27e200;
+  --color-accent-shadow: #27e20055;
+
+  --color-text-primary: #000000;
+  --color-text-inverse: #ffffff;
+  --color-text-secondary: #939991;
+  --color-text-mark: #4A90E2;
+
+  --color-harlequin: #27e200;
+
+  --color-black: #000000;
+  --color-haiti: #0a0f2c;
+  --color-white: #f5f5f5;
+  --color-grey: #999999;
+  --color-light-grey: #999999;
+
+  --color-black-shadow: #000000c0;
+  --color-facebook-gray: #d9dbde;
+
+  /* font */
+  --font-family-regular: CeraPRO-Regular, Helvetica, sans-serif;
+  --font-family-bold: CeraPRO-Bold, Helvetica, sans-serif;
+
+  /* font-size */
+  --font-size-256: 16rem;
+  --font-size-64: 4rem;
+  --font-size-48: 3rem;
+  --font-size-36: 2.25rem;
+  --font-size-28: 1.75rem;
+  --font-size-24: 1.5rem;
+  --font-size-22: 1.375rem;
+  --font-size-20: 1.25rem;
+  --font-size-16: 1rem;
+  --font-size-14: 0.875rem;
+  --font-size-12: 0.75rem;
+
+  /* Sizes */
+  --size-128: 128px;
+  --size-64: 64px;
+  --size-32: 32px;
+  --size-24: 24px;
+  --size-16: 16px;
+  --size-8: 8px;
+  --size-4: 4px;
+
+  --size-hero-height: 648px;
+  --size-logo: 250px;
+  --size-profile-pic: 350px;
+  --max-size-title-info: 50%;
+}
+
+@media (max-width: 1050px) {
+  :root {
+    --column-count: 3;
+
+    /* font-size */
+    --font-size-256: 8rem;
+    --font-size-64: 1.625rem;
+    --font-size-36: 1.125rem;
+    --font-size-28: 1.125rem;
+    --font-size-24: 1rem;
+    --font-size-22: 1rem;
+    --font-size-20: 1rem;
+    --font-size-16: 0.875rem;
+    --font-size-14: 0.75rem;
+    --font-size-12: 0.625rem;
+
+    /* Sizes */
+    --size-128: 64px;
+    --size-64: 32px;
+    --size-32: 24px;
+    --size-24: 16px;
+    --size-16: 12px;
+    --size-8: 8px;
+    --size-4: 4px;
+
+    --size-hero-height: 425px;
+    --size-logo: 200px;
+    --size-profile-pic: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --column-count: 2;
+
+    /* font-size */
+    --font-size-256: 4rem;
+    --font-size-64: 1.125rem;
+    --font-size-36: 1.125rem;
+    --font-size-28: 1.125rem;
+    --font-size-24: 0.875rem;
+    --font-size-22: 0.875rem;
+    --font-size-20: 0.875rem;
+    --font-size-16: 0.875rem;
+    --font-size-14: 0.75rem;
+    --font-size-12: 0.625rem;
+
+    /* Sizes */
+    --size-logo: 100px;
+    --size-128: 64px;
+    --size-64: 32px;
+    --size-32: 16px;
+    --size-24: 12px;
+    --size-16: 8px;
+    --size-8: 4px;
+    --size-4: 4px;
+
+    --size-hero-height: 348px;
+    --size-logo: 100px;
+    --size-profile-pic: 170px;
+    --max-size-title-info: 80%;
+  }
+}
+
+h1 
+,p {
+  color: var(--color-text-primary);
+}
+
+ul {
+  padding: 0;
+}
+
+.font-256-bold {
+  font-family: var(--font-family-bold);
+  font-size: var(--font-size-256);
+  line-height: 1;
+  font-weight: normal;
+}
+
+.font-64-bold {
+  font-family: var(--font-family-bold);
+  font-size: var(--font-size-64);
+  line-height: 1;
+  font-weight: normal;
+}
+
+.font-48-bold {
+  font-family: var(--font-family-bold);
+  font-size: var(--font-size-48);
+  line-height: 1.17;
+  font-weight: normal;
+}
+
+.font-36-bold {
+  font-family: var(--font-family-bold);
+  font-size: var(--font-size-36);
+  line-height: 1.17;
+  font-weight: normal;
+}
+
+.font-36-regular {
+  font-family: var(--font-family-regular);
+  font-size: var(--font-size-36);
+  line-height: 1.17;
+  font-weight: normal;
+}
+
+.font-28-bold {
+  font-family: var(--font-family-bold);
+  font-size: var(--font-size-28);
+  line-height: 1.33;
+  font-weight: normal;
+  letter-spacing: -0.3px;
+}
+
+.font-28-regular {
+  font-family: var(--font-family-regular);
+  font-size: var(--font-size-28);
+  line-height: 1.33;
+  font-weight: normal;
+  letter-spacing: -0.3px;
+}
+
+.font-24-bold {
+  font-family: var(--font-family-bold);
+  font-size: var(--font-size-24);
+  line-height: 1.33;
+  font-weight: normal;
+  letter-spacing: -0.3px;
+}
+
+.font-24-regular {
+  font-family: var(--font-family-regular);
+  font-size: var(--font-size-24);
+  line-height: 1.33;
+  font-weight: normal;
+  letter-spacing: -0.3px;
+}
+
+.font-22-regular {
+  font-family: var(--font-family-regular);
+  font-size: var(--font-size-22);
+  line-height: 1;
+  font-weight: normal;
+}
+
+.font-20-bold {
+  font-family: var(--font-family-bold);
+  font-size: var(--font-size-20);
+  line-height: 1;
+  font-weight: normal;
+}
+
+.font-20-regular {
+  font-family: var(--font-family-regular);
+  font-size: var(--font-size-20);
+  line-height: 1.33;
+  font-weight: normal;
+}
+
+.font-16-bold {
+  font-family: var(--font-family-bold);
+  font-size: var(--font-size-16);
+  line-height: 1;
+  font-weight: normal;
+}
+
+.font-16-regular {
+  font-family: var(--font-family-regular);
+  font-size: var(--font-size-16);
+  line-height: 1.12;
+  font-weight: normal;
+  letter-spacing: -0.2px;
+}
+
+.font-14-bold {
+  font-family: var(--font-family-bold);
+  font-size: var(--font-size-14);
+  line-height: 1;
+  font-weight: normal;
+}
+
+.font-14-regular {
+  font-family: var(--font-family-regular);
+  font-size: var(--font-size-14);
+  line-height: 1;
+  font-weight: normal;
+}
+
+.font-12-regular {
+  font-family: var(--font-family-regular);
+  font-size: var(--font-size-12);
+  line-height: 1.12;
+  font-weight: normal;
+  letter-spacing: -0.2px;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+}
+.icon.rating {
+  width: auto;
+  height: 32px;
+}
+
+.icon path,
+.icon line,
+.icon circle,
+.icon polygon,
+.icon polyline,
+.icon rect,
+.icon ellipse {
+    fill: var(--color-accent);
+    stroke: var(--color-accent);
+    transition: fill 0.3s ease-out, stroke 0.3s ease-out;
+}
+
+.icon .ant-rate-star-zero path {
+  fill: var(--color-facebook-gray);
+  stroke: var(--color-facebook-gray);
+}
+
+.icon path[fill='none'],
+.icon line[fill='none'],
+.icon circle[fill='none'],
+.icon polygon[fill='none'],
+.icon polyline[fill='none'],
+.icon rect[fill='none'],
+.icon ellipse[fill='none'] {
+      fill: none;
+    }
+
+.icon path[stroke='none'],
+.icon line[stroke='none'],
+.icon circle[stroke='none'],
+.icon polygon[stroke='none'],
+.icon polyline[stroke='none'],
+.icon rect[stroke='none'],
+.icon ellipse[stroke='none'] {
+      stroke: none;
+}
