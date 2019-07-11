@@ -8,7 +8,7 @@ import { IconText } from '../atoms/text/IconText'
 // styling
 import styled from 'styled-components'
 
-const ParagraphContainer = styled.li`
+const ParagraphContainer = styled.div`
   position: relative;
   width: 100%;
   display: flex;
@@ -18,7 +18,7 @@ const IconContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 30px;
+  padding-left: 50px;
   padding-right: 50px;
 `
 

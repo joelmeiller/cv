@@ -62,6 +62,10 @@ export const PageContent = ({ sections }) => (
           sectionComponent = <TextSection  {...section} />
           break
 
+        case 'TEXT_COLUMNS':
+          sectionComponent = <TextSection columns {...section} />
+          break
+
         case 'TAGS':
           sectionComponent = <TagsSection  {...section} />
           break

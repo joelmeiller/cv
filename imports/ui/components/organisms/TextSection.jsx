@@ -25,17 +25,23 @@ const Paragraphs = styled.ul`
   list-style: none;
 `
 
-export const TextSection = ({ title, paragraphs, attachment, timeline }) => (
+export const TextSection = ({ columns, title, paragraphs, attachment, timeline }) => (
   <Section>
     <Title className="font-36-bold">{title}</Title>
-    <Row>
-      <Column twoThird>
-        <Paragraphs>
+    <Row center>
+      {columns ? (
+        paragraphs.map((paragraph, index) => (
+          <Column half key={`paragraph-${index}`}>
+            <TextParagraph {...paragraph} />
+          </Column>
+        ))
+      ) : (
+        <Column twoThird>
           {paragraphs.map((paragraph, index) => (
             <TextParagraph key={`paragraph-${index}`} {...paragraph} />
           ))}
-        </Paragraphs>
-      </Column>
+        </Column>
+      )}
       {timeline && (
         <Column third>
           <TimelineSection timeline={timeline} />

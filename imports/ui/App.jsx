@@ -27,7 +27,7 @@ const App = () => {
       <PageContent
         sections={[
           {
-            type: 'TEXT',
+            type: 'TEXT_COLUMNS',
             title: 'MOST PROUD OF',
             paragraphs: [
               {
@@ -81,6 +81,30 @@ const App = () => {
             ],
           },
           {
+            type: 'TEXT',
+            title: 'EDUCATION',
+            paragraphs: [
+              {
+                title: 'Bachelor in Computer Science',
+                subtitle: 'FHNW | University of Applied Science Northwestern Switzerland',
+                time: '2013 - 2018',
+                location: 'Brugg-Windisch, Switerland',
+                text:
+                  'Final graduation with A-Rating being among the best 10% of all students.',
+              },
+              {
+                title: 'IBM DB2 Performance Tuning',
+                subtitle: 'IBM Training Center',
+                time: '2014',
+                location: 'Zürich-Altstetten, Switzerland'
+              },
+            ],
+            grade: {
+              rating: 'A',
+              description: 'Among the best 10% of all computer science students'
+            }
+          },
+          {
             type: 'TAGS',
             title: 'TECHNICAL SKILLS',
             paragraphs: [
@@ -112,10 +136,10 @@ const App = () => {
               {
                 title: 'As CTO at Oscillate AG',
                 list: [
-                  { category: 'Software Architecture for Web Application', rating: 5 },
+                  { category: 'Software Architecture for Web Applications', rating: 5 },
                   { category: 'Lean UX Development', rating: 5 },
                   { category: 'User Centered Design', rating: 5 },
-                  { category: 'SCRUM', rating: 4 },
+                  { category: 'Agile Development (SCRUM)', rating: 4 },
                   { category: 'UI Testing', rating: 5 },
                 ],
               },
@@ -127,6 +151,38 @@ const App = () => {
                   { category: 'Test Automation', rating: 4 },
                   { category: 'Performance Optimizations', rating: 4 },
                 ],
+              },
+            ],
+          },
+          {
+            type: 'REFERENCES',
+            title: 'REFERENCES',
+            paragraphs: [
+              {
+                title: 'OpTuNE Web-App',
+                image: '',
+                description: '',
+                link: {
+                  type: 'homepage',
+                  url: 'https://www.optune.me',
+                }
+              },
+              {
+                title: 'ONESCREENER Web-App',
+                image: '',
+                description: '',
+                link: {
+                  type: 'app',
+                  url: 'https://app.onescreener.com',
+                }
+              },{
+                title: 'SPHEROPANTHER Android App',
+                image: '',
+                description: '',
+                link: {
+                  type: 'github',
+                  url: 'https://github.com/joelmeiller/spheropanther',
+                }
               },
             ],
           },
