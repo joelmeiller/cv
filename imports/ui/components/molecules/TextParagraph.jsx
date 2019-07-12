@@ -83,7 +83,7 @@ export const TextParagraph = ({
         </IconTextContainer>
       )}
 
-      <p className="font-14-regular">{text}</p>
+      {!!text && <p className="font-14-regular">{text}</p>}
 
       {!!list && list.length && (
         <TaskList>

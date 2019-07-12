@@ -17,6 +17,12 @@
   export const ColorBlackShadow = '#000000c0'
   export const ColorFacebookGray = '#d9dbde'
 
+  export const ColorComment1 = '#8E44AD'
+  export const ColorComment2 = '#D35400'
+  export const ColorComment3 = '#2880B9'
+  export const ColorComment4 = '#18A085'
+
+
   /* font */
   export const ContFamilyRegular = 'CeraPRO-Regular, Helvetica, sans-serif'
   export const ContFamilyBold = 'CeraPRO-Bold, Helvetica, sans-serif'
