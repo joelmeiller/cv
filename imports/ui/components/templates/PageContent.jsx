@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { TextSection } from '../organisms/TextSection'
 import { TagsSection } from '../organisms/TagsSection'
 import { RatedListSection } from '../organisms/RatedListSection'
+import { ReferenceSection } from '../organisms/ReferenceSection'
 
 // styling
 import styled from 'styled-components'
@@ -31,7 +32,7 @@ const Section = styled.li`
 const Separator = styled.div`
   position: relative;
   height: 2px;
-  margin: var(--size-64) 0;
+  margin: var(--size-16) 0;
   width: 100%;
   opacity: 0.8;
   background: linear-gradient(180deg, rgba(255, 255, 255) 50%, rgba(0, 0, 0, 0) 80%),
@@ -72,6 +73,10 @@ export const PageContent = ({ sections }) => (
 
         case 'RATED_LIST':
           sectionComponent = <RatedListSection  {...section} />
+          break
+
+        case 'REFERENCES':
+          sectionComponent = <ReferenceSection  {...section} />
           break
 
         default:

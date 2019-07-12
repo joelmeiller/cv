@@ -12,6 +12,11 @@ const RowContainer = styled.div`
   margin-top: ${({ marginTop }) => (marginTop ? 1 : 0)}rem;
   margin-bottom: ${({ marginBottom }) => (marginBottom ? 3 : 0)}rem;
 
+  &.center {
+    display: flex;
+    justify-content: center;
+  }
+
   :after {
     content: ' ';
     display: table;
@@ -26,7 +31,7 @@ const RowContainer = styled.div`
 `
 
 export const Row = ({ children, center, className, ...other }) => (
-  <RowContainer className={classNames('row', center && 'flex-center', className)} {...other}>
+  <RowContainer className={classNames(center && 'center', className)} {...other}>
     {children}
   </RowContainer>
 )

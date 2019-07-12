@@ -6,6 +6,13 @@ body {
   font-size: 100%;
 }
 
+button, li, a {
+  -webkit-tap-highlight-color: transparent;
+}
+:focus {
+  outline: none;
+}
+
 :root {
   /* colors */
   --color-accent: #27e200;
@@ -22,7 +29,7 @@ body {
   --color-haiti: #0a0f2c;
   --color-white: #f5f5f5;
   --color-grey: #999999;
-  --color-light-grey: #999999;
+  --color-light-grey: #C9C9C9;
 
   --color-black-shadow: #000000c0;
   --color-facebook-gray: #d9dbde;

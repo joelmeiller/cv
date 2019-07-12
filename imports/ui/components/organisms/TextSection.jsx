@@ -28,7 +28,7 @@ const Paragraphs = styled.ul`
 export const TextSection = ({ columns, title, paragraphs, attachment, timeline }) => (
   <Section>
     <Title className="font-36-bold">{title}</Title>
-    <Row center>
+    <Row>
       {columns ? (
         paragraphs.map((paragraph, index) => (
           <Column half key={`paragraph-${index}`}>
@@ -43,7 +43,7 @@ export const TextSection = ({ columns, title, paragraphs, attachment, timeline }
         </Column>
       )}
       {timeline && (
-        <Column third>
+        <Column third center>
           <TimelineSection timeline={timeline} />
         </Column>
       )}

@@ -13,7 +13,14 @@ const ColumnContainer = styled.div`
   align-items: center;
   flex-flow: ${({ flow }) => flow || 'column'};
   float: left;
-  padding: 0;
+  padding: ${({ padding }) => padding ? 'var(--size-16)' : 0};
+
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
 
   &.right {
     float: right;

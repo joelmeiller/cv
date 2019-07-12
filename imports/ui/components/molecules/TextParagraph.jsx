@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Icon } from 'antd';
+import { FinancialService } from '../atoms/icons/FinancialService'
+import { OptuneBrain } from '../atoms/icons/OptuneBrain'
 
 import { IconText } from '../atoms/text/IconText'
+import { LinkText } from '../atoms/text/LinkText'
 
 // styling
 import styled from 'styled-components'
@@ -35,6 +37,11 @@ const IconTextContainer = styled.div`
   display: flex;
 `
 
+const Icon = {
+  FinancialService: FinancialService,
+  OptuneBrain: OptuneBrain,
+}
+
 const FileLinkText = styled.p`
   color: var(--color-text-primary);
   text-align: center;
@@ -43,42 +50,65 @@ const FileLinkText = styled.p`
   width: fit-content;
 `
 
-export const TextParagraph = ({ icon, title, subtitle, time, location, text, attachment }) => (
+const TaskList = styled.ul`
+  padding: 0 var(--size-32);
+  width: 90%;
+`
+
+export const TextParagraph = ({
+  icon,
+  title,
+  titleLink,
+  subtitle,
+  time,
+  location,
+  text,
+  list,
+  attachment,
+}) => (
   <ParagraphContainer>
-    {!!icon && <IconContainer>{icon({})}</IconContainer>}
-  
-    
-  <Paragraph>
-    <h1 className="font-20-bold">{title}</h1>
-    
-    {!!subtitle && <Subtitle className="font-16-bold">{subtitle}</Subtitle>}
+    {!!icon && <IconContainer>{Icon[icon]({})}</IconContainer>}
 
-    {(!!time || !!location) &&
-      <IconTextContainer>
-        {!!time && <IconText icon="calendar" text={time} />}
-        {!!location && <IconText icon="environment" text={location} />}
-      </IconTextContainer>
-    } 
+    <Paragraph>
+      <h1 className="font-20-bold">{title}<br />
+      {titleLink && <span className="font-16-regular">(<LinkText {...titleLink} accent />)</span>}
+      </h1>
 
-    <p className="font-14-regular">{text}</p>
+      {!!subtitle && <Subtitle className="font-16-bold">{subtitle}</Subtitle>}
 
-    {!!attachment && (
-      <a
-        href={attachment.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        download={attachment.fileName}
-      >
-        <FileLinkText className="font-20-bold">{attachment.text}</FileLinkText>
-      </a>
-    )}
-  </Paragraph>
-    </ParagraphContainer>
+      {(!!time || !!location) && (
+        <IconTextContainer>
+          {!!time && <IconText icon="calendar" text={time} />}
+          {!!location && <IconText icon="environment" text={location} />}
+        </IconTextContainer>
+      )}
 
+      <p className="font-14-regular">{text}</p>
+
+      {!!list && list.length && (
+        <TaskList>
+          {list.map((task, index) => (
+            <li key={`task-${index}`} className="font-14-regular">{task}</li>
+          ))}
+        </TaskList>
+      )}
+
+      {!!attachment && (
+        <a
+          href={attachment.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          download={attachment.fileName}
+        >
+          <FileLinkText className="font-20-bold">{attachment.text}</FileLinkText>
+        </a>
+      )}
+    </Paragraph>
+  </ParagraphContainer>
 )
 
 TextParagraph.propTypes = {
-  icon: PropTypes.element,
+  icon: PropTypes.string,
   title: PropTypes.string,
   subtitle: PropTypes.string,
   time: PropTypes.string,

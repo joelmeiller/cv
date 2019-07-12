@@ -59,11 +59,11 @@ const Description = styled.p`
   padding: var(--size-8) var(--size-16);
 `
 
-export const PageHeader = ({ name, description, profilePicture, profilePictureAccent }) => (
+export const PageHeader = ({ onShowLogin, name, description, backgroundPicture, profilePicture, profilePictureAccent }) => (
     <HeaderContainer>
-      <TitleBackground picture={profilePictureAccent} />
+      <TitleBackground picture={backgroundPicture} />
       <PersonContainer>
-        <StyledProfilePicture profilePicture={profilePicture} profilePictureAccent={profilePictureAccent} />
+        <StyledProfilePicture profilePicture={profilePicture} profilePictureAccent={profilePictureAccent} onClick={onShowLogin} />
 
         <PersonInfoContainer>
           <Name className="font-64-bold">{name}</Name>

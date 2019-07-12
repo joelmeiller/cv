@@ -5,6 +5,10 @@ import App from '/imports/ui/App'
 
 import 'antd/dist/antd.css'
 
+import { configureAuthentication } from '../imports/startup/configureAuthentication'
+
 Meteor.startup(() => {
+  configureAuthentication()
+
   render(<App />, document.getElementById('react-target'))
 });
