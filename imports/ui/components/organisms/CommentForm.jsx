@@ -69,7 +69,7 @@ class CommentFormComponent extends Component {
                 <Button
                   type="secondary"
                   style={{ marginLeft: 20 }}
-                  onClick={() => onClose(comment._id)}
+                  onClick={() => onClose(comment)}
                 >
                   Close Comment
                 </Button>

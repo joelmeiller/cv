@@ -135,8 +135,8 @@ const saveComment = values => {
     }
   })
 }
-const closeComment = commentId => {
-  Meteor.call(Method.updateComment, { _id: commentId, close: true }, error => {
+const closeComment = comment => {
+  Meteor.call(Method.updateComment, { ...comment, close: true }, error => {
     if (error) {
       message.error('Comment could no be closed')
     } else {
@@ -156,8 +156,8 @@ export const CommentOverlay = ({ children, showComments, comments }) => {
           saveComment(values)
           setCommentForm(initialCommentFormState)
         }}
-        onClose={commentId => {
-          closeComment(commentId)
+        onClose={comment => {
+          closeComment(comment)
           setCommentForm(initialCommentFormState)
         }}
         commentForm={commentForm}
