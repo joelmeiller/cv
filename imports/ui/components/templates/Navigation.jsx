@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
 const NavigationContainer = styled.div`
-  position: fixed;
+  position: ${({ loggedIn }) => loggedIn ? 'fixed' : 'absolute'};
   display: flex;
   top: 5px;
   right: 20px;
@@ -25,7 +25,7 @@ const Button = styled.button`
 `
 
 export const Navigation = ({ showComments, user, onLogin, onLogout, onShowComments }) => (
-  <NavigationContainer>
+  <NavigationContainer loggedIn={!!user} >
     {user ? (
       <Fragment>
         <Button className="font-12-regular" onClick={onShowComments}>

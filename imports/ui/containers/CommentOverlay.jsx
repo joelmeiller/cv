@@ -11,13 +11,7 @@ import { Method } from '/imports/api/methods'
 import { CommentCard } from '../components/organisms/CommentCard'
 import { CommentForm } from '../components/organisms/CommentForm'
 
-import {
-  ColorComment1,
-  ColorComment2,
-  ColorComment3,
-  ColorComment4,
-  MediaSmall,
-} from '../styles/variables'
+import { ColorHaiti, MediaSmall } from '../styles/variables'
 
 const ContentContainer = styled.div`
   position: relative;
@@ -55,32 +49,29 @@ const initialCommentFormState = {
 }
 
 const getUser = userId => {
-  const user = Meteor.users.findOne(userId) || {}
+  const user = Meteor.users.findOne(userId)
 
-  const firstName = (!!user.profile && user.profile.firstName) || ''
-  const lastName = (!!user.profile && user.profile.lastName) || ''
+  let initials = ''
+  let name = 'Unknown'
+
+  if (user) {
+    const firstName = (!!user.profile && user.profile.firstName) || ''
+    const lastName = (!!user.profile && user.profile.lastName) || ''
+
+    initials = `${firstName.substr(0, 1)}${lastName.substr(0, 1)}`
+    name = (firstName > '' && `${firstName} ${lastName}`) || lastName || 'Unknown'
+  }
 
   return user
     ? {
-        initials: `${firstName.substr(0, 1)}${lastName.substr(0, 1)}`,
-        name: (firstName > '' && `${firstName} ${lastName}`) || lastName || 'Unknown',
+        initials,
+        name,
+        color: user.profile.color,
+        role: user.profile.role,
       }
-    : { initials: '-', name: 'Unkown' }
+    : { initials: '-', name: 'Unkown', role: 'none', color: ColorHaiti }
 }
 
-const colors = [ColorComment1, ColorComment2, ColorComment3, ColorComment4]
-const colorMap = []
-
-const getColor = userId => {
-  let userColor = colorMap.find(c => c.userId === userId)
-
-  if (!userColor) {
-    userColor = { userId, color: colors[colorMap.length % colors.length] }
-    colorMap.push(userColor)
-  }
-
-  return userColor.color
-}
 let currentUserId
 let currentSequenceNr = 1
 const getSequenceNr = userId => {
@@ -97,13 +88,16 @@ const getSequenceNr = userId => {
 const filterComment = comment => comment.status === CommentStatus.OPEN
 const sortComment = (a, b) => (a.userId < b.userId && -1) || a.createdAt - b.createdAt
 let commentUserId
-const mapComment = comment => ({
-  ...comment,
-  sequenceNr: getSequenceNr(comment.userId),
-  user: getUser(comment.userId),
-  color: getColor(comment.userId),
-  readonly: comment.userId !== Meteor.userId(),
-})
+const mapComment = comment => {
+  const user = getUser(comment.userId)
+  return {
+    ...comment,
+    sequenceNr: getSequenceNr(comment.userId),
+    user,
+    color: user.color,
+    readonly: comment.userId !== Meteor.userId() && !user.role === 'admin',
+  }
+}
 
 const getModalStyle = e => {
   const modalX = e.clientX
@@ -170,10 +164,9 @@ export const CommentOverlay = ({ children, showComments, comments }) => {
             const modalStyle = getModalStyle(e)
 
             const containerStyle = window.getComputedStyle(containerRef.current)
-
-            console.log('CONTAINER STYLE', containerStyle.width.slice(0,-2), containerStyle.height.slice(0,-2))
-            const containerWidth = parseInt(containerStyle.width.slice(0,-2))
-            const containerHeight = parseInt(containerStyle.height.slice(0,-2))
+            const containerWidth = parseInt(containerStyle.width.slice(0, -2))
+            const containerHeight = parseInt(containerStyle.height.slice(0, -2))
+            
             !commentForm.show &&
               setCommentForm({
                 show: true,

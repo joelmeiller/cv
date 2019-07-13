@@ -50,6 +50,7 @@ const App = ({ content, comments, user }) => {
         onLogin={() => setShowLogin(true)}
         onLogout={() => {
           setShowLogin(false)
+          setShowComments(false)
           Meteor.logout()
         }}
       />

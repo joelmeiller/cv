@@ -9,15 +9,36 @@ import '../imports/api/methods'
 Meteor.startup(() => {
   configureAuthentication()
 
-  // Accounts.createUser({
-  //   username: 'lynda.demmou',
-  //   email: 'lynda.demmou@gmx.ch',
-  //   password: '1234',
-  //   profile: {
-  //     firstName: 'Lynda',
-  //     lastName: 'Demmou',
-  //     email: 'lynda.demmou@gmx.ch',
-  //   },
-  // })
+  const users = Meteor.settings.private.users
 
+  users.forEach(user => {
+    const existingUser = Meteor.users.findOne({ 'emails.address': user.email })
+
+    if (!existingUser) {
+      const newUserId = Accounts.createUser({
+        username: user.username,
+        email: user.email,
+        password: user.password,
+        profile: {
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
+          color: user.color,
+          role: user.role,
+        },
+      })
+    }
+  })
+
+  if (!Contents.find({}).count()) {
+    Contents.insert({
+      name: 'Test',
+    })
+  }
+
+  if (!Comments.find({}).count()) {
+    Comments.insert({
+      text: 'Test',
+    })
+  }
 })
