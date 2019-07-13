@@ -2,17 +2,22 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
 const NavigationContainer = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
+  position: fixed;
+  display: flex;
+  top: 5px;
+  right: 20px;
   z-index: 9999;
+  background-color: rgba(0,0,0,0.38);
 `
 
 const Button = styled.button`
+  position: relative;
   cursor: pointer;
   color: var(--color-text-inverse);
   background-color: transparent;
   border: none;
+  margin: 0;
+  padding: 4px 8px 3px;
 
   &:hover {
     color: var(--color-accent);

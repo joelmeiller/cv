@@ -4,6 +4,8 @@ import { AccountsReactComponent } from 'meteor/day:accounts-react'
 
 import { Modal } from 'antd'
 
+import styled from 'styled-components'
+
 import { PageHeader } from './components/templates/PageHeader'
 import { PageContent } from './components/templates/PageContent'
 import { PageLoading } from './components/templates/PageLoading'
@@ -15,9 +17,29 @@ import { Contents, Comments } from '/imports/api'
 
 const sortSections = (a, b) => a.sequenceNr - b.sequenceNr
 
+const LoginDialog = styled.div`
+  & .ui.large.header {
+    display: none;
+  }
+  
+  & .ui.left.icon.input {
+    & input {
+      padding: 1em !important;
+    }
+
+    & .icon {
+      display: none;
+    }
+  }
+
+  & .ui.button {
+    margin-top: 30px;
+  }
+`
+
 const App = ({ content, comments, user }) => {
   const [showLogin, setShowLogin] = useState(false)
-  const [showComments, setShowComments] = useState(true)
+  const [showComments, setShowComments] = useState(false)
 
   return !!content ? (
     <Fragment>
@@ -49,7 +71,9 @@ const App = ({ content, comments, user }) => {
         onCancel={() => setShowLogin(false)}
         footer={null}
       >
-        <AccountsReactComponent state="signIn" />
+        <LoginDialog>
+          <AccountsReactComponent state="signIn" />
+        </LoginDialog>
       </Modal>
     </Fragment>
   ) : (

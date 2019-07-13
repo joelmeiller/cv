@@ -35,7 +35,7 @@ class CommentFormComponent extends Component {
   }
 
   render() {
-    const { commentForm, onClose } = this.props
+    const { commentForm, onClose, onCancel } = this.props
     const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form
 
     const comment = commentForm.comment
@@ -48,7 +48,7 @@ class CommentFormComponent extends Component {
         title={!!comment._id ? 'Edit Comment' : 'Add Comment'}
         visible={commentForm.show}
         style={commentForm.modalStyle}
-        onCancel={() => setCommentForm({ ...commentForm, show: false })}
+        onCancel={onCancel}
         footer={null}
       >
         <Form onSubmit={this.handleSubmit}>

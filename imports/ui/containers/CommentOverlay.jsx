@@ -160,6 +160,7 @@ export const CommentOverlay = ({ children, showComments, comments }) => {
           closeComment(comment)
           setCommentForm(initialCommentFormState)
         }}
+        onCancel={() => setCommentForm(initialCommentFormState)}
         commentForm={commentForm}
       />
       <ContentContainer
