@@ -4,6 +4,8 @@ import { Contents, Comments } from '/imports/api'
 
 import '../imports/api/methods'
 
+import content from './content.json'
+
 Meteor.startup(() => {
   const users = Meteor.settings.private.users
 
@@ -24,5 +26,8 @@ Meteor.startup(() => {
         },
       })
     }
+
+    Contents.remove({})
+    Contents.insert(content)
   })
 })
