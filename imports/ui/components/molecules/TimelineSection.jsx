@@ -3,14 +3,25 @@ import PropTypes from 'prop-types'
 
 import { Timeline, Icon } from 'antd'
 
+import { Timeline as TimelineIcon } from '../atoms/icons/Timeline'
+
 // styling
 import styled from 'styled-components'
 
 import { ColorAccent } from '../../styles/variables'
 
-const Section = styled.div`
-  padding-top: var(--size-64);
-  padding-bottom: var(--size-64);
+const TimelineContainer = styled.div`
+  margin-top: 85px;
+
+  & .ant-timeline-item-head-green {
+    color: var(--color-accent);
+    background-color: var(--color-background);
+  }
+
+  & svg.icon {
+    width: 24px;
+    height: 24px;
+  }
 `
 
 const TimelineText = styled.div`
@@ -28,24 +39,26 @@ const Info = styled.p`
 `
 
 export const TimelineSection = ({ timeline }) => (
-  <Timeline>
-    {timeline.map(({ time, text, company }) => (
-      <Timeline.Item
-        key={`timeline-item-${time}`}
-        dot={<Icon type="check-circle" style={{ fontSize: '16px' }} />}
-        color={'green'}
-      >
-        <TimelineText>
-          <Info className="font-14-regular">
-            {time}
-            <br />
-            {company}
-          </Info>
-          <Text className="font-14-regular">{text}</Text>
-        </TimelineText>
-      </Timeline.Item>
-    ))}
-  </Timeline>
+  <TimelineContainer>
+    <Timeline>
+      {timeline.map(({ time, text, company }) => (
+        <Timeline.Item
+          key={`timeline-item-${time}`}
+          dot={<Icon component={TimelineIcon} style={{ fontSize: '16px' }} />}
+          color={'green'}
+        >
+          <TimelineText>
+            <Info className="font-14-regular">
+              {time}
+              <br />
+              {company}
+            </Info>
+            <Text className="font-14-regular">{text}</Text>
+          </TimelineText>
+        </Timeline.Item>
+      ))}
+    </Timeline>
+  </TimelineContainer>
 )
 
 TimelineSection.propTypes = {

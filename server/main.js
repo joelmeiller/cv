@@ -2,13 +2,9 @@ import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
 import { Contents, Comments } from '/imports/api'
 
-import { configureAuthentication } from '../imports/startup/configureAuthentication'
-
 import '../imports/api/methods'
 
 Meteor.startup(() => {
-  configureAuthentication()
-
   const users = Meteor.settings.private.users
 
   users.forEach(user => {

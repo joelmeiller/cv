@@ -22,7 +22,3 @@ less
 accounts-password
 tracker
 static-html
-day:accounts-react
-meteoreact:accounts-unstyled
-session
-day:accounts-react-semantic-ui
