@@ -29,16 +29,4 @@ Meteor.startup(() => {
       })
     }
   })
-
-  if (!Contents.find({}).count()) {
-    Contents.insert({
-      name: 'Test',
-    })
-  }
-
-  if (!Comments.find({}).count()) {
-    Comments.insert({
-      text: 'Test',
-    })
-  }
 })

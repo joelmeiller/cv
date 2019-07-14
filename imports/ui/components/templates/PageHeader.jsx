@@ -36,13 +36,13 @@ const PersonContainer = styled.div`
 const StyledProfilePicture = styled(ProfilePicture)`
   height: var(--size-profile-pic);
   width: var(--size-profile-pic);
-  margin: var(--size-32);
+  margin: var(--size-24);
 `
 
 const PersonInfoContainer = styled.div`
   min-width: var(--size-profile-pic);
   max-width: var(--max-size-title-info);
-  margin: var(--size-32);
+  margin: var(--size-24);
 `
 const Name = styled.h1`
   width: fit-content;
@@ -52,11 +52,12 @@ const Name = styled.h1`
   margin-bottom: var(--size-16);
 `
 
-const Description = styled.p`
+const Description = styled.h2`
   width: fit-content;
   color: var(--color-text-inverse);
   background-color: var(--color-black-shadow);
   padding: var(--size-8) var(--size-16);
+  margin: 0;
 `
 
 export const PageHeader = ({ onShowLogin, name, description, backgroundPicture, profilePicture, profilePictureAccent }) => (
@@ -66,8 +67,8 @@ export const PageHeader = ({ onShowLogin, name, description, backgroundPicture, 
         <StyledProfilePicture profilePicture={profilePicture} profilePictureAccent={profilePictureAccent} onClick={onShowLogin} />
 
         <PersonInfoContainer>
-          <Name className="font-64-bold">{name}</Name>
-          {description && <Description className="font-24-regular">{description}</Description>}
+          <Name className="font-header-title">{name}</Name>
+          {description && <Description className="font-header-subtitle">{description}</Description>}
         </PersonInfoContainer>
       </PersonContainer>
     </HeaderContainer>

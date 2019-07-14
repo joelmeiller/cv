@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import { LinkText } from '../atoms/text/LinkText'
 
+import { MediaSmall} from '../../styles/variables'
+
 // styling
 import styled from 'styled-components'
 
@@ -10,6 +12,10 @@ const ParagraphContainer = styled.div`
   position: relative;
   width: 100%;
   height: 330px;
+
+  @media ${MediaSmall} {
+    height: 280px;
+  }
 `
 
 const Background = styled.div`
@@ -67,9 +73,13 @@ const TextContainer = styled.div`
   min-height: 110px;
   padding: var(--size-16);
   background-color: var(--color-black-shadow);
+
+  @media ${MediaSmall} {
+    height: 90px;
+  }
 `
 
-const Category = styled.h2`
+const Category = styled.h3`
   color: var(--color-text-inverse);
   margin-bottom: 0.3rem;
 `

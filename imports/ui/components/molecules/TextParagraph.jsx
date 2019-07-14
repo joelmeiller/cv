@@ -4,6 +4,9 @@ import PropTypes from 'prop-types'
 import { FinancialService } from '../atoms/icons/FinancialService'
 import { OptuneBrain } from '../atoms/icons/OptuneBrain'
 
+import { Column } from '../atoms/layout/Column'
+import { Row } from '../atoms/layout/Row'
+
 import { IconText } from '../atoms/text/IconText'
 import { LinkText } from '../atoms/text/LinkText'
 
@@ -17,20 +20,27 @@ const ParagraphContainer = styled.div`
 `
 
 const IconContainer = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: var(--size-64);
+  padding-right: var(--size-64);
 `
 
 const Paragraph = styled.div`
-  padding-top: var(--size-16);
-  padding-bottom: var(--size-16);
+  padding-top: var(--size-32);
+  padding-bottom: var(--size-32);
 `
 
-const Subtitle = styled.h2`
+const Title = styled.h2`
+  margin: 0.5rem 0;
+`
+
+const Subtitle = styled.h3`
   color: var(--color-text-mark);
+  margin: 0.5rem 0;
 `
 
 const IconTextContainer = styled.div`
@@ -53,6 +63,10 @@ const FileLinkText = styled.p`
 const TaskList = styled.ul`
   padding: 0 var(--size-32);
   width: 90%;
+
+  & > li {
+    margin: 0.5rem;
+  }
 `
 
 export const TextParagraph = ({
@@ -67,43 +81,57 @@ export const TextParagraph = ({
   attachment,
 }) => (
   <ParagraphContainer>
-    {!!icon && <IconContainer>{Icon[icon]({})}</IconContainer>}
-
-    <Paragraph>
-      <h1 className="font-20-bold">{title}<br />
-      {titleLink && <span className="font-16-regular">(<LinkText {...titleLink} accent />)</span>}
-      </h1>
-
-      {!!subtitle && <Subtitle className="font-16-bold">{subtitle}</Subtitle>}
-
-      {(!!time || !!location) && (
-        <IconTextContainer>
-          {!!time && <IconText icon="calendar" text={time} />}
-          {!!location && <IconText icon="environment" text={location} />}
-        </IconTextContainer>
+    <Row>
+      {!!icon && (
+        <Column third>
+          <IconContainer>{Icon[icon]({})}</IconContainer>
+        </Column>
       )}
 
-      {!!text && <p className="font-14-regular">{text}</p>}
+      <Column twoThird={!!icon} fullwidth={!icon}>
+        <Title className="font-20-bold">
+          {title}
+          <br />
+          {titleLink && (
+            <span className="font-16-regular">
+              (<LinkText {...titleLink} accent />)
+            </span>
+          )}
+        </Title>
 
-      {!!list && list.length && (
-        <TaskList>
-          {list.map((task, index) => (
-            <li key={`task-${index}`} className="font-14-regular">{task}</li>
-          ))}
-        </TaskList>
-      )}
+        {!!subtitle && <Subtitle className="font-16-bold">{subtitle}</Subtitle>}
 
-      {!!attachment && (
-        <a
-          href={attachment.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          download={attachment.fileName}
-        >
-          <FileLinkText className="font-20-bold">{attachment.text}</FileLinkText>
-        </a>
-      )}
-    </Paragraph>
+        {(!!time || !!location) && (
+          <IconTextContainer>
+            {!!time && <IconText icon="calendar" text={time} />}
+            {!!location && <IconText icon="environment" text={location} />}
+          </IconTextContainer>
+        )}
+
+        {!!text && <p className="font-14-regular">{text}</p>}
+
+        {!!list && list.length && (
+          <TaskList>
+            {list.map((task, index) => (
+              <li key={`task-${index}`} className="font-14-regular">
+                {task}
+              </li>
+            ))}
+          </TaskList>
+        )}
+
+        {!!attachment && (
+          <a
+            href={attachment.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            download={attachment.fileName}
+          >
+            <FileLinkText className="font-20-bold">{attachment.text}</FileLinkText>
+          </a>
+        )}
+      </Column>
+    </Row>
   </ParagraphContainer>
 )
 

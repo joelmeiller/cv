@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
+import { MediaSmall } from '../../styles/variables'
 
 const NavigationContainer = styled.div`
   position: ${({ loggedIn }) => loggedIn ? 'fixed' : 'absolute'};
@@ -8,6 +9,10 @@ const NavigationContainer = styled.div`
   right: 20px;
   z-index: 9999;
   background-color: rgba(0,0,0,0.38);
+
+  @media ${MediaSmall} {
+    display: none;
+  }
 `
 
 const Button = styled.button`

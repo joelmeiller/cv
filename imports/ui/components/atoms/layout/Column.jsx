@@ -14,7 +14,14 @@ const ColumnContainer = styled.div`
   flex-flow: ${({ flow }) => flow || 'column'};
   float: left;
   padding: ${({ padding }) => padding ? 'var(--size-16)' : 0};
+  height: 100%;
 
+  @media ${MediaSmall} {
+    height: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
   &:first-child {
     padding-left: 0;
   }

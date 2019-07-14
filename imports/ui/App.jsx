@@ -1,8 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import { withTracker } from 'meteor/react-meteor-data'
-import { AccountsReactComponent } from 'meteor/day:accounts-react'
 
-import { Modal } from 'antd'
+import { Modal, message } from 'antd'
 
 import styled from 'styled-components'
 
@@ -11,31 +10,13 @@ import { PageContent } from './components/templates/PageContent'
 import { PageLoading } from './components/templates/PageLoading'
 import { Navigation } from './components/templates/Navigation'
 
+import { LoginForm } from './components/organisms/LoginForm'
+
 import { CommentOverlay } from './containers/CommentOverlay'
 
 import { Contents, Comments } from '/imports/api'
 
 const sortSections = (a, b) => a.sequenceNr - b.sequenceNr
-
-const LoginDialog = styled.div`
-  & .ui.large.header {
-    display: none;
-  }
-  
-  & .ui.left.icon.input {
-    & input {
-      padding: 1em !important;
-    }
-
-    & .icon {
-      display: none;
-    }
-  }
-
-  & .ui.button {
-    margin-top: 30px;
-  }
-`
 
 const App = ({ content, comments, user }) => {
   const [showLogin, setShowLogin] = useState(false)
@@ -66,16 +47,20 @@ const App = ({ content, comments, user }) => {
         <PageContent sections={content.sections.sort(sortSections)} />
       </CommentOverlay>
 
-      <Modal
-        title="Login"
-        visible={showLogin && !user}
+      <LoginForm
+        show={showLogin && !user}
         onCancel={() => setShowLogin(false)}
-        footer={null}
-      >
-        <LoginDialog>
-          <AccountsReactComponent state="signIn" />
-        </LoginDialog>
-      </Modal>
+        onLogin={values => {
+          Meteor.loginWithPassword(values.user, values.password, error => {
+            if (error) {
+              message.error('Login failed')
+            } else {
+              message.success('Logged in')
+              setShowLogin(false)
+            }
+          })
+        }}
+      />
     </Fragment>
   ) : (
     <PageLoading />

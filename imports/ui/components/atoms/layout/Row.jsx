@@ -23,6 +23,10 @@ const RowContainer = styled.div`
     clear: both;
   }
 
+  & > .column:not(:first-child) {
+    margin-top: ${({ columnMargin }) => (columnMargin ? 'var(--size-64)' : '0px')};
+  }
+
   @media ${MediaSmall} {
     & > .column:not(:first-child) {
       margin-top: var(--size-64);

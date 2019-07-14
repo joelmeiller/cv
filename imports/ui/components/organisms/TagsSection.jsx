@@ -5,34 +5,27 @@ import { TagsParagraph } from '../molecules/TagsParagraph'
 
 import { Row } from '../atoms/layout/Row'
 import { Column } from '../atoms/layout/Column'
+import { Section } from '../molecules/Section'
 
 // styling
 import styled from 'styled-components'
-
-const Section = styled.div`
-  padding-top: var(--size-64);
-  padding-bottom: var(--size-64);
-`
-
-const Title = styled.h1`
-  padding-bottom: 4px;
-`
 
 const Paragraphs = styled.ul`
   list-style: none;
 `
 
 export const TagsSection = ({ title, paragraphs, graph }) => (
-  <Section>
-    <Title className="font-36-bold">{title}</Title>
-    <Row>
-      <Column fullwidth>
-        <Paragraphs>
+  <Section title={title}>
+    <Column fullwidth>
+      <Paragraphs>
+        <Row columnMargin>
           {paragraphs.map((paragraph, index) => (
-            <TagsParagraph key={`paragraph-${index}`} {...paragraph} />
+            <Column fullwidth key={`paragraph-${index}`}>
+              <TagsParagraph {...paragraph} />
+            </Column>
           ))}
-        </Paragraphs>
-      </Column>
-    </Row>
+        </Row>
+      </Paragraphs>
+    </Column>
   </Section>
 )

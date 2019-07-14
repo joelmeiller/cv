@@ -39,17 +39,13 @@ button, li, a {
   --font-family-bold: CeraPRO-Bold, Helvetica, sans-serif;
 
   /* font-size */
-  --font-size-256: 16rem;
   --font-size-64: 4rem;
-  --font-size-48: 3rem;
-  --font-size-36: 2.25rem;
-  --font-size-28: 1.75rem;
-  --font-size-24: 1.5rem;
-  --font-size-22: 1.375rem;
-  --font-size-20: 1.25rem;
-  --font-size-16: 1rem;
-  --font-size-14: 0.875rem;
-  --font-size-12: 0.75rem;
+  --font-size-36: 2.4rem;
+  --font-size-24: 1.8rem;
+  --font-size-20: 1.5rem;
+  --font-size-16: 1.2rem;
+  --font-size-14: 1rem;
+  --font-size-12: 0.8rem;
 
   /* Sizes */
   --size-128: 128px;
@@ -68,19 +64,14 @@ button, li, a {
 
 @media (max-width: 1050px) {
   :root {
-    --column-count: 3;
-
     /* font-size */
-    --font-size-256: 8rem;
     --font-size-64: 1.625rem;
-    --font-size-36: 1.125rem;
-    --font-size-28: 1.125rem;
-    --font-size-24: 1rem;
-    --font-size-22: 1rem;
-    --font-size-20: 1rem;
-    --font-size-16: 0.875rem;
-    --font-size-14: 0.75rem;
-    --font-size-12: 0.625rem;
+    --font-size-36: 1.5rem;
+    --font-size-24: 1.2rem;
+    --font-size-20: 1.2rem;
+    --font-size-16: 1.1rem;
+    --font-size-14: 1rem;
+    --font-size-12: 0.8rem;
 
     /* Sizes */
     --size-128: 64px;
@@ -99,19 +90,14 @@ button, li, a {
 
 @media (max-width: 768px) {
   :root {
-    --column-count: 2;
-
     /* font-size */
-    --font-size-256: 4rem;
     --font-size-64: 1.125rem;
-    --font-size-36: 1.125rem;
-    --font-size-28: 1.125rem;
+    --font-size-36: 1.8rem;
     --font-size-24: 0.875rem;
-    --font-size-22: 0.875rem;
-    --font-size-20: 0.875rem;
-    --font-size-16: 0.875rem;
-    --font-size-14: 0.75rem;
-    --font-size-12: 0.625rem;
+    --font-size-20: 1rem;
+    --font-size-16: 1rem;
+    --font-size-14: 0.9rem;
+    --font-size-12: 0.8rem;
 
     /* Sizes */
     --size-logo: 100px;
@@ -139,55 +125,25 @@ ul {
   padding: 0;
 }
 
-.font-256-bold {
-  font-family: var(--font-family-bold);
-  font-size: var(--font-size-256);
-  line-height: 1;
-  font-weight: normal;
-}
-
-.font-64-bold {
+.font-header-title {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-64);
   line-height: 1;
   font-weight: normal;
 }
-
-.font-48-bold {
-  font-family: var(--font-family-bold);
-  font-size: var(--font-size-48);
-  line-height: 1.17;
-  font-weight: normal;
-}
-
-.font-36-bold {
-  font-family: var(--font-family-bold);
-  font-size: var(--font-size-36);
-  line-height: 1.17;
-  font-weight: normal;
-}
-
-.font-36-regular {
+.font-header-subtitle {
   font-family: var(--font-family-regular);
-  font-size: var(--font-size-36);
-  line-height: 1.17;
-  font-weight: normal;
-}
-
-.font-28-bold {
-  font-family: var(--font-family-bold);
-  font-size: var(--font-size-28);
+  font-size: var(--font-size-24);
   line-height: 1.33;
   font-weight: normal;
   letter-spacing: -0.3px;
 }
 
-.font-28-regular {
-  font-family: var(--font-family-regular);
-  font-size: var(--font-size-28);
-  line-height: 1.33;
+.font-section-title {
+  font-family: var(--font-family-bold);
+  font-size: var(--font-size-36);
+  line-height: 1.17;
   font-weight: normal;
-  letter-spacing: -0.3px;
 }
 
 .font-24-bold {
@@ -196,21 +152,6 @@ ul {
   line-height: 1.33;
   font-weight: normal;
   letter-spacing: -0.3px;
-}
-
-.font-24-regular {
-  font-family: var(--font-family-regular);
-  font-size: var(--font-size-24);
-  line-height: 1.33;
-  font-weight: normal;
-  letter-spacing: -0.3px;
-}
-
-.font-22-regular {
-  font-family: var(--font-family-regular);
-  font-size: var(--font-size-22);
-  line-height: 1;
-  font-weight: normal;
 }
 
 .font-20-bold {
@@ -237,7 +178,7 @@ ul {
 .font-16-regular {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-16);
-  line-height: 1.12;
+  line-height: 1.4;
   font-weight: normal;
   letter-spacing: -0.2px;
 }
@@ -245,21 +186,21 @@ ul {
 .font-14-bold {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-14);
-  line-height: 1;
+  line-height: 1.4;
   font-weight: normal;
 }
 
 .font-14-regular {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-14);
-  line-height: 1;
+  line-height: 1.4;
   font-weight: normal;
 }
 
 .font-12-regular {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-12);
-  line-height: 1.12;
+  line-height: 1.4;
   font-weight: normal;
   letter-spacing: -0.2px;
 }

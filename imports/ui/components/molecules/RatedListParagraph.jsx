@@ -33,6 +33,8 @@ const Rating = styled.li`
 `
 
 const Text = styled.p`
+  width: 100%;
+  text-align: center;
   margin-bottom: var(--size-8);
 `
 
