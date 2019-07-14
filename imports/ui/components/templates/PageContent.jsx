@@ -86,10 +86,11 @@ export const PageContent = ({ sections }) => (
       return !!sectionComponent ?
       <Section key={`section-${index}`}>
         {sectionComponent}
-        <Separator />
+        {index < sections.length - 1 && <Separator />}
        </Section> : null
       
     })}
+
   </PageContainer>
 )
 

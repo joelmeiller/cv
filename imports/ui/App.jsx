@@ -7,6 +7,7 @@ import styled from 'styled-components'
 
 import { PageHeader } from './components/templates/PageHeader'
 import { PageContent } from './components/templates/PageContent'
+import { PageFooter } from './components/templates/PageFooter'
 import { PageLoading } from './components/templates/PageLoading'
 import { Navigation } from './components/templates/Navigation'
 
@@ -45,6 +46,8 @@ const App = ({ content, comments, user }) => {
           onShowLogin={() => setShowLogin(true)}
         />
         <PageContent sections={content.sections.sort(sortSections)} />
+
+        <PageFooter backgroundPicture={content.backgroundPicture} footer={content.footer} />
       </CommentOverlay>
 
       <LoginForm

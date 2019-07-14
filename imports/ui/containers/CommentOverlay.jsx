@@ -15,6 +15,7 @@ import { ColorHaiti, MediaSmall } from '../styles/variables'
 
 const ContentContainer = styled.div`
   position: relative;
+  background-color: var(--color-white);
 `
 
 const CommentContainer = styled.div`
