@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Timeline, Icon } from 'antd'
+import { Timeline, Icon as AntIcon } from 'antd'
 
-import { Timeline as TimelineIcon } from '../atoms/icons/Timeline'
+import { Icon } from '../atoms/icons/index'
 
 // styling
 import styled from 'styled-components'
@@ -44,7 +44,7 @@ export const TimelineSection = ({ timeline }) => (
       {timeline.map(({ time, text, company }) => (
         <Timeline.Item
           key={`timeline-item-${time}`}
-          dot={<Icon component={TimelineIcon} style={{ fontSize: '16px' }} />}
+          dot={<AntIcon component={Icon.timeline} style={{ fontSize: '16px' }} />}
           color={'green'}
         >
           <TimelineText>

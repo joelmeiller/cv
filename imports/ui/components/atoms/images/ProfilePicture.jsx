@@ -17,13 +17,12 @@ const Container = styled.button`
   }
 `
 
-export const ProfilePicture = ({ className, onClick, profilePicture, profilePictureAccent }) => (
-  <Container className={className} onClick={onClick} profilePicture={profilePicture} profilePictureAccent={profilePictureAccent} />
+export const ProfilePicture = ({ className, profilePicture, profilePictureAccent }) => (
+  <Container className={className} profilePicture={profilePicture} profilePictureAccent={profilePictureAccent} />
 )
 
 ProfilePicture.propTypes = {
   className: PropTypes.string,
-  onClick: PropTypes.func,
   profilePicture: PropTypes.string,
   profilePictureAccent: PropTypes.string,
 }

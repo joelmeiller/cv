@@ -1,10 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Email } from '../atoms/icons/Email'
-import { Github } from '../atoms/icons/Github'
-import { LinkedIn } from '../atoms/icons/LinkedIn'
-import { Phone } from '../atoms/icons/Phone'
+import { Icon } from '../atoms/icons'
 
 // styling
 import styled from 'styled-components'
@@ -14,7 +11,7 @@ const Title = styled.h2`
   margin: 0.5rem 0;
 `
 
-const LinkContainer = styled.div`
+const IconContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
@@ -30,13 +27,6 @@ const IconWrapper = styled.div`
     height: 18px;
   }
 `
-
-const Icon = {
-  linkedIn: LinkedIn,
-  email: Email,
-  github: Github,
-  phone: Phone,
-}
 
 const Text = styled.p`
   margin: 0.3rem 0;
@@ -75,22 +65,42 @@ const ContactIcon = ({ type }) => {
   return <IconOfType className="white" />
 }
 
-export const ContactParagraph = ({ title, logo, name, company, links }) => (
+export const ContactParagraph = ({ title, logo, name, company, address, links }) => (
   <div>
     <Title className="font-14-bold">{title}</Title>
-    {!!name && !!company && (
+    {(!!name || !!company) && (
       <Text className="font-12-bold">
-        {name} / {company}
+        {name}
+        {company && ' / '}
+        {company || ''}
       </Text>
     )}
+
+    {!!address && (
+      <IconContainer>
+        <IconWrapper>
+          <ContactIcon type="location" />
+        </IconWrapper>
+
+        <Text className="font-12-regular">
+          {address.map((line, index) => (
+            <span key={`address-line-${index}`}>
+              {line}
+              <br />
+            </span>
+          ))}
+        </Text>
+      </IconContainer>
+    )}
+
     {links.map(({ type, text, url }) => (
       <Link href={url} key={`link-${type}`}>
-        <LinkContainer>
+        <IconContainer>
           <IconWrapper>
             <ContactIcon type={type} />
           </IconWrapper>
           <p className="font-12-regular">{text}</p>
-        </LinkContainer>
+        </IconContainer>
       </Link>
     ))}
   </div>

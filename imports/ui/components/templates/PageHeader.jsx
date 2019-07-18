@@ -60,11 +60,11 @@ const Description = styled.h2`
   margin: 0;
 `
 
-export const PageHeader = ({ onShowLogin, name, description, backgroundPicture, profilePicture, profilePictureAccent }) => (
+export const PageHeader = ({ name, description, backgroundPicture, profilePicture, profilePictureAccent }) => (
     <HeaderContainer>
       <TitleBackground picture={backgroundPicture} />
       <PersonContainer>
-        <StyledProfilePicture profilePicture={profilePicture} profilePictureAccent={profilePictureAccent} onClick={onShowLogin} />
+        <StyledProfilePicture profilePicture={profilePicture} profilePictureAccent={profilePictureAccent} />
 
         <PersonInfoContainer>
           <Name className="font-header-title">{name}</Name>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Link = styled.a`
-  color: ${({ accent }) => (accent ? 'var(--color-accent)' : 'var(--color-light-grey)')};
+  color: ${({ accent }) => (accent ? 'var(--color-accent)' : 'var(--color-text-mark)')};
   text-decoration-line: underline;
 `
 

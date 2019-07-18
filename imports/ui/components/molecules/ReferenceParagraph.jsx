@@ -5,6 +5,8 @@ import { LinkText } from '../atoms/text/LinkText'
 
 import { MediaSmall} from '../../styles/variables'
 
+import { Icon } from '../atoms/icons/index'
+
 // styling
 import styled from 'styled-components'
 
@@ -12,6 +14,7 @@ const ParagraphContainer = styled.div`
   position: relative;
   width: 100%;
   height: 330px;
+  background-color: ${({ dark }) => dark ? 'var(--color-black)' : '#FFFFFF'}
 
   @media ${MediaSmall} {
     height: 280px;
@@ -25,10 +28,11 @@ const Background = styled.div`
   left: 0;
   right: 0;
 
-  background-size: cover;
-  background-position: 75% 50%;
+  background-size: ${({ size }) => size === 'top' && 'contain' || size || 'cover'};
+  background-repeat: no-repeat;
+  background-position: 50% ${({ size }) => size === 'top' ? '0%' : '50%'};
   background-image: url(${({ picture }) => picture});
-
+  margin: ${({ size }) => size === 'contain' ? 'var(--size-16) var(--size-16) var(--size-64)': 0};
   z-index: 1;
 
   &::after {
@@ -39,7 +43,7 @@ const Background = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: ${({ dark }) => dark ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.05)'};
   }
 `
 
@@ -61,8 +65,14 @@ const Paragraph = styled.div`
 `
 
 const Title = styled.h1`
-  color: var(--color-text-inverse);
+  color: ${({ dark }) => dark ? 'var(--color-text-inverse)' : 'var(--color-text-primary)'};
   padding: var(--size-16);
+`
+
+const IconContainer = styled.div`
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
 `
 
 const TextContainer = styled.div`
@@ -70,27 +80,30 @@ const TextContainer = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  min-height: 110px;
+  min-height: 155px;
   padding: var(--size-16);
-  background-color: var(--color-black-shadow);
+  background-color: ${({ dark }) => dark ? 'var(--color-black-shadow)' : 'var(--color-white-shadow)'};
+
+  & p, h3 {
+    color: ${({ dark }) => dark ? 'var(--color-text-inverse)' : 'var(--color-text-primary)'};
+  }
 
   @media ${MediaSmall} {
-    height: 90px;
+    min-height: 90px;
   }
 `
 
 const Category = styled.h3`
-  color: var(--color-text-inverse);
   margin-bottom: 0.3rem;
 `
 const Text = styled.p`
-  color: var(--color-text-inverse);
+  color: ${({ dark }) => dark ? 'var(--color-text-inverse)' : 'var(--color-text-primary)'};
   margin-bottom: 0.3rem;
 `
 
-export const ReferenceParagraph = ({ images, title, category, text, links, type }) => (
-  <ParagraphContainer>
-    <Background picture={images.background} />
+export const ReferenceParagraph = ({ images, title, category, icon, text, links, type, dark }) => (
+  <ParagraphContainer dark={dark}>
+    {images.background && <Background picture={images.background} dark={dark} size={images.backgroundStyle} />}
 
     <Paragraph>
       {images.logo ? (
@@ -100,11 +113,13 @@ export const ReferenceParagraph = ({ images, title, category, text, links, type 
           </a>
         </Logo>
       ) : (
-        <Title className="font-24-bold">{title}</Title>
+        <Title dark={dark} className="font-24-bold">{title}</Title>
       )}
 
-      <TextContainer>
-        {!!category && <Category className="font-20-bold">{category}</Category>}
+      {icon && !images.background && <IconContainer>{Icon[icon]({})}}</IconContainer>}
+
+      <TextContainer dark={dark}>
+        {!!category && <Category className="font-16-bold">{category}</Category>}
 
         <Text className="font-14-regular">{text}</Text>
 

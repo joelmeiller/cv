@@ -1,36 +1,41 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Timeline } from 'antd'
-
 import { TextParagraph } from '../molecules/TextParagraph'
 import { TimelineSection } from '../molecules/TimelineSection'
+import { GradeSection } from '../molecules/GradeSection'
 
 import { Row } from '../atoms/layout/Row'
 import { Column } from '../atoms/layout/Column'
 import { Section } from '../molecules/Section'
 
-export const TextSection = ({ columns, title, paragraphs, attachment, timeline }) => (
+export const TextSection = ({ columns, title, paragraphs, attachment, grade, timeline }) => (
   <Section title={title}>
     {columns ? (
       paragraphs.map((paragraph, index) => (
-        <Column half key={`paragraph-${index}`}>
+        <Column half={columns === 'half'} third={columns === 'third'} key={`paragraph-${index}`}>
           <TextParagraph {...paragraph} />
         </Column>
       ))
     ) : (
-      <Column twoThird>
-        <Row columnMargin>
-          {paragraphs.map((paragraph, index) => (
-            <Column fullwidth key={`paragraph-${index}`}>
-              <TextParagraph {...paragraph} />
+      <Column twoThird={!!timeline} fullwidth={!timeline} padding>
+        {paragraphs.map(({ grade, ...other }, index) => (
+          <Row key={`paragraph-${index}`} marginBottom>
+            <Column fullwidth={!grade} twoThird={!!grade}>
+              <TextParagraph {...other} />
             </Column>
-          ))}
-        </Row>
+
+            {grade && (
+              <Column third>
+                <GradeSection {...grade} />
+              </Column>
+            )}
+          </Row>
+        ))}
       </Column>
     )}
     {timeline && (
-      <Column third center>
+      <Column third center padding>
         <TimelineSection timeline={timeline} />
       </Column>
     )}

@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { FinancialService } from '../atoms/icons/FinancialService'
-import { OptuneBrain } from '../atoms/icons/OptuneBrain'
+import { Icon } from '../atoms/icons/index'
 
 import { Column } from '../atoms/layout/Column'
 import { Row } from '../atoms/layout/Row'
@@ -46,11 +45,6 @@ const Subtitle = styled.h3`
 const IconTextContainer = styled.div`
   display: flex;
 `
-
-const Icon = {
-  FinancialService: FinancialService,
-  OptuneBrain: OptuneBrain,
-}
 
 const FileLinkText = styled.p`
   color: var(--color-text-primary);
