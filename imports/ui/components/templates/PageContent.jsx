@@ -19,6 +19,10 @@ const PageContainer = styled.ul`
   align-items: center;
 
   list-style: none;
+
+  @media print {
+    padding: var(--size-16) 0;
+  }
 `
 
 const Section = styled.li`
@@ -83,10 +87,11 @@ export const PageContent = ({ sections }) => (
           // No component
       }
        
+      console.log(section)
       return !!sectionComponent ?
-      <Section key={`section-${index}`}>
+      <Section key={`section-${index}`} className={section.pageBreak ? 'page-break' : ''}>
         {sectionComponent}
-        {index < sections.length - 1 && <Separator />}
+        {index < sections.length - 1 && <Separator className="no-print" />}
        </Section> : null
       
     })}

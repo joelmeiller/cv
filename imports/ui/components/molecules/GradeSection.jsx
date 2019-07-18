@@ -3,38 +3,61 @@ import PropTypes from 'prop-types'
 
 // styling
 import styled from 'styled-components'
+import { MediaSmall } from '../../styles/variables'
 
 const GradeContainer = styled.div`
   position: relative;
   width: 100%;
 `
 
-const Text = styled.p`
-  color: var(--color-text-secondary);
-  margin-top: var(--size-16);
+const Title = styled.h2`
   text-align: center;
+  margin: 0.5rem 0;
 `
 
-const RateText = styled.p`
-  text-align: center;
+const RatingCircle = styled.div`
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border: 3px solid var(--color-accent);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--size-16) auto;
 `
-
-const Rating = styled.span`
+const Rating = styled.p`
+  font-size: 40px;
   color: var(--color-accent);
   text-align: center;
+  margin: 0;
+
+  @media ${MediaSmall} {
+    text-align: left;
+  }
 `
-const WeightedRate = styled.span`
+const RateText = styled.p`
   color: var(--color-text-secondary);
   text-align: center;
-  margin-left: 8px;
+  margin: 0;
+`
+const Text = styled.p`
+  color: var(--color-text-secondary);
+  text-align: center;
 `
 
-export const GradeSection = ({ rating, description, weightedRate }) => (
+export const GradeSection = ({ title, rating, description, weightedRate }) => (
   <GradeContainer>
-    <RateText>
-      <Rating className="font-48-bold">{rating}</Rating>    
-      <WeightedRate className="font-24-bold">/ {weightedRate}</WeightedRate>
+    <Title className="font-20-bold">{title}</Title>
+
+    <RatingCircle>
+      <Rating className="font-48-bold">{rating}</Rating>{' '}
+    </RatingCircle>
+
+    <RateText className="font-20-regular">
+      <span className="font-24-bold">{weightedRate}</span> / 6
     </RateText>
+
     <Text className="font-12-regular">{description}</Text>
   </GradeContainer>
 )

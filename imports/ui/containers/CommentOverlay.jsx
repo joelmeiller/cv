@@ -119,10 +119,10 @@ const getModalStyle = e => {
 
   return { marginLeft, top }
 }
-const saveComment = values => {
+const saveComment = (values, contentId) => {
   const method = values._id ? Method.updateComment : Method.addComment
 
-  Meteor.call(method, values, error => {
+  Meteor.call(method, { ...values, contentId }, error => {
     if (error) {
       message.error('Comment could no be saved')
     } else {
@@ -140,7 +140,7 @@ const closeComment = comment => {
   })
 }
 
-export const CommentOverlay = ({ children, showComments, comments }) => {
+export const CommentOverlay = ({ children, showComments, comments, contentId }) => {
   const containerRef = React.createRef()
   const [commentForm, setCommentForm] = useState(initialCommentFormState)
 
@@ -148,7 +148,7 @@ export const CommentOverlay = ({ children, showComments, comments }) => {
     <Fragment>
       <CommentForm
         onSave={values => {
-          saveComment(values)
+          saveComment(values, contentId)
           setCommentForm(initialCommentFormState)
         }}
         onClose={comment => {
@@ -184,7 +184,7 @@ export const CommentOverlay = ({ children, showComments, comments }) => {
       >
         {children}
 
-        <CommentContainer active={showComments} aria-label="comment-container">
+        <CommentContainer active={showComments} aria-label="comment-container" className="no-print">
           {comments
             .sort(sortComment)
             .filter(filterComment)

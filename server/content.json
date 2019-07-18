@@ -1,5 +1,5 @@
 {
-  "_id": "Sx9vTAA733zSPP4ww",
+  "versionNr": 3,
   "profilePicture": "/profilePicture.jpg",
   "profilePictureAccent": "/profilePictureHover.jpg",
   "backgroundPicture": "/headerBackground.jpg",
@@ -32,17 +32,19 @@
       "type": "TEXT",
       "sequenceNr": 3,
       "title": "EXPERIENCE",
+      "pageBreak": true,
       "paragraphs": [
         {
-          "title": "Co-Founder, CTO and Full-Stack Web-Developer",
+          "title": "Co-Founder, CTO and Full-Stack Web Developer",
           "subtitle": "Oscillate AG",
           "time": "2016 - Ongoing",
           "location": "Zürich, Switzerland",
           "text": "Oscillate is devoted to create the show business solution for a digital world.",
           "list": [
             "Creating all the products to bring the OpTuNE dream to reality",
-            "Building several professional web applications from scratch including software architecture, environment setup, testing and deployment",
+            "Building several professional web applications from scratch including software architecture, environment setup, testing and deployment using React, Meteor and MongoDB",
             "Involved in strategic decision making, product development and sales and marketing initiatives",
+            "Preparing KPIs for investment rounds and user research using Segment, Intercom and Google Analytics",
             "Hiring new developers and managing my own team"
           ]
         },
@@ -53,8 +55,9 @@
           "location": "Zürich, Switzerland",
           "list": [
             "Designing the API interfaces for the e-banking and client advisor online services",
-            "Implementing high-performant services for the core transaction system of the bank",
-            "Involved in the software architecture and design of the front-end for the e-banking solutions"
+            "Implementing high-performant services for the bank's core transaction system",
+            "Involved in the software architecture and design of the front-end for the e-banking solutions",
+            "Dealing with Big Data challenges while writing complex and still performant SQL queries for DB2 databases"
           ]
         }
       ],
@@ -90,6 +93,7 @@
       "type": "TEXT",
       "sequenceNr": 6,
       "title": "EDUCATION",
+      "pageBreak": true,
       "paragraphs": [
         {
           "title": "Bachelor in Computer Science",
@@ -97,10 +101,11 @@
           "time": "2013 - 2018",
           "location": "Brugg-Windisch, Switzerland",
           "grade": {
-        "rating": "A",
-        "description": "Among the best 10% of all students graduating in Computer Science",
-        "weightedRate": "5.3"
-      }
+            "title": "Rating",
+            "rating": "A",
+            "description": "Among the best 10% of all students studying Computer Science at the FHNW",
+            "weightedRate": "5.3"
+          }
         },
         {
           "title": "IBM DB2 Performance Tuning",
@@ -109,12 +114,12 @@
           "location": "Zürich-Altstetten, Switzerland"
         }
       ]
-      
     },
     {
       "type": "TAGS",
       "sequenceNr": 4,
       "title": "SKILLS",
+      "pageBreak": true,
       "paragraphs": [
         {
           "title": "Specialized in",
@@ -179,7 +184,7 @@
               "rating": 5
             },
             {
-              "category": "Continues Integration",
+              "category": "Continuous Integration",
               "rating": 4
             },
             {
@@ -278,7 +283,7 @@
       "paragraphs": [
         {
           "type": "other",
-          "title": "SPHEROPANTHER",
+          "title": "Sphero Panther",
           "category": "Android App",
           "images": {
             "background": "/background_spheropanther2.png",
@@ -302,8 +307,7 @@
           "title": "OpTRiS",
           "category": "Machine Learning / Python",
           "images": {
-            "background": "/machine-learning-python.jpg",
-            "backgroundStyle": "top"
+            "background": "/machine-learning-python.jpg"
           },
           "icon": "optris",
           "text": "Bachelor Thesis about finding artist suggestions and predict successful events with machine learning.",
@@ -323,7 +327,7 @@
             "backgroundStyle": "top"
           },
           "icon": "cv",
-          "text": "This CV is a full-stack and responsive Meteor/React web app with a CRM that could be used as general CV generator 😎.",
+          "text": "This CV is a responsive full-stack Meteor/React app with a CRM that could be used as general CV generator 😎.",
           "links": [
             {
               "text": "github/joelmeiller/cv",

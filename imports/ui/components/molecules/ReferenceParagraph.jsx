@@ -13,11 +13,15 @@ import styled from 'styled-components'
 const ParagraphContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 330px;
+  height: 350px;
   background-color: ${({ dark }) => dark ? 'var(--color-black)' : '#FFFFFF'}
 
   @media ${MediaSmall} {
     height: 280px;
+  }
+
+  @media print {
+    height: 250px;
   }
 `
 
@@ -53,6 +57,10 @@ const Logo = styled.div`
 `
 const LogoImg = styled.img`
   height: 22px;
+
+  @media print {
+    height: 18px;
+  }
 `
 
 const Paragraph = styled.div`
@@ -65,7 +73,7 @@ const Paragraph = styled.div`
 `
 
 const Title = styled.h1`
-  color: ${({ dark }) => dark ? 'var(--color-text-inverse)' : 'var(--color-text-primary)'};
+  color: ${({ dark }) => dark ? 'var(--color-text-inverse)' : 'var(--color-primary)'};
   padding: var(--size-16);
 `
 
@@ -90,6 +98,11 @@ const TextContainer = styled.div`
 
   @media ${MediaSmall} {
     min-height: 90px;
+  }
+
+  @media print {
+    min-height: 120px;
+    padding: var(--size-32);
   }
 `
 

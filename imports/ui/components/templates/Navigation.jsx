@@ -30,7 +30,7 @@ const Button = styled.button`
 `
 
 export const Navigation = ({ showComments, user, onLogin, onLogout, onShowComments }) => (
-  <NavigationContainer loggedIn={!!user} >
+  <NavigationContainer loggedIn={!!user} className="no-print" >
     {user ? (
       <Fragment>
         <Button className="font-12-regular" onClick={onShowComments}>

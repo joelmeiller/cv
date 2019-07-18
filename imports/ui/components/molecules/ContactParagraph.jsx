@@ -9,6 +9,11 @@ import styled from 'styled-components'
 const Title = styled.h2`
   color: var(--color-text-inverse);
   margin: 0.5rem 0;
+
+  @media print {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-16);
+  }
 `
 
 const IconContainer = styled.div`
@@ -31,12 +36,20 @@ const IconWrapper = styled.div`
 const Text = styled.p`
   margin: 0.3rem 0;
   color: var(--color-text-inverse);
+
+  @media print {
+    color: var(--color-text-primary);
+  }
 `
 
 const Link = styled.a`
   & p {
     color: var(--color-text-inverse);
     margin: 0.3rem 0;
+
+    @media print {
+      color: var(--color-text-primary);
+    }
   }
 
   &:hover {

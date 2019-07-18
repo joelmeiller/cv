@@ -20,12 +20,16 @@ const HeaderContainer = styled.div`
   position: relative;
   display: flex;
   background-color: var(--color-black);
+
+  @media print {
+    background-color: transparent;
+  }
 `
 
 const PersonContainer = styled.div`
   position: relative;
   width: 100%;
-  margin: auto var(--size-32);
+  margin: var(--size-32) auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,6 +47,10 @@ const PersonInfoContainer = styled.div`
   min-width: var(--size-profile-pic);
   max-width: var(--max-size-title-info);
   margin: var(--size-24);
+
+  @media print {
+    margin: 0;
+  }
 `
 const Name = styled.h1`
   width: fit-content;
@@ -50,6 +58,11 @@ const Name = styled.h1`
   background-color: var(--color-black-shadow);
   padding: var(--size-16) var(--size-32);
   margin-bottom: var(--size-16);
+
+  @media print {
+    color: var(--color-text-primary);
+    background-color: transparent;
+  }
 `
 
 const Description = styled.h2`
@@ -58,11 +71,16 @@ const Description = styled.h2`
   background-color: var(--color-black-shadow);
   padding: var(--size-8) var(--size-16);
   margin: 0;
+
+  @media print {
+    color: var(--color-text-primary);
+    background-color: transparent;
+  }
 `
 
 export const PageHeader = ({ name, description, backgroundPicture, profilePicture, profilePictureAccent }) => (
     <HeaderContainer>
-      <TitleBackground picture={backgroundPicture} />
+      <TitleBackground picture={backgroundPicture} className="no-print"/>
       <PersonContainer>
         <StyledProfilePicture profilePicture={profilePicture} profilePictureAccent={profilePictureAccent} />
 

@@ -23,6 +23,8 @@ const App = ({ content, comments, user }) => {
   const [showLogin, setShowLogin] = useState(false)
   const [showComments, setShowComments] = useState(false)
 
+  if (content) console.log('***** LOADED VERSION NR *****', content.versionNr)
+
   return !!content ? (
     <Fragment>
       <Navigation
@@ -36,7 +38,7 @@ const App = ({ content, comments, user }) => {
           Meteor.logout()
         }}
       />
-      <CommentOverlay comments={comments} showComments={showComments}>
+      <CommentOverlay comments={comments} showComments={showComments} contentId={content._id}>
         <PageHeader
           backgroundPicture={content.backgroundPicture}
           profilePicture={content.profilePicture}
@@ -70,10 +72,14 @@ const App = ({ content, comments, user }) => {
   )
 }
 
-const AppContainer = withTracker(() => ({
-  content: Contents.findOne(),
-  comments: Comments.find().fetch(),
-  user: Meteor.user(),
-}))(App)
+const AppContainer = withTracker(() => {
+  const content = Contents.findOne({}, { sort: { versionNr: -1 } })
+
+  return {
+    content,
+    comments: content ? Comments.find({ contentId: content._id }).fetch() : [],
+    user: Meteor.user(),
+  }
+})(App)
 
 export default AppContainer

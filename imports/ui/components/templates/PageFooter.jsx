@@ -15,6 +15,10 @@ const FooterContainer = styled.div`
   width: 100%;
   background-color: var(--color-black);
   margin-top: var(--size-64);
+
+  @media print {
+    background-color: transparent;
+  }
 `
 
 const Section = styled.div`
@@ -24,17 +28,26 @@ const Section = styled.div`
   margin-left: auto;
   margin-right: auto;
   padding: var(--size-16) var(--size-64) var(--size-32);
+
+  @media print {
+    padding: var(--size-16) 0;
+  }
 `
 
 const Title = styled.h1`
   color: var(--color-accent);
   padding-bottom: 4px;
   margin-top: var(--size-8);
+
+  @media print {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-36);
+  }
 `
 
 export const PageFooter = ({ backgroundPicture, footer }) => (
   <FooterContainer>
-    <FooterBackground picture={backgroundPicture} />
+    <FooterBackground picture={backgroundPicture} className="no-print" />
 
     <Section>
       <Title className="font-20-bold">{footer.title}</Title>

@@ -129,6 +129,12 @@ const ColumnContainer = styled.div`
       display: none;
     }
   }
+
+  &.print-half {
+    @media print {
+      width: 50%;
+    }
+  }
 `
 
 export const Column = ({
@@ -143,6 +149,7 @@ export const Column = ({
   twoThird,
   golden13,
   golden8,
+  printHalf,
   ...other
 }) => (
   <ColumnContainer
@@ -156,6 +163,7 @@ export const Column = ({
       'two-third': twoThird,
       'golden-13': golden13,
       'golden-8': golden8,
+      'print-half': printHalf,
     })}
     {...other}
   >

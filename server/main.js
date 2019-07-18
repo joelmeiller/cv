@@ -27,7 +27,13 @@ Meteor.startup(() => {
       })
     }
 
-    Contents.remove({})
-    Contents.insert(content)
+    const existingContentVersion = Contents.findOne({ versionNr: content.versionNr })
+
+    if (!existingContentVersion) {
+      Contents.insert({
+        versionTimestamp: new Date(),
+        ...content,
+      })
+    }
   })
 })
