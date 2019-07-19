@@ -35,6 +35,11 @@ const PersonContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   z-index: 9;
+
+  @media print {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
 `
 
 const StyledProfilePicture = styled(ProfilePicture)`
@@ -50,6 +55,7 @@ const PersonInfoContainer = styled.div`
 
   @media print {
     margin: 0;
+    padding-left: 60px;
   }
 `
 const Name = styled.h1`

@@ -1,5 +1,5 @@
 {
-  "versionNr": 3,
+  "versionNr": 4,
   "profilePicture": "/profilePicture.jpg",
   "profilePictureAccent": "/profilePictureHover.jpg",
   "backgroundPicture": "/headerBackground.jpg",
@@ -99,13 +99,7 @@
           "title": "Bachelor in Computer Science",
           "subtitle": "FHNW | University of Applied Science Northwestern Switzerland",
           "time": "2013 - 2018",
-          "location": "Brugg-Windisch, Switzerland",
-          "grade": {
-            "title": "Rating",
-            "rating": "A",
-            "description": "Among the best 10% of all students studying Computer Science at the FHNW",
-            "weightedRate": "5.3"
-          }
+          "location": "Brugg-Windisch, Switzerland"
         },
         {
           "title": "IBM DB2 Performance Tuning",
@@ -113,7 +107,13 @@
           "time": "2014",
           "location": "Zürich-Altstetten, Switzerland"
         }
-      ]
+      ],
+      "grade": {
+        "title": "Rating",
+        "rating": "A",
+        "description": "Among the best 10% of all students studying Computer Science at the FHNW",
+        "weightedRate": "5.3"
+      }
     },
     {
       "type": "TAGS",

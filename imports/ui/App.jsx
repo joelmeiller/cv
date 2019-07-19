@@ -37,6 +37,7 @@ const App = ({ content, comments, user }) => {
           setShowComments(false)
           Meteor.logout()
         }}
+        onPrint={() => window.print()}
       />
       <CommentOverlay comments={comments} showComments={showComments} contentId={content._id}>
         <PageHeader

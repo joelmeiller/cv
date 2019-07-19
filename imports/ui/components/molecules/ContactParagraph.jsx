@@ -25,7 +25,7 @@ const IconContainer = styled.div`
 `
 
 const IconWrapper = styled.div`
-  padding-right: var(--size-16);
+  padding-right: var(--size-32);
 
   & .icon {
     width: 18px;

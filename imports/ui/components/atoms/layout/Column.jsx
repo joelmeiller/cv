@@ -15,7 +15,7 @@ const ColumnContainer = styled.div`
   float: left;
   padding: ${({ padding }) => padding ? 'var(--size-16)' : 0};
   height: 100%;
-
+  
   @media ${MediaSmall} {
     height: auto;
     padding-left: 0;

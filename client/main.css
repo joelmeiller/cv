@@ -4,6 +4,10 @@
   font-size: 100%;
 }
 
+body {
+  overflow: visible;
+}
+
 button,
 li,
 a {
@@ -265,7 +269,7 @@ ul {
 .icon polyline[fill='none'],
 .icon rect[fill='none'],
 .icon ellipse[fill='none'] {
-  fill: none;
+  fill: none !important;
 }
 
 .icon path[stroke='none'],
@@ -275,7 +279,7 @@ ul {
 .icon polyline[stroke='none'],
 .icon rect[stroke='none'],
 .icon ellipse[stroke='none'] {
-  stroke: none;
+  stroke: none !important;
 }
 
 /*
@@ -298,8 +302,8 @@ ul {
 
     --font-size-title: 2rem;
     --font-size-48: 1.8rem;
-    --font-size-36: 1.5rem;
-    --font-size-24: 1.2rem;
+    --font-size-36: 1.3rem;
+    --font-size-24: 1.1rem;
     --font-size-20: 1rem;
     --font-size-16: 1rem;
     --font-size-14: 0.9rem;
@@ -346,8 +350,8 @@ ul {
 
   .page-break {
     page-break-before: always;
+    break-before: page;
   }
-
 
   .font-header-title {
     font-size: 36px;

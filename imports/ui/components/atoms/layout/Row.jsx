@@ -10,7 +10,7 @@ import { MediaSmall } from '../../../styles/variables'
 const RowContainer = styled.div`
   width: 100%;
   margin-top: ${({ marginTop }) => (marginTop ? 1 : 0)}rem;
-  margin-bottom: ${({ marginBottom }) => (marginBottom ? 3 : 0)}rem;
+  margin-bottom: ${({ marginBottom }) => (marginBottom ? 'var(--font-size-48)' : 0)};
 
   &.center {
     display: flex;

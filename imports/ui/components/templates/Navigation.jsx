@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import { MediaSmall } from '../../styles/variables'
 
 const NavigationContainer = styled.div`
-  position: ${({ loggedIn }) => loggedIn ? 'fixed' : 'absolute'};
+  position: ${({ loggedIn }) => (loggedIn ? 'fixed' : 'absolute')};
   display: flex;
   top: 5px;
   right: 20px;
   z-index: 9999;
-  background-color: rgba(0,0,0,0.38);
+  background-color: rgba(0, 0, 0, 0.38);
 
   @media ${MediaSmall} {
     display: none;
@@ -29,10 +29,13 @@ const Button = styled.button`
   }
 `
 
-export const Navigation = ({ showComments, user, onLogin, onLogout, onShowComments }) => (
-  <NavigationContainer loggedIn={!!user} className="no-print" >
+export const Navigation = ({ showComments, user, onLogin, onLogout, onShowComments, onPrint }) => (
+  <NavigationContainer loggedIn={!!user} className="no-print">
     {user ? (
       <Fragment>
+        <Button className="font-12-regular" onClick={onPrint}>
+          Print
+        </Button>
         <Button className="font-12-regular" onClick={onShowComments}>
           {showComments ? 'Hide Comments' : 'Show/Add Comments'}
         </Button>
@@ -41,9 +44,14 @@ export const Navigation = ({ showComments, user, onLogin, onLogout, onShowCommen
         </Button>
       </Fragment>
     ) : (
-      <Button className="font-12-regular" onClick={onLogin}>
-        Login
-      </Button>
+      <Fragment>
+        <Button className="font-12-regular" onClick={onPrint}>
+          Print
+        </Button>
+        <Button className="font-12-regular" onClick={onLogin}>
+          Login
+        </Button>
+      </Fragment>
     )}
   </NavigationContainer>
 )

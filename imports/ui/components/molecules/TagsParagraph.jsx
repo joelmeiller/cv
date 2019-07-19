@@ -25,6 +25,10 @@ const Tag = styled.p`
   margin: 5px 10px;
   padding: 5px;
   border-bottom: 2px solid var(--color-text-secondary);
+
+  @media print {
+    border-bottom: 1px solid var(--color-text-secondary);
+  }
 `
 
 export const TagsParagraph = ({ title, tags }) => (

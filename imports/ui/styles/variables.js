@@ -28,5 +28,5 @@
   export const ContFamilyBold = 'CeraPRO-Bold, Helvetica, sans-serif'
 
   /* media query */
-  export const MediaSmall = '(max-width: 768px and screen)'
-  export const MediaMedium = '(max-width: 1050px and screen)'
+  export const MediaSmall = 'screen and (max-width: 768px)'
+  export const MediaMedium = 'screen and (max-width: 1050px)'

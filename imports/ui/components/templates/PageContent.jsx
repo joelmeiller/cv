@@ -1,3 +1,5 @@
+import classNames from 'classnames'
+
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
@@ -14,14 +16,10 @@ const PageContainer = styled.ul`
   background-color: var(--color-white);
   padding: var(--size-32) var(--size-64);
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
   list-style: none;
 
   @media print {
-    padding: var(--size-16) 0;
+    padding: var(--size-16) 0 0;
   }
 `
 
@@ -87,9 +85,8 @@ export const PageContent = ({ sections }) => (
           // No component
       }
        
-      console.log(section)
       return !!sectionComponent ?
-      <Section key={`section-${index}`} className={section.pageBreak ? 'page-break' : ''}>
+      <Section key={`section-${index}`} className={classNames(section.pageBreak && 'page-break')}>
         {sectionComponent}
         {index < sections.length - 1 && <Separator className="no-print" />}
        </Section> : null

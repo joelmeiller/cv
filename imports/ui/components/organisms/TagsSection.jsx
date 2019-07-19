@@ -15,7 +15,7 @@ const Paragraphs = styled.ul`
 `
 
 export const TagsSection = ({ title, paragraphs, graph }) => (
-  <Section title={title}>
+  <Section title={title} >
     <Column fullwidth>
       <Paragraphs>
         <Row columnMargin>

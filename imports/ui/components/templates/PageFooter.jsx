@@ -15,9 +15,12 @@ const FooterContainer = styled.div`
   width: 100%;
   background-color: var(--color-black);
   margin-top: var(--size-64);
+  padding: 0 var(--size-64);
 
   @media print {
+    margin-top: 0;
     background-color: transparent;
+    padding: 0;
   }
 `
 
@@ -27,7 +30,7 @@ const Section = styled.div`
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding: var(--size-16) var(--size-64) var(--size-32);
+  padding: var(--size-16) 0 var(--size-32);
 
   @media print {
     padding: var(--size-16) 0;
