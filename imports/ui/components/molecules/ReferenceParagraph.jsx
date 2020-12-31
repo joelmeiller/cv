@@ -5,8 +5,6 @@ import { LinkText } from '../atoms/text/LinkText'
 
 import { MediaSmall} from '../../styles/variables'
 
-import { Icon } from '../atoms/icons/index'
-
 // styling
 import styled from 'styled-components'
 
@@ -114,7 +112,7 @@ const Text = styled.p`
   margin-bottom: 0.3rem;
 `
 
-export const ReferenceParagraph = ({ images, title, category, icon, text, links, type, dark }) => (
+export const ReferenceParagraph = ({ images, title, category, Icon, text, links, type, dark }) => (
   <ParagraphContainer dark={dark}>
     {images.background && <Background picture={images.background} dark={dark} size={images.backgroundStyle} />}
 
@@ -129,7 +127,7 @@ export const ReferenceParagraph = ({ images, title, category, icon, text, links,
         <Title dark={dark} className="font-24-bold">{title}</Title>
       )}
 
-      {icon && !images.background && <IconContainer>{Icon[icon]({})}}</IconContainer>}
+      {Icon && !images.background && <IconContainer><Icon /></IconContainer>}
 
       <TextContainer dark={dark}>
         {!!category && <Category className="font-16-bold">{category}</Category>}
@@ -158,7 +156,7 @@ export const ReferenceParagraph = ({ images, title, category, icon, text, links,
 )
 
 ReferenceParagraph.propTypes = {
-  icon: PropTypes.string,
+  Icon: PropTypes.node,
   title: PropTypes.string,
   subtitle: PropTypes.string,
   time: PropTypes.string,

@@ -1,10 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Icon } from 'antd'
-
-import { IconText } from '../atoms/text/IconText'
-
 // styling
 import styled from 'styled-components'
 

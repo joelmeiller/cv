@@ -1,6 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import {
+  CalendarOutlined,
+  EnvironmentOutlined,
+} from '@ant-design/icons';
+
 import { Icon } from '../atoms/icons/index'
 
 import { Column } from '../atoms/layout/Column'
@@ -97,8 +102,8 @@ export const TextParagraph = ({
 
         {(!!time || !!location) && (
           <IconTextContainer>
-            {!!time && <IconText icon="calendar" text={time} />}
-            {!!location && <IconText icon="environment" text={location} />}
+            {!!time && <IconText Icon={CalendarOutlined} text={time} />}
+            {!!location && <IconText icon={EnvironmentOutlined} text={location} />}
           </IconTextContainer>
         )}
 

@@ -9,16 +9,18 @@
     "deploy": "waves deploy cv-app"
   },
   "dependencies": {
-    "@babel/runtime": "^7.5.4",
-    "antd": "^3.20.1",
-    "bcrypt": "^3.0.6",
+    "@ant-design/icons": "^4.3.0",
+    "@babel/runtime": "^7.12.5",
+    "antd": "^4.9.4",
+    "bcrypt": "^5.0.0",
     "classnames": "^2.2.6",
     "indexof": "0.0.1",
-    "meteor-node-stubs": "^0.4.1",
-    "react": "^16.5.0",
-    "react-dom": "^16.5.0",
+    "meteor-node-stubs": "^1.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-komposer": "^2.0.0",
-    "styled-components": "^4.3.2"
+    "styled-components": "^5.2.1"
   },
   "prettier": {
     "semi": false,
@@ -75,5 +77,9 @@
       "server": "server/main.js"
     },
     "testModule": "tests/main.js"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.12.0",
+    "prettier": "^2.2.1"
   }
 }

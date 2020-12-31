@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Icon } from 'antd';
+import { default as AntIcon } from '@ant-design/icons';
 
 import { ColorTextPrimary } from '../../../styles/variables'
 
@@ -11,14 +10,14 @@ const IconTextContainer = styled.div`
   margin-right: 20px;
 `
 
-const IconWrapper = styled(Icon)`
+const IconWrapper = styled(AntIcon)`
   margin-right: 10px;
 `
 
 
-export const IconText = ({ icon, text }) => (
+export const IconText = ({ Icon, text }) => (
   <IconTextContainer>
-    <IconWrapper type={icon} twoToneColor={ColorTextPrimary} />
+    <IconWrapper component={Icon} twoToneColor={ColorTextPrimary} />
     <p className="font-14-regular">{text}</p>
   </IconTextContainer>
 )
