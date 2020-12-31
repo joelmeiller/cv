@@ -115,7 +115,8 @@ export const ContactParagraph = ({ title, logo, name, company, address, links })
           <p className="font-12-regular">{text}</p>
         </IconContainer>
       </Link>
-    ))}
+    ))
+  }
   </div>
 )
 

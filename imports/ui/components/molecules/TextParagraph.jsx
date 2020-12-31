@@ -1,10 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import {
-  CalendarOutlined,
-  EnvironmentOutlined,
-} from '@ant-design/icons';
+import { CalendarOutlined, EnvironmentOutlined } from '@ant-design/icons'
 
 import { Icon } from '../atoms/icons/index'
 
@@ -78,61 +75,63 @@ export const TextParagraph = ({
   text,
   list,
   attachment,
-}) => (
-  <ParagraphContainer>
-    <Row>
-      {!!icon && (
-        <Column third>
-          <IconContainer>{Icon[icon]({})}</IconContainer>
-        </Column>
-      )}
+}) => {
+  return (
+    <ParagraphContainer>
+      <Row>
+        {!!icon && (
+          <Column third>
+            <IconContainer>{Icon[icon]({})}</IconContainer>
+          </Column>
+        )}
 
-      <Column twoThird={!!icon} fullwidth={!icon}>
-        <Title className="font-20-bold">
-          {title}
-          <br />
-          {titleLink && (
-            <span className="font-16-regular">
-              (<LinkText {...titleLink} accent />)
-            </span>
+        <Column twoThird={!!icon} fullwidth={!icon}>
+          <Title className="font-20-bold">
+            {title}
+            <br />
+            {titleLink && (
+              <span className="font-16-regular">
+                (<LinkText {...titleLink} accent />)
+              </span>
+            )}
+          </Title>
+
+          {!!subtitle && <Subtitle className="font-16-bold">{subtitle}</Subtitle>}
+
+          {(!!time || !!location) && (
+            <IconTextContainer>
+              {!!time && <IconText Icon={CalendarOutlined} text={time} />}
+              {!!location && <IconText Icon={EnvironmentOutlined} text={location} />}
+            </IconTextContainer>
           )}
-        </Title>
 
-        {!!subtitle && <Subtitle className="font-16-bold">{subtitle}</Subtitle>}
+          {!!text && <p className="font-14-regular">{text}</p>}
 
-        {(!!time || !!location) && (
-          <IconTextContainer>
-            {!!time && <IconText Icon={CalendarOutlined} text={time} />}
-            {!!location && <IconText icon={EnvironmentOutlined} text={location} />}
-          </IconTextContainer>
-        )}
+          {!!list && list.length && (
+            <TaskList>
+              {list.map((task, index) => (
+                <li key={`task-${index}`} className="font-14-regular">
+                  {task}
+                </li>
+              ))}
+            </TaskList>
+          )}
 
-        {!!text && <p className="font-14-regular">{text}</p>}
-
-        {!!list && list.length && (
-          <TaskList>
-            {list.map((task, index) => (
-              <li key={`task-${index}`} className="font-14-regular">
-                {task}
-              </li>
-            ))}
-          </TaskList>
-        )}
-
-        {!!attachment && (
-          <a
-            href={attachment.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            download={attachment.fileName}
-          >
-            <FileLinkText className="font-20-bold">{attachment.text}</FileLinkText>
-          </a>
-        )}
-      </Column>
-    </Row>
-  </ParagraphContainer>
-)
+          {!!attachment && (
+            <a
+              href={attachment.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              download={attachment.fileName}
+            >
+              <FileLinkText className="font-20-bold">{attachment.text}</FileLinkText>
+            </a>
+          )}
+        </Column>
+      </Row>
+    </ParagraphContainer>
+  )
+}
 
 TextParagraph.propTypes = {
   icon: PropTypes.string,
