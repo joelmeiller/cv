@@ -2,17 +2,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-// Ant
-import { Typography } from 'antd'
-
 // Atoms
 import { ProfilePicture } from '../atoms/images/ProfilePicture'
 import { TitleBackground } from '../atoms/images/TitleBackground'
 
 // Styled
 import styled from 'styled-components'
-
-const { Title } = Typography
 
 const HeaderContainer = styled.div`
   width: inherit;

@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
 
-import { message } from 'antd'
+import { message } from 'antd/lib'
 
 import { Meteor } from 'meteor/meteor'
 

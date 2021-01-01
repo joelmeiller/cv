@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Timeline } from 'antd'
+import { Timeline } from 'antd/lib'
 import { default as AntIcon } from '@ant-design/icons';
 
 import { Icon } from '../atoms/icons/index'

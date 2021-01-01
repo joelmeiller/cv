@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { default as AntIcon } from '@ant-design/icons'
+import AntIcon from '@ant-design/icons'
 
 import { ColorTextPrimary } from '../../../styles/variables'
 
@@ -10,7 +10,7 @@ const StyledIconText = styled.div`
   margin-right: 20px;
 `
 
-const IconWrapper = styled(AntIcon)`
+const IconWrapper = styled.p`
   margin-right: 10px;
   color: ${ColorTextPrimary};
 `
@@ -18,7 +18,9 @@ const IconWrapper = styled(AntIcon)`
 export const IconText = ({ Icon, text }) => {
   return (
     <StyledIconText>
-      <IconWrapper component={Icon} className="font-14-regular"/>
+      <IconWrapper className="font-14-regular">
+        <AntIcon component={Icon} />
+      </IconWrapper>
       <p className="font-14-regular">{text}</p>
     </StyledIconText>
   )

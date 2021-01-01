@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import { withTracker } from 'meteor/react-meteor-data'
 
-import { Modal, message } from 'antd'
+import { Modal, message } from 'antd/lib'
 
 import styled from 'styled-components'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Popover } from 'antd'
+import { Popover } from 'antd/lib'
 import styled from 'styled-components'
 
 const CommentContainer = styled.div`

@@ -1,12 +1,14 @@
 {
-  "presets": ["@babel/env", "@babel/preset-react"],
+  "presets": [
+    "@babel/env",
+    "@babel/preset-react"
+  ],
   "plugins": [
     [
       "import",
       {
         "libraryName": "antd",
-        "libraryDirectory": "es",
-        "style": "css",
+        "style": "css"
       }
     ],
     [
@@ -14,7 +16,7 @@
       {
         "displayName": true
       }
-    ],
+    ]
   ],
   "ignore": [
     "lib",

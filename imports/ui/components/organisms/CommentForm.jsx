@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Row, Col, Form, Icon, Input, Button, Modal } from 'antd'
+import { Row, Col, Form, Icon, Input, Button, Modal } from 'antd/lib'
 
 const { TextArea } = Input
 
