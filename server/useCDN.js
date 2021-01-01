@@ -1,22 +1,23 @@
 import { Meteor } from 'meteor/meteor'
-import { WebApp, WebAppInternals } from 'meteor/webapp'
+import { WebAppInternals } from 'meteor/webapp'
+import { WebApp } from 'meteor/webapp'
 
 export const useCDN = () => {
   /*
    * Use CDN (Cloudfront) to serve app
    */
 
-  if (Meteor.isProduction) {
+  if (Meteor.settings.cdn?.prefix) {
     WebAppInternals.setBundledJsCssUrlRewriteHook((url) => {
-      const prefix = `https://${Meteor.settings.cdn.prefix}${url}&_g_app_v_=${process.env.GALAXY_APP_VERSION_ID}`
+      const prefix = `https://${Meteor.settings.cdn.prefix}${url}`
       return prefix
     })
   }
 
+  // Listen to incoming HTTP requests, can only be used on the server
   WebApp.rawConnectHandlers.use(function (req, res, next) {
-    if (req._parsedUrl.pathname.match(/\.(ttf|ttc|otf|eot|woff|woff2|font\.css|css)$/)) {
-      res.setHeader('Access-Control-Allow-Origin', '*')
-    }
-    next()
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Access-Control-Allow-Headers', 'Authorization,Content-Type')
+    return next()
   })
 }
