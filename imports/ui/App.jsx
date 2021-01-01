@@ -74,7 +74,7 @@ const App = ({ content, comments, user }) => {
 }
 
 const AppContainer = withTracker(() => {
-  const content = Contents.findOne({}, { sort: { versionNr: -1 } })
+  const content = Contents.findOne({ versionNr: { $gte: 4 } }, { sort: { versionNr: -1 } })
 
   return {
     content,

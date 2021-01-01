@@ -4,9 +4,15 @@ import { Contents, Comments } from '/imports/api'
 
 import '../imports/api/methods'
 
+import { useCDN } from './useCDN'
+
 import content from './content.json'
 
 Meteor.startup(() => {
+  // CDN Setup
+  useCDN()
+
+  // Load users
   const users = Meteor.settings.private.users
 
   users.forEach(user => {
@@ -27,6 +33,7 @@ Meteor.startup(() => {
       })
     }
 
+    // Load content
     const existingContentVersion = Contents.findOne({ versionNr: content.versionNr })
 
     if (!existingContentVersion) {
