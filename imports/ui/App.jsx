@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { withTracker } from 'meteor/react-meteor-data'
+import { useTracker } from 'meteor/react-meteor-data'
 
 import { Modal, message } from 'antd/lib'
 
@@ -15,11 +15,11 @@ import { LoginForm } from './components/organisms/LoginForm'
 
 import { CommentOverlay } from './containers/CommentOverlay'
 
-import { Contents, Comments } from '/imports/api'
+import { Contents } from '/imports/api'
 
 const sortSections = (a, b) => a.sequenceNr - b.sequenceNr
 
-const App = ({ content, comments, user }) => {
+const App = ({ content, user }) => {
   const [showLogin, setShowLogin] = useState(false)
   const [showComments, setShowComments] = useState(false)
 
@@ -39,25 +39,27 @@ const App = ({ content, comments, user }) => {
         }}
         onPrint={() => window.print()}
       />
-      <CommentOverlay comments={comments} showComments={showComments} contentId={content._id}>
-        <PageHeader
-          backgroundPicture={content.backgroundPicture}
-          profilePicture={content.profilePicture}
-          profilePictureAccent={content.profilePictureAccent}
-          description={content.description}
-          name={content.name}
-          onShowLogin={() => setShowLogin(true)}
-        />
-        <PageContent sections={content.sections.sort(sortSections)} />
+      {content && (
+        <CommentOverlay showComments={showComments} contentId={content._id} />
+      )}
 
-        <PageFooter backgroundPicture={content.backgroundPicture} footer={content.footer} />
-      </CommentOverlay>
+      <PageHeader
+        backgroundPicture={content.backgroundPicture}
+        profilePicture={content.profilePicture}
+        profilePictureAccent={content.profilePictureAccent}
+        description={content.description}
+        name={content.name}
+        onShowLogin={() => setShowLogin(true)}
+      />
+      <PageContent sections={content.sections.sort(sortSections)} />
+
+      <PageFooter backgroundPicture={content.backgroundPicture} footer={content.footer} />
 
       <LoginForm
         show={showLogin && !user}
         onCancel={() => setShowLogin(false)}
-        onLogin={values => {
-          Meteor.loginWithPassword(values.user, values.password, error => {
+        onLogin={(values) => {
+          Meteor.loginWithPassword(values.user, values.password, (error) => {
             if (error) {
               message.error('Login failed')
             } else {
@@ -73,14 +75,13 @@ const App = ({ content, comments, user }) => {
   )
 }
 
-const AppContainer = withTracker(() => {
-  const content = Contents.findOne({ versionNr: { $gte: 4 } }, { sort: { versionNr: -1 } })
+const AppContainer = () => {
+  const content = useTracker(
+    () => Contents.findOne({ versionNr: { $gte: 4 } }, { sort: { versionNr: -1 } }),
+    []
+  )
 
-  return {
-    content,
-    comments: content ? Comments.find({ contentId: content._id }).fetch() : [],
-    user: Meteor.user(),
-  }
-})(App)
+  return <App content={content} user={Meteor.user()} />
+}
 
 export default AppContainer

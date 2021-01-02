@@ -1,5 +1,5 @@
 import React from 'react'
-import { DeploymentUnitOutlined } from '@ant-design/icons'
+import { DeploymentUnitOutlined } from '@ant-design/icons/lib'
 import styled, { keyframes } from "styled-components"
 
 const Loading = styled.div`

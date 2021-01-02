@@ -1,11 +1,12 @@
 import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
+import { useTracker } from 'meteor/react-meteor-data'
 
 import { message } from 'antd/lib'
 
 import { Meteor } from 'meteor/meteor'
 
-import { CommentStatus } from '/imports/api/collections/Comments'
+import { Comments, CommentStatus } from '/imports/api/collections/Comments'
 import { Method } from '/imports/api/methods'
 
 import { CommentCard } from '../components/organisms/CommentCard'
@@ -140,7 +141,9 @@ const closeComment = comment => {
   })
 }
 
-export const CommentOverlay = ({ children, showComments, comments, contentId }) => {
+export const CommentOverlay = ({ showComments, contentId }) => {
+  const comments = useTracker(() => Comments.find({ contentId }).fetch(), [contentId])
+
   const containerRef = React.createRef()
   const [commentForm, setCommentForm] = useState(initialCommentFormState)
 
@@ -182,8 +185,6 @@ export const CommentOverlay = ({ children, showComments, comments, contentId }) 
           }
         }}
       >
-        {children}
-
         <CommentContainer active={showComments} aria-label="comment-container" className="no-print">
           {comments
             .sort(sortComment)

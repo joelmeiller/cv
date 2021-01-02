@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { CalendarOutlined, EnvironmentOutlined } from '@ant-design/icons'
+import { CalendarOutlined, EnvironmentOutlined } from '@ant-design/icons/lib'
 
 import { Icon } from '../atoms/icons/index'
 

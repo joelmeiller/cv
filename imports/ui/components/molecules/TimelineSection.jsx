@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Timeline } from 'antd/lib'
-import { default as AntIcon } from '@ant-design/icons';
 
 import { Icon } from '../atoms/icons/index'
 
@@ -45,7 +44,7 @@ export const TimelineSection = ({ timeline }) => (
       {timeline.map(({ time, text, company }) => (
         <Timeline.Item
           key={`timeline-item-${time}`}
-          dot={<AntIcon component={Icon.timeline} style={{ fontSize: '16px' }} />}
+          dot={<Icon.timeline style={{ fontSize: '16px' }} />}
           color={'green'}
         >
           <TimelineText>

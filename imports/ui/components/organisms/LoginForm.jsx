@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Icon, Input, Button, Modal } from 'antd/lib'
-import { UserOutlined, LockOutlined } from '@ant-design/icons'
+import { UserOutlined, LockOutlined } from '@ant-design/icons/lib'
 
 import { Meteor } from 'meteor/meteor'
 
