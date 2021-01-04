@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Rate } from 'antd/lib'
+import { Rate } from 'antd'
 
 // styling
 import styled from 'styled-components'

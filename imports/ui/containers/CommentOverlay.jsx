@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
 import { useTracker } from 'meteor/react-meteor-data'
 
-import { message } from 'antd/lib'
+import { message } from 'antd'
 
 import { Meteor } from 'meteor/meteor'
 

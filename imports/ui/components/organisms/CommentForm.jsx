@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Row, Col, Form, Icon, Input, Button, Modal } from 'antd/lib'
+import { Row, Col, Form, Icon, Input, Button, Modal } from 'antd'
 
 const { TextArea } = Input
 
@@ -15,8 +15,7 @@ const CommentFormComponent = ({ onSave, comment, onClose }) => {
     form.validateFields()
   }, [])
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = () => {
     form.validateFields((error, values) => {
       if (!error) onSave(values)
     })

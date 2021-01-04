@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Form, Icon, Input, Button, Modal } from 'antd/lib'
-import { UserOutlined, LockOutlined } from '@ant-design/icons/lib'
+import { Form, Icon, Input, Button, Modal } from 'antd'
+import UserOutlined from '@ant-design/icons/UserOutlined'
+import LockOutlined from '@ant-design/icons/LockOutlined'
 
 import { Meteor } from 'meteor/meteor'
 
@@ -11,8 +12,7 @@ function hasErrors(fieldsError) {
 const LoginFormComponent = ({ onLogin }) => {
   const [form] = Form.useForm()
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = () => {
     form.validateFields((error, values) => {
       if (!error) onLogin(values)
     })

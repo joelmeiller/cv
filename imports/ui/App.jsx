@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { useTracker } from 'meteor/react-meteor-data'
 
-import { Modal, message } from 'antd/lib'
+import { Modal, message } from 'antd'
 
 import styled from 'styled-components'
 
@@ -20,6 +20,9 @@ import { Contents } from '/imports/api'
 const sortSections = (a, b) => a.sequenceNr - b.sequenceNr
 
 const App = ({ content, user }) => {
+  const [ssrDone, setSsrDone] = useState(false)
+  useEffect(() => { setSsrDone(true) }, [])
+
   const [showLogin, setShowLogin] = useState(false)
   const [showComments, setShowComments] = useState(false)
 
@@ -27,7 +30,7 @@ const App = ({ content, user }) => {
 
   return !!content ? (
     <Fragment>
-      <Navigation
+      {ssrDone && <Navigation
         user={user}
         showComments={showComments}
         onShowComments={() => setShowComments(!showComments)}
@@ -38,8 +41,9 @@ const App = ({ content, user }) => {
           Meteor.logout()
         }}
         onPrint={() => window.print()}
-      />
-      {content && (
+      />}
+
+      {ssrDone && content && (
         <CommentOverlay showComments={showComments} contentId={content._id} />
       )}
 
@@ -55,7 +59,7 @@ const App = ({ content, user }) => {
 
       <PageFooter backgroundPicture={content.backgroundPicture} footer={content.footer} />
 
-      <LoginForm
+      {ssrDone && <LoginForm
         show={showLogin && !user}
         onCancel={() => setShowLogin(false)}
         onLogin={(values) => {
@@ -68,7 +72,7 @@ const App = ({ content, user }) => {
             }
           })
         }}
-      />
+      />}
     </Fragment>
   ) : (
     <PageLoading />
