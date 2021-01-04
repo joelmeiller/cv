@@ -14,21 +14,16 @@ import { CommentForm } from '../components/organisms/CommentForm'
 
 import { ColorHaiti, MediaSmall } from '../styles/variables'
 
-const ContentContainer = styled.div`
-  position: relative;
-  background-color: var(--color-white);
-`
-
 const CommentContainer = styled.div`
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
+  z-index: 999;
 
   display: ${({ active }) => (active ? 'block' : 'none')};
   pointer-events: all;
-  z-index: 999;
 
   @media ${MediaSmall} {
     display: none;
@@ -50,7 +45,7 @@ const initialCommentFormState = {
   modalStyle: {},
 }
 
-const getUser = userId => {
+const getUser = (userId) => {
   const user = Meteor.users.findOne(userId)
 
   let initials = ''
@@ -76,7 +71,7 @@ const getUser = userId => {
 
 let currentUserId
 let currentSequenceNr = 1
-const getSequenceNr = userId => {
+const getSequenceNr = (userId) => {
   if (userId !== currentUserId) {
     currentUserId = userId
     currentSequenceNr = 1
@@ -87,10 +82,10 @@ const getSequenceNr = userId => {
   return currentSequenceNr
 }
 
-const filterComment = comment => comment.status === CommentStatus.OPEN
+const filterComment = (comment) => comment.status === CommentStatus.OPEN
 const sortComment = (a, b) => (a.userId < b.userId && -1) || a.createdAt - b.createdAt
 let commentUserId
-const mapComment = comment => {
+const mapComment = (comment) => {
   const user = getUser(comment.userId)
   return {
     ...comment,
@@ -101,7 +96,7 @@ const mapComment = comment => {
   }
 }
 
-const getModalStyle = e => {
+const getModalStyle = (e) => {
   const modalX = e.clientX
   const modalY = e.clientY
   const windowWidth = window.innerWidth
@@ -123,7 +118,7 @@ const getModalStyle = e => {
 const saveComment = (values, contentId) => {
   const method = values._id ? Method.updateComment : Method.addComment
 
-  Meteor.call(method, { ...values, contentId }, error => {
+  Meteor.call(method, { ...values, contentId }, (error) => {
     if (error) {
       message.error('Comment could no be saved')
     } else {
@@ -131,8 +126,8 @@ const saveComment = (values, contentId) => {
     }
   })
 }
-const closeComment = comment => {
-  Meteor.call(Method.updateComment, { ...comment, close: true }, error => {
+const closeComment = (comment) => {
+  Meteor.call(Method.updateComment, { ...comment, close: true }, (error) => {
     if (error) {
       message.error('Comment could no be closed')
     } else {
@@ -150,27 +145,31 @@ export const CommentOverlay = ({ show, contentId }) => {
   return (
     <Fragment>
       <CommentForm
-        onSave={values => {
+        onSave={(values) => {
           saveComment(values, contentId)
           setCommentForm(initialCommentFormState)
         }}
-        onClose={comment => {
+        onClose={(comment) => {
           closeComment(comment)
           setCommentForm(initialCommentFormState)
         }}
         onCancel={() => setCommentForm(initialCommentFormState)}
         commentForm={commentForm}
       />
-      <ContentContainer
+
+      <CommentContainer
+        active={show}
+        aria-label="comment-container"
+        className="no-print"
         ref={containerRef}
-        onClick={e => {
+        onClick={(e) => {
           if (show) {
             const modalStyle = getModalStyle(e)
 
             const containerStyle = window.getComputedStyle(containerRef.current)
             const containerWidth = parseInt(containerStyle.width.slice(0, -2))
             const containerHeight = parseInt(containerStyle.height.slice(0, -2))
-            
+
             !commentForm.show &&
               setCommentForm({
                 show: true,
@@ -185,23 +184,21 @@ export const CommentOverlay = ({ show, contentId }) => {
           }
         }}
       >
-        <CommentContainer active={show} aria-label="comment-container" className="no-print">
-          {comments
-            .sort(sortComment)
-            .filter(filterComment)
-            .map((comment, index) => (
-              <CommentCard
-                key={`comment-${index}`}
-                onSelectComment={(e, comment) => {
-                  modalStyle = getModalStyle(e)
+        {comments
+          .sort(sortComment)
+          .filter(filterComment)
+          .map((comment, index) => (
+            <CommentCard
+              key={`comment-${index}`}
+              onSelectComment={(e, comment) => {
+                modalStyle = getModalStyle(e)
 
-                  setCommentForm({ show: true, comment, modalStyle })
-                }}
-                {...mapComment(comment)}
-              />
-            ))}
-        </CommentContainer>
-      </ContentContainer>
+                setCommentForm({ show: true, comment, modalStyle })
+              }}
+              {...mapComment(comment)}
+            />
+          ))}
+      </CommentContainer>
     </Fragment>
   )
 }

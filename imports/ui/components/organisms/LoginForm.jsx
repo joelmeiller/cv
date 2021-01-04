@@ -12,14 +12,14 @@ function hasErrors(fieldsError) {
 const LoginFormComponent = ({ onSubmit }) => {
   return (
     <Form onFinish={onSubmit} name="login-form">
-      <Form.Item name="username" rules={[{ required: true, message: 'Please enter your email or username!' }]}>
+      <Form.Item name="user" rules={[{ required: true, message: 'Please enter your email or username!' }]}>
         <Input
           prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
           placeholder="Username"
         />
       </Form.Item>
 
-      <Form.Item name="email" rules={[{ required: true, message: 'Please enter a password!' }]}>
+      <Form.Item name="password" rules={[{ required: true, message: 'Please enter a password!' }]}>
         <Input
           prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
           type="password"
