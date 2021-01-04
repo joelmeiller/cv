@@ -31,8 +31,9 @@ const CommentFormComponent = ({ onSave, comment, onClose }) => {
   const textError = isFieldTouched('text') && getFieldError('text')
 
   return (
-    <Form onFinish={handleSubmit} name="comment-form">
+    <Form onFinish={handleSubmit} name="comment-form" form={form}>
       <Form.Item
+        name="text"
         validateStatus={textError ? 'error' : ''}
         help={textError || ''}
         rules={[{ required: true }]}

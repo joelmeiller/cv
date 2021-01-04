@@ -1,4 +1,4 @@
-@import '../imports/styles/fonts.css' body {
+body {
   padding: 10px;
   font-family: sans-serif;
   font-size: 100%;
@@ -6,6 +6,8 @@
 
 body {
   overflow: visible;
+  margin: 0;
+  padding: 0;
 }
 
 button,
@@ -40,8 +42,8 @@ a {
   --color-facebook-gray: #d9dbde;
 
   /* font */
-  --font-family-regular: CeraPRO-Regular, Helvetica, sans-serif;
-  --font-family-bold: CeraPRO-Bold, Helvetica, sans-serif;
+  --font-family-regular: CeraPRO, Helvetica, sans-serif;
+  --font-family-bold: CeraPRO, Helvetica, sans-serif;
 
   /* font-size */
   --font-size-title: 4rem;
@@ -133,13 +135,13 @@ ul {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-title);
   line-height: 1;
-  font-weight: bold;
+  font-weight: 700;
 }
 .font-header-subtitle {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-24);
   line-height: 1.33;
-  font-weight: normal;
+  font-weight: 400;
   letter-spacing: -0.3px;
 }
 @media (max-width: 768px) {
@@ -152,25 +154,25 @@ ul {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-36);
   line-height: 1.17;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .font-48-bold {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-48);
   line-height: 1;
-  font-weight: bold;
+  font-weight: 700;
 }
 .font-24-bold {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-24);
-  font-weight: bold;
+  font-weight: 700;
   letter-spacing: -0.3px;
 }
 .font-24-regular {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-24);
-  font-weight: normal;
+  font-weight: 400;
   letter-spacing: -0.3px;
 }
 
@@ -178,28 +180,28 @@ ul {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-20);
   line-height: 1;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .font-20-regular {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-20);
   line-height: 1.33;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 .font-16-bold {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-16);
   line-height: 1;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .font-16-regular {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-16);
   line-height: 1.4;
-  font-weight: normal;
+  font-weight: 400;
   letter-spacing: -0.2px;
 }
 
@@ -207,21 +209,21 @@ ul {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-14);
   line-height: 1.4;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .font-14-regular {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-14);
   line-height: 1.4;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 .font-12-regular {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-12);
   line-height: 1.4;
-  font-weight: normal;
+  font-weight: 400;
   letter-spacing: -0.2px;
 }
 
@@ -369,5 +371,21 @@ ul {
   .icon.white ellipse {
     fill: var(--color-black);
     stroke: var(--color-black);
+  }
+}
+
+@page {
+  size: A4 portrait;
+
+
+  @bottom-right {
+    content: counter(page) " / " counter(pages);
+    font-weight: 400;
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    vertical-align: top;
+    margin-top: 14px;
+    font-variant-numeric: oldstyle-nums;
   }
 }

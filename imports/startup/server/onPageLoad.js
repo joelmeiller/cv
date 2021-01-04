@@ -8,7 +8,7 @@ import { renderToString } from 'react-dom/server'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 
 // Route Page Component
-import { App } from '../../ui/App'
+import App from '../../ui/App'
 
 // Collections
 import { Contents } from '../../api/collections/Contents'

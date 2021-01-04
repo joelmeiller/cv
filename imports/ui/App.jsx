@@ -1,7 +1,7 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, Suspense, useState, useEffect } from 'react'
 import { useTracker } from 'meteor/react-meteor-data'
 
-import { Modal, message } from 'antd'
+import { message } from 'antd'
 
 import styled from 'styled-components'
 
@@ -11,26 +11,27 @@ import { PageFooter } from './components/templates/PageFooter'
 import { PageLoading } from './components/templates/PageLoading'
 import { Navigation } from './components/templates/Navigation'
 
-import { LoginForm } from './components/organisms/LoginForm'
-
-import { CommentOverlay } from './containers/CommentOverlay'
-
 import { Contents } from '/imports/api'
+
+// Dynamic imports
+//import { LoginForm } from './components/organisms/LoginForm'
+const LoginOverlay = React.lazy(() => import('./containers/LoginOverlay'))
+//import { CommentOverlay } from './containers/CommentOverlay'
+const CommentOverlay = React.lazy(() => import('./containers/CommentOverlay'))
 
 const sortSections = (a, b) => a.sequenceNr - b.sequenceNr
 
-const App = ({ content, user }) => {
-  const [ssrDone, setSsrDone] = useState(false)
-  useEffect(() => { setSsrDone(true) }, [])
-
+const AppUserContext = ({ contentId }) => {
   const [showLogin, setShowLogin] = useState(false)
   const [showComments, setShowComments] = useState(false)
 
-  if (content) console.log('***** LOADED VERSION NR *****', content.versionNr)
+  const user = useTracker(() => Meteor.user(), [])
 
-  return !!content ? (
-    <Fragment>
-      {ssrDone && <Navigation
+  console.log('USER', user)
+  
+  return (
+    <Suspense fallback={<PageLoading />}>
+      <Navigation
         user={user}
         showComments={showComments}
         onShowComments={() => setShowComments(!showComments)}
@@ -41,11 +42,26 @@ const App = ({ content, user }) => {
           Meteor.logout()
         }}
         onPrint={() => window.print()}
-      />}
+      />
 
-      {ssrDone && content && (
-        <CommentOverlay showComments={showComments} contentId={content._id} />
-      )}
+      {contentId && showComments && <CommentOverlay show={showComments} contentId={contentId} />}
+
+      {showLogin && !user && <LoginOverlay onClose={() => setShowLogin(false)} />}
+    </Suspense>
+  )
+}
+
+const App = ({ content }) => {
+  const [ssrDone, setSsrDone] = useState(false)
+  useEffect(() => {
+    setSsrDone(true)
+  }, [])
+
+  if (content) console.log('***** LOADED VERSION NR *****', content.versionNr)
+
+  return (
+    <Fragment>
+      {ssrDone && <AppUserContext contentId={content._id} />}
 
       <PageHeader
         backgroundPicture={content.backgroundPicture}
@@ -53,39 +69,21 @@ const App = ({ content, user }) => {
         profilePictureAccent={content.profilePictureAccent}
         description={content.description}
         name={content.name}
-        onShowLogin={() => setShowLogin(true)}
       />
       <PageContent sections={content.sections.sort(sortSections)} />
 
       <PageFooter backgroundPicture={content.backgroundPicture} footer={content.footer} />
-
-      {ssrDone && <LoginForm
-        show={showLogin && !user}
-        onCancel={() => setShowLogin(false)}
-        onLogin={(values) => {
-          Meteor.loginWithPassword(values.user, values.password, (error) => {
-            if (error) {
-              message.error('Login failed')
-            } else {
-              message.success('Logged in')
-              setShowLogin(false)
-            }
-          })
-        }}
-      />}
     </Fragment>
-  ) : (
-    <PageLoading />
   )
 }
 
-const AppContainer = () => {
-  const content = useTracker(
-    () => Contents.findOne({ versionNr: { $gte: 4 } }, { sort: { versionNr: -1 } }),
-    []
-  )
+const AppContainer = ({ content }) => {
+  // const content = useTracker(
+  //   () => Contents.findOne({ versionNr: { $gte: 4 } }, { sort: { versionNr: -1 } }),
+  //   []
+  // )
 
-  return <App content={content} user={Meteor.user()} />
+  return !!content ? <App content={content} /> : <PageLoading />
 }
 
 export default AppContainer

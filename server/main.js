@@ -1,11 +1,17 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
-import { Contents, Comments } from '/imports/api'
 
+// Api
+import { Contents, Comments } from '../imports/api'
 import '../imports/api/methods'
 
-import { useCDN } from './useCDN'
+// Startup
+import { useCDN } from '../imports/startup/server/useCDN'
+import '/imports/startup/server/onPageLoad'
 
+const SHOULD_RELOAD = true
+
+// Initial content
 import content from './content.json'
 
 Meteor.startup(() => {
@@ -15,7 +21,7 @@ Meteor.startup(() => {
   // Load users
   const users = Meteor.settings.private.users
 
-  users.forEach(user => {
+  users.forEach((user) => {
     const existingUser = Meteor.users.findOne({ 'emails.address': user.email })
 
     if (!existingUser) {
@@ -36,10 +42,12 @@ Meteor.startup(() => {
     // Load content
     const existingContentVersion = Contents.findOne({ versionNr: content.versionNr })
 
-    if (!existingContentVersion) {
-      Contents.insert({
-        versionTimestamp: new Date(),
-        ...content,
+    if (SHOULD_RELOAD || !existingContentVersion) {
+      Contents.upsert({ _id: existingContentVersion?._id }, {
+        $set: {
+          versionTimestamp: new Date(),
+          ...content,
+        },
       })
     }
   })

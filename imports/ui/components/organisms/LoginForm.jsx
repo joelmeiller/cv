@@ -9,24 +9,17 @@ function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some((field) => fieldsError[field])
 }
 
-const LoginFormComponent = ({ onLogin }) => {
-  const [form] = Form.useForm()
-
-  const handleSubmit = () => {
-    form.validateFields((error, values) => {
-      if (!error) onLogin(values)
-    })
-  }
-
+const LoginFormComponent = ({ onSubmit }) => {
   return (
-    <Form onFinish={handleSubmit} name="login-form">
-      <Form.Item rules={[{ required: true, message: 'Please enter your email or username!' }]}>
+    <Form onFinish={onSubmit} name="login-form">
+      <Form.Item name="username" rules={[{ required: true, message: 'Please enter your email or username!' }]}>
         <Input
           prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
           placeholder="Username"
         />
       </Form.Item>
-      <Form.Item rules={[{ required: true, message: 'Please enter a password!' }]}>
+
+      <Form.Item name="email" rules={[{ required: true, message: 'Please enter a password!' }]}>
         <Input
           prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
           type="password"
@@ -45,7 +38,7 @@ const LoginFormComponent = ({ onLogin }) => {
 export const LoginForm = ({ show, onLogin, onCancel }) => {
   return (
     <Modal title={'Login'} visible={show} onCancel={onCancel} footer={null}>
-      <LoginFormComponent onSave={onLogin} />
+      <LoginFormComponent onSubmit={onLogin} />
     </Modal>
   )
 }

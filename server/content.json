@@ -1,8 +1,8 @@
 {
-  "versionNr": 4,
-  "profilePicture": "/profilePicture.jpg",
-  "profilePictureAccent": "/profilePictureHover.jpg",
-  "backgroundPicture": "/headerBackground.jpg",
+  "versionNr": 5,
+  "profilePicture": "https://res.cloudinary.com/optune-me/image/upload/v1609756219/custom/joel.oscillate.ch/profilePicture.jpg",
+  "profilePictureAccent": "https://res.cloudinary.com/optune-me/image/upload/v1609756219/custom/joel.oscillate.ch/profilePictureHover.jpg",
+  "backgroundPicture": "https://res.cloudinary.com/optune-me/image/upload/b_rgb:000000,e_blur:700,o_70,w_1440,c_fill,g_face:center/v1609756219/custom/joel.oscillate.ch/headerBackground.jpg",
   "name": "Joël Meiller",
   "description": "As passionate Full-Stack Web Developer, Service Designer, Software Architect and CTO I ❤️ to help creating the digital future.",
   "sections": [
@@ -244,9 +244,9 @@
           "type": "oscillate",
           "category": "Progressive Web App",
           "images": {
-            "background": "https://res.cloudinary.com/optune-me/image/upload/c_scale,fl_progressive,q_auto,w_400/v1460624157/custom/onescreener.com/vlcsnap-2016-04-14-10h50m49s256.png",
+            "background": "https://res.cloudinary.com/optune-me/image/upload/c_lfill,f_auto,h_350,q_auto:best,w_260/v1609762371/custom/joel.oscillate.ch/background_onescreener_reference.png",
             "screen": "",
-            "logo": "https://res.cloudinary.com/optune-me/image/upload/v1558014130/onescreener-v2/app/logo-onescreener.svg"
+            "logo": "https://res.cloudinary.com/optune-me/image/upload/v1598618825/onescreener-v2/app/onescreener-logo-new.svg"
           },
           "text": "The brand-forward digital artist card creator.",
           "links": [
@@ -286,9 +286,8 @@
           "title": "Sphero Panther",
           "category": "Android App",
           "images": {
-            "background": "/background_spheropanther2.png",
-            "backgroundStyle": "contain",
-            "screen": "/screenshot_spheropanther.png"
+            "background": "https://res.cloudinary.com/optune-me/image/upload/q_auto:eco,h_350/v1609756219/custom/joel.oscillate.ch/background_spheropanther2.png",
+            "backgroundStyle": "contain"
           },
           "text": "The own implementation of the sphero roboter controller.",
           "links": [
@@ -307,7 +306,7 @@
           "title": "OpTRiS",
           "category": "Machine Learning / Python",
           "images": {
-            "background": "/machine-learning-python.jpg"
+            "background": "https://res.cloudinary.com/optune-me/image/upload/c_scale,q_auto:good,h_350/v1609756218/custom/joel.oscillate.ch/machine-learning-python.jpg"
           },
           "icon": "optris",
           "text": "Bachelor Thesis about finding artist suggestions and predict successful events with machine learning.",
@@ -323,7 +322,7 @@
           "title": "This CV",
           "category": "Meteor/React Web App",
           "images": {
-            "background": "/meteor-react.png",
+            "background": "https://res.cloudinary.com/optune-me/image/upload/c_pad,h_350,q_auto:eco,w_500/v1609756219/custom/joel.oscillate.ch/meteor-react.png",
             "backgroundStyle": "top"
           },
           "icon": "cv",

@@ -141,7 +141,7 @@ const closeComment = comment => {
   })
 }
 
-export const CommentOverlay = ({ showComments, contentId }) => {
+export const CommentOverlay = ({ show, contentId }) => {
   const comments = useTracker(() => Comments.find({ contentId }).fetch(), [contentId])
 
   const containerRef = React.createRef()
@@ -164,7 +164,7 @@ export const CommentOverlay = ({ showComments, contentId }) => {
       <ContentContainer
         ref={containerRef}
         onClick={e => {
-          if (showComments) {
+          if (show) {
             const modalStyle = getModalStyle(e)
 
             const containerStyle = window.getComputedStyle(containerRef.current)
@@ -185,7 +185,7 @@ export const CommentOverlay = ({ showComments, contentId }) => {
           }
         }}
       >
-        <CommentContainer active={showComments} aria-label="comment-container" className="no-print">
+        <CommentContainer active={show} aria-label="comment-container" className="no-print">
           {comments
             .sort(sortComment)
             .filter(filterComment)
@@ -205,3 +205,5 @@ export const CommentOverlay = ({ showComments, contentId }) => {
     </Fragment>
   )
 }
+
+export default CommentOverlay

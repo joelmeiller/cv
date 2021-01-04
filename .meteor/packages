@@ -22,3 +22,4 @@ less
 accounts-password@1.6.3
 tracker@1.2.0
 static-html
+server-render
