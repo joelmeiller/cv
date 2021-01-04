@@ -30,6 +30,7 @@ const Background = styled.div`
   left: 0;
   right: 0;
 
+  background-color: var(--color-white-shadow);
   background-size: ${({ size }) => size === 'top' && 'contain' || size || 'cover'};
   background-repeat: no-repeat;
   background-position: 50% ${({ size }) => size === 'top' ? '0%' : '50%'};

@@ -14,7 +14,6 @@ const FooterContainer = styled.div`
   position: relative;
   width: 100%;
   background-color: var(--color-black);
-  margin-top: var(--size-64);
   padding: 0 var(--size-64);
 
   @media print {
