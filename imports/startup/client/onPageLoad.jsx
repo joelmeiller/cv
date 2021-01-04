@@ -6,8 +6,8 @@ import { hydrate } from 'react-dom'
 import { onPageLoad } from 'meteor/server-render'
 
 // Components
-import App from '../../ui/App'
+import { App } from '../../ui/App'
 
 onPageLoad(() => {
-  hydrate(<App content={window.__CONTENT_DATA__} />, document.getElementById('react-target'))
+  hydrate(<App contentData={window.__CONTENT_DATA__} />, document.getElementById('react-target'))
 })

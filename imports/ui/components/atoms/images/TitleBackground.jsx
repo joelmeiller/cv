@@ -9,6 +9,5 @@ export const TitleBackground = styled.div`
   background-size: cover;
   background-position: 75% 50%;
   background-image: url(${({ picture }) => picture});
-  opacity: 0.85
-  filter: blur(4px);
+  opacity: 0.85;
 `

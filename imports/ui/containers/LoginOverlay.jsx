@@ -14,7 +14,7 @@ export const LoginOverlay = ({ onClose }) => {
       onLogin={(values) => {
         Meteor.loginWithPassword(values.user, values.password, (error) => {
           if (error) {
-            message.error('Login failed')
+            message.error('Log in failed')
           } else {
             message.success('Logged in')
           }

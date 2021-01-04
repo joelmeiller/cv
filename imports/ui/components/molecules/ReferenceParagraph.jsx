@@ -12,7 +12,7 @@ const ParagraphContainer = styled.div`
   position: relative;
   width: 100%;
   height: 350px;
-  background-color: ${({ dark }) => dark ? 'var(--color-black)' : '#FFFFFF'}
+  background: ${({ dark }) => dark ? 'var(--color-black)' : '#FFFFFF'};
 
   @media ${MediaSmall} {
     height: 280px;
@@ -20,6 +20,7 @@ const ParagraphContainer = styled.div`
 
   @media print {
     height: 250px;
+    background: #FFFFFF;
   }
 `
 
@@ -30,10 +31,9 @@ const Background = styled.div`
   left: 0;
   right: 0;
 
-  background-color: var(--color-white-shadow);
   background-size: ${({ size }) => size === 'top' && 'contain' || size || 'cover'};
   background-repeat: no-repeat;
-  background-position: 50% ${({ size }) => size === 'top' ? '0%' : '50%'};
+  background-position: 50% ${({ size }) => size === 'top' ? '15%' : '50%'};
   background-image: url(${({ picture }) => picture});
   margin: ${({ size }) => size === 'contain' ? 'var(--size-16) var(--size-16) var(--size-64)': 0};
   z-index: 1;

@@ -36,15 +36,15 @@ onPageLoad(async (sink) => {
 
     try {
       /*
-       * Get content
+       * Get content data
        */
 
-      const content = Contents.findOne({ versionNr: { $gte: 4 } }, { sort: { versionNr: -1 } })
+      const contentData = Contents.findOne({ versionNr: { $gte: 4 }, language: 'en' }, { sort: { versionNr: -1 } })
 
-      if (content) {
-        console.log('***** LOADED VERSION NR *****', content.versionNr)
+      if (contentData) {
+        console.log('***** LOADED VERSION NR *****', contentData.versionNr)
 
-        sink.appendToBody(`<script>window.__CONTENT_DATA__ = ${JSON.stringify(content)}</script>`)
+        sink.appendToBody(`<script>window.__CONTENT_DATA__ = ${JSON.stringify(contentData)}</script>`)
       }
 
       /*
@@ -56,7 +56,7 @@ onPageLoad(async (sink) => {
           'react-target',
           renderToString(
             <StyleSheetManager sheet={sheet.instance}>
-              <App content={content} />
+              <App contentData={contentData} />
             </StyleSheetManager>
           )
         )

@@ -12,7 +12,7 @@ import '/imports/startup/server/onPageLoad'
 const SHOULD_RELOAD = true
 
 // Initial content
-import content from './content.json'
+import contents from './content.json'
 
 Meteor.startup(() => {
   // CDN Setup
@@ -40,15 +40,23 @@ Meteor.startup(() => {
     }
 
     // Load content
-    const existingContentVersion = Contents.findOne({ versionNr: content.versionNr })
-
-    if (SHOULD_RELOAD || !existingContentVersion) {
-      Contents.upsert({ _id: existingContentVersion?._id }, {
-        $set: {
-          versionTimestamp: new Date(),
-          ...content,
-        },
+    contents.forEach((content) => {
+      const existingContentVersion = Contents.findOne({
+        versionNr: content.versionNr,
+        language: content.language,
       })
-    }
+
+      if (SHOULD_RELOAD || !existingContentVersion) {
+        Contents.upsert(
+          { _id: existingContentVersion?._id },
+          {
+            $set: {
+              versionTimestamp: new Date(),
+              ...content,
+            },
+          }
+        )
+      }
+    })
   })
 })

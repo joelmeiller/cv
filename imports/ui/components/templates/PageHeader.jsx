@@ -9,8 +9,8 @@ import { TitleBackground } from '../atoms/images/TitleBackground'
 // Styled
 import styled from 'styled-components'
 
-const HeaderContainer = styled.div`
-  width: inherit;
+const PageHeaderContainer = styled.div`
+  width: 100%;
   height: var(--size-hero-height);
   position: relative;
   display: flex;
@@ -80,8 +80,10 @@ const Description = styled.h2`
 `
 
 export const PageHeader = ({ name, description, backgroundPicture, profilePicture, profilePictureAccent }) => (
-    <HeaderContainer>
+    <PageHeaderContainer>
+      
       <TitleBackground picture={backgroundPicture} className="no-print"/>
+
       <PersonContainer>
         <StyledProfilePicture profilePicture={profilePicture} profilePictureAccent={profilePictureAccent} />
 
@@ -90,7 +92,7 @@ export const PageHeader = ({ name, description, backgroundPicture, profilePictur
           {description && <Description className="font-header-subtitle">{description}</Description>}
         </PersonInfoContainer>
       </PersonContainer>
-    </HeaderContainer>
+    </PageHeaderContainer>
 )
 
 PageHeader.propTypes = {

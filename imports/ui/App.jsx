@@ -21,26 +21,27 @@ const CommentOverlay = React.lazy(() => import('./containers/CommentOverlay'))
 
 const sortSections = (a, b) => a.sequenceNr - b.sequenceNr
 
-const AppUserContext = ({ contentId }) => {
+const AppUserContext = ({ contentId, language, onChangeLanugage }) => {
   const [showLogin, setShowLogin] = useState(false)
   const [showComments, setShowComments] = useState(false)
 
   const user = useTracker(() => Meteor.user(), [])
 
-  console.log('USER', user)
-  
   return (
-    <Suspense fallback={<PageLoading />}>
+    <Suspense fallback={<div />}>
       <Navigation
         user={user}
         showComments={showComments}
+        language={language}
         onShowComments={() => setShowComments(!showComments)}
         onLogin={() => setShowLogin(true)}
         onLogout={() => {
           setShowLogin(false)
           setShowComments(false)
           Meteor.logout()
+          message('You are logged out')
         }}
+        onChangeLanugage={onChangeLanugage}
         onPrint={() => window.print()}
       />
 
@@ -51,17 +52,33 @@ const AppUserContext = ({ contentId }) => {
   )
 }
 
-const App = ({ content }) => {
+export const App = ({ contentData }) => {
   const [ssrDone, setSsrDone] = useState(false)
   useEffect(() => {
     setSsrDone(true)
   }, [])
 
-  if (content) console.log('***** LOADED VERSION NR *****', content.versionNr)
+  const [content, setContent] = useState(contentData)
+
+  if (content && ssrDone) console.log('***** LOADED VERSION NR *****', content.versionNr)
+
+  const handleChangeLanguage = (language) => {
+    const newContent = Contents.findOne(
+      { versionNr: { $gte: 4 }, language },
+      { sort: { versionNr: -1 } }
+    )
+    !!newContent && setContent(newContent)
+  }
 
   return (
     <Fragment>
-      {ssrDone && <AppUserContext contentId={content._id} />}
+      {ssrDone && (
+        <AppUserContext
+          contentId={content._id}
+          language={content.language}
+          onChangeLanugage={handleChangeLanguage}
+        />
+      )}
 
       <PageHeader
         backgroundPicture={content.backgroundPicture}
@@ -70,20 +87,22 @@ const App = ({ content }) => {
         description={content.description}
         name={content.name}
       />
-      <PageContent sections={content.sections.sort(sortSections)} />
 
-      <PageFooter backgroundPicture={content.backgroundPicture} footer={content.footer} />
+      {ssrDone ? (
+        <Fragment>
+          <PageContent sections={content.sections.sort(sortSections)} />
+
+          <PageFooter backgroundPicture={content.backgroundPicture} footer={content.footer} />
+        </Fragment>
+      ) : (
+        <PageLoading />
+      )}
     </Fragment>
   )
 }
 
-const AppContainer = ({ content }) => {
-  // const content = useTracker(
-  //   () => Contents.findOne({ versionNr: { $gte: 4 } }, { sort: { versionNr: -1 } }),
-  //   []
-  // )
-
-  return !!content ? <App content={content} /> : <PageLoading />
+const AppContainer = ({ contentData }) => {
+  return <App contentData={contentData} />
 }
 
 export default AppContainer
