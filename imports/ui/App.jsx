@@ -69,7 +69,7 @@ export const App = ({ contentData }) => {
     )
     !!newContent && setContent(newContent)
   }
-
+  
   return (
     <Fragment>
       {ssrDone && (
@@ -82,10 +82,12 @@ export const App = ({ contentData }) => {
 
       <PageHeader
         backgroundPicture={content.backgroundPicture}
-        profilePicture={content.profilePicture}
-        profilePictureAccent={content.profilePictureAccent}
         description={content.description}
         name={content.name}
+        profilePicture={content.profilePicture}
+        profilePictureAccent={content.profilePictureAccent}
+        profilePictureAccentPreview={content.profilePictureAccentPreview}
+        profilePicturePreview={content.profilePicturePreview}
       />
 
       {ssrDone ? (

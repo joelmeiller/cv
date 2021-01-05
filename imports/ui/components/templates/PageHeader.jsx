@@ -79,25 +79,30 @@ const Description = styled.h2`
   }
 `
 
-export const PageHeader = ({ name, description, backgroundPicture, profilePicture, profilePictureAccent }) => (
-    <PageHeaderContainer>
-      
-      <TitleBackground picture={backgroundPicture} className="no-print"/>
+export const PageHeader = ({
+  name,
+  description,
+  backgroundPicture,
+  profilePicturePreview,
+  profilePicture,
+  profilePictureAccent,
+  profilePictureAccentPreview,
+}) => (
+  <PageHeaderContainer>
+    <TitleBackground picture={backgroundPicture} className="no-print" />
 
-      <PersonContainer>
-        <StyledProfilePicture profilePicture={profilePicture} profilePictureAccent={profilePictureAccent} />
+    <PersonContainer>
+      <StyledProfilePicture
+        profilePicturePreview={profilePicturePreview}
+        profilePicture={profilePicture}
+        profilePictureAccent={profilePictureAccent}
+        profilePictureAccentPreview={profilePictureAccentPreview}
+      />
 
-        <PersonInfoContainer>
-          <Name className="font-header-title">{name}</Name>
-          {description && <Description className="font-header-subtitle">{description}</Description>}
-        </PersonInfoContainer>
-      </PersonContainer>
-    </PageHeaderContainer>
+      <PersonInfoContainer>
+        <Name className="font-header-title">{name}</Name>
+        {description && <Description className="font-header-subtitle">{description}</Description>}
+      </PersonInfoContainer>
+    </PersonContainer>
+  </PageHeaderContainer>
 )
-
-PageHeader.propTypes = {
-  description: PropTypes.node,
-  name: PropTypes.string,
-  profilePicture: PropTypes.string,
-  profilePictureAccent: PropTypes.string,
-}
