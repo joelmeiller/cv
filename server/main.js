@@ -12,7 +12,10 @@ import '/imports/startup/server/onPageLoad'
 const SHOULD_RELOAD = true
 
 // Initial content
-import contents from './content.json'
+import contentEn from './content.en.json'
+import contentDe from './content.de.json'
+
+const contents = [contentEn, contentDe]
 
 Meteor.startup(() => {
   // CDN Setup
