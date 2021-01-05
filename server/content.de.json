@@ -3,7 +3,7 @@
   "language": "de",
   "profilePicture": "https://res.cloudinary.com/optune-me/image/upload/v1609756219/custom/joel.oscillate.ch/profilePicture.jpg",
   "profilePictureAccent": "https://res.cloudinary.com/optune-me/image/upload/v1609756219/custom/joel.oscillate.ch/profilePictureHover.jpg",
-  "backgroundPicture": "https://res.cloudinary.com/optune-me/image/upload/b_rgb:000000,e_blur:700,o_70,w_1440,c_fill,g_face:center/v1609756219/custom/joel.oscillate.ch/headerBackground.jpg",
+  "backgroundPicture": "https://res.cloudinary.com/optune-me/image/upload/v1609872971/custom/joel.oscillate.ch/headerBackground_web.jpg",
   "name": "Joël Meiller",
   "description": "Als leidenschaftlicher Full-Stack Webentwickler, Service Designer, Software Architekt und CTO ❤️ ich die digitale Zukunft mitzugestalten.",
   "sections": [
@@ -42,11 +42,11 @@
           "location": "Zürich, Schweiz",
           "text": "Oscillate gestaltet die digitale Zukunft der Unterhaltungsindustrie.",
           "list": [
-            "Aufbau aller Produkte um den OpTuNE Traum in die Realität umzusetzen",
-            "Umsetzung mehrerer professioneller Web Applikationen von Grund auf inklusive der Software Architektur, Umgebungssetup, Testing und Deployment mit React, Meteor und MongoDB",
-            "Mitwirken bei den stragetischen Entscheiden, bei der Produkt Entwicklung und bei den Sales & Marketing Initiativen",
+            "Aufbau aller Produkte, um den OpTuNE Traum in die Realität umzusetzen",
+            "Implementierung mehrerer professioneller Web Applikationen von Grund auf inklusive Software Architektur, Umgebungssetup, Testing und Deployment mit React, Meteor und MongoDB",
+            "Mitwirken bei den strategischen Entscheiden, bei der Produkt Entwicklung und bei den Sales & Marketing Initiativen",
             "Vorbereiten der KPIs für die Investorenrunden und User Research unter Verwendung von Segment, Intercom und Google Analytics (GA)",
-            "Führen von Bewerbungsgesprächen und Anstellung von neuen Entwickler im In- und Ausland.",
+            "Führen von Bewerbungsgesprächen und Anstellung von neuen Entwicklerinnen und Entwickler im In- und Ausland.",
             "Leiten meines eigenen internationalen Teams"
           ]
         },
@@ -57,9 +57,9 @@
           "location": "Zürich, Schweiz",
           "list": [
             "Design der API Schnittstellen für die e-Banking und Client Advisor Online Services",
-            "Implementieren von Hochleistungsservices für das Transaktionsreporting als Kern der einer Grossbank",
+            "Implementieren von Hochleistungsservices für das Transaktionsreporting im IT-Kern der Grossbank",
             "Involviert in Software Architektur Entscheide und Design für die e-Banking Lösungen",
-            "Umgang mit Big Data Herausforderungen beim Schreiben von komplexen und dennoch performanten SQL Queries für DB2 Datenbanken"
+            "Umgang mit Big Data Herausforderungen beim Schreiben von komplexen und performanten SQL Queries für DB2 Datenbanken"
           ]
         }
       ],
@@ -268,7 +268,7 @@
             "screen": "",
             "logo": "https://res.cloudinary.com/optune-me/image/upload/v1562921014/artist-booking-app/logo-onstage.svg"
           },
-          "text": "Die Künstlerbuchungsplatform, um den ferfekten Akt für einen Event zu buchen.",
+          "text": "Die Künstlerbuchungsplatform, um den perfekten Akt für einen Event zu buchen.",
           "links": [
             {
               "text": "www.onstage.show",
