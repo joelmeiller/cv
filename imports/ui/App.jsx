@@ -69,7 +69,7 @@ export const App = ({ contentData }) => {
     )
     !!newContent && setContent(newContent)
   }
-  
+
   return (
     <Fragment>
       {ssrDone && (
@@ -90,15 +90,8 @@ export const App = ({ contentData }) => {
         profilePicturePreview={content.profilePicturePreview}
       />
 
-      {ssrDone ? (
-        <Fragment>
-          <PageContent sections={content.sections.sort(sortSections)} />
-
-          <PageFooter backgroundPicture={content.backgroundPicture} footer={content.footer} />
-        </Fragment>
-      ) : (
-        <PageLoading />
-      )}
+      <PageContent sections={content.sections.sort(sortSections)} />
+      <PageFooter backgroundPicture={content.backgroundPicture} footer={content.footer} />
     </Fragment>
   )
 }

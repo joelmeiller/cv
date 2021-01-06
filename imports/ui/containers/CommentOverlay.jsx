@@ -12,7 +12,7 @@ import { Method } from '/imports/api/methods'
 import { CommentCard } from '../components/organisms/CommentCard'
 import { CommentForm } from '../components/organisms/CommentForm'
 
-import { ColorHaiti, MediaSmall } from '../styles/variables'
+import { MediaSmall } from '../styles/variables'
 
 const CommentContainer = styled.div`
   position: absolute;
@@ -66,7 +66,7 @@ const getUser = (userId) => {
         color: user.profile.color,
         role: user.profile.role,
       }
-    : { initials: '-', name: 'Unkown', role: 'none', color: ColorHaiti }
+    : { initials: '-', name: 'Unkown', role: 'none', color: 'var(--color-haiti)' }
 }
 
 let currentUserId

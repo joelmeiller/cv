@@ -7,6 +7,7 @@ const Container = styled.button`
   cursor: pointer;
   border: none;
   border-radius: 50%;
+  background: var(--color-black-shadow);
   overflow: hidden;
 
   .preview-image {

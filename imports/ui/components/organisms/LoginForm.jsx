@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Icon, Input, Button, Modal } from 'antd'
+import { Form, Input, Button, Modal } from 'antd'
 import UserOutlined from '@ant-design/icons/UserOutlined'
 import LockOutlined from '@ant-design/icons/LockOutlined'
 

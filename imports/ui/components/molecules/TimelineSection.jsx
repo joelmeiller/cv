@@ -8,8 +8,6 @@ import { Icon } from '../atoms/icons/index'
 // styling
 import styled from 'styled-components'
 
-import { ColorAccent } from '../../styles/variables'
-
 const TimelineContainer = styled.div`
   margin-top: 85px;
 

@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { ColorTextPrimary } from '../../../styles/variables'
-
 const StyledIconText = styled.div`
   display: flex;
   margin-right: 20px;
@@ -10,7 +8,7 @@ const StyledIconText = styled.div`
 
 const IconWrapper = styled.p`
   margin-right: 10px;
-  color: ${ColorTextPrimary};
+  color: var(--color-text-primary);
 `
 
 export const IconText = ({ Icon, text }) => {

@@ -15,7 +15,7 @@ const PageContainer = styled.ul`
   position: relative;
   background-color: var(--color-white);
   padding: var(--size-32) var(--size-64) var(--size-64);
-  margin-bottom: 0;
+  margin: 0;
 
   list-style: none;
 
