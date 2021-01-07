@@ -10,10 +10,20 @@ import { ProfilePicture } from '../atoms/images/ProfilePicture'
 import { TitleBackground } from '../atoms/images/TitleBackground'
 
 // Styled
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 // Constatns
 import { MediaSmall } from '../../styles/variables'
+
+const FadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`
 
 const PageHeaderContainer = styled.div`
   width: 100%;
@@ -53,6 +63,8 @@ const ContactContainer = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 9;
+  opacity: 0;
+  animation: ${FadeIn} 0.5s ease-in forwards 0.3s;
 
   bottom: -27px;
 
@@ -157,7 +169,7 @@ const ContactButton = styled.a`
   }
 `
 
-export const PageHeader = ({ header, isPersonalCV }) => (
+export const PageHeader = ({ header, isPersonalCV, ssrDone }) => (
   <PageHeaderContainer>
     <TitleBackground picture={header.backgroundPicture} className="no-print" />
 
@@ -189,8 +201,8 @@ export const PageHeader = ({ header, isPersonalCV }) => (
       </PersonInfoContainer>
     </PersonContainer>
 
-    <ContactContainer>
+    {ssrDone && <ContactContainer>
       <ContactButton type="primary" href={`mailto:${header.email}`} target="_blank" className="font-24-bold">{header.buttonText}</ContactButton>
-    </ContactContainer>
+    </ContactContainer>}
   </PageHeaderContainer>
 )

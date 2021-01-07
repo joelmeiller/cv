@@ -30,7 +30,7 @@ onPageLoad(async (sink) => {
     const pageProtocol = request.headers['x-forwarded-proto'] || 'http'
 
     if (Meteor.isProduction && pageProtocol === 'http') {
-      const pageUrl = `${pageProtocol}://${request.headers.host}`
+      const pageUrl = `https://${request.headers.host}${request.url.pathname}`
       sink.redirect(pageUrl, 301)
     } else {
       console.log()

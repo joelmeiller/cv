@@ -82,7 +82,7 @@ export const App = ({ contentData, pathname }) => {
         />
       )}
 
-      <PageHeader header={content.header} isPersonalCV={isPersonalCV} />
+      <PageHeader header={content.header} isPersonalCV={isPersonalCV} ssrDone={ssrDone} />
       <PageContent sections={content.sections.sort(sortSections)} />
       <PageFooter
         backgroundPicture={content.header.backgroundPicture}
