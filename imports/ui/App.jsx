@@ -69,7 +69,7 @@ export const App = ({ contentData, pathname }) => {
     )
     !!newContent && setContent(newContent)
   }
-  
+
   const isPersonalCV = pathname.endsWith('cv')
 
   return (
@@ -82,7 +82,7 @@ export const App = ({ contentData, pathname }) => {
         />
       )}
 
-      <PageHeader header={content.header} />
+      <PageHeader header={content.header} isPersonalCV={isPersonalCV} />
       <PageContent sections={content.sections.sort(sortSections)} />
       <PageFooter
         backgroundPicture={content.header.backgroundPicture}

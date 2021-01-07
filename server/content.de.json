@@ -9,6 +9,14 @@
     "backgroundPicture": "https://res.cloudinary.com/optune-me/image/upload/v1609872971/custom/joel.oscillate.ch/headerBackground_web.jpg",
     "name": "Joël Meiller",
     "email": "joel@oscillate.ch",
+    "website": {
+      "linkText": "joel.oscillate.ch",
+      "linkUrl": "https://joel.oscillate.ch"
+    },
+    "websitePersonal": {
+      "linkText": "joel.oscillate.ch",
+      "linkUrl": "https://joel.oscillate.ch/cv"
+    },
     "buttonText": "Kontaktiere mich",
     "description": "Als leidenschaftlicher Full-Stack Webentwickler, Service Designer, Software Architekt und CTO ❤️ ich die digitale Zukunft mitzugestalten."
   },
@@ -257,7 +265,7 @@
             "screen": "",
             "logo": "https://res.cloudinary.com/optune-me/image/upload/v1598618825/onescreener-v2/app/onescreener-logo-new.svg"
           },
-          "text": "Alles auf einer einfachen Promo-Page. Eine Page. Eine Domain. Zusammengestellt in 10 Minuten.",
+          "text": "Alles auf einer einfachen Promo-Page. Eine Website. Eine Domain. Zusammengestellt in 10 Minuten.",
           "links": [
             {
               "text": "www.onescreener.com",

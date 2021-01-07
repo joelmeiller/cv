@@ -9,6 +9,14 @@
     "backgroundPicture": "https://res.cloudinary.com/optune-me/image/upload/v1609872971/custom/joel.oscillate.ch/headerBackground_web.jpg",
     "name": "Joël Meiller",
     "email": "joel@oscillate.ch",
+    "website": {
+      "linkText": "joel.oscillate.ch",
+      "linkUrl": "https://joel.oscillate.ch"
+    },
+    "websitePersonal": {
+      "linkText": "joel.oscillate.ch",
+      "linkUrl": "https://joel.oscillate.ch/cv"
+    },
     "buttonText": "Get in touch",
     "description": "As passionate full-stack web developer, service designer, software architect and CTO I ❤️ to help creating the digital future."
   },
@@ -257,7 +265,7 @@
             "screen": "",
             "logo": "https://res.cloudinary.com/optune-me/image/upload/v1598618825/onescreener-v2/app/onescreener-logo-new.svg"
           },
-          "text": "The brand-forward digital artist card creator.",
+          "text": "All On One Simple Promo Page. One Website. One Domain. Built in 10 minutes.",
           "links": [
             {
               "text": "www.onescreener.com",
