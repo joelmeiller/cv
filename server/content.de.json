@@ -261,7 +261,7 @@
           "type": "oscillate",
           "category": "Web Page Generator",
           "images": {
-            "background": "https://res.cloudinary.com/optune-me/image/upload/c_lfill,f_auto,h_350,q_auto:best,w_260/v1609762371/custom/joel.oscillate.ch/background_onescreener_reference.png",
+            "background": "https://res.cloudinary.com/optune-me/image/upload/v1609762371/custom/joel.oscillate.ch/background_onescreener_reference.png",
             "screen": "",
             "logo": "https://res.cloudinary.com/optune-me/image/upload/v1598618825/onescreener-v2/app/onescreener-logo-new.svg"
           },
