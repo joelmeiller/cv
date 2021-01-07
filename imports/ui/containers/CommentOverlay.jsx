@@ -20,6 +20,7 @@ const CommentContainer = styled.div`
   bottom: 0;
   right: 0;
   left: 0;
+  cursor: pointer;
   z-index: 999;
 
   display: ${({ active }) => (active ? 'block' : 'none')};

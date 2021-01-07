@@ -10,40 +10,27 @@ function hasErrors(fieldsError) {
 const CommentFormComponent = ({ onSave, comment, onClose }) => {
   const [form] = Form.useForm()
 
-  useEffect(() => {
-    // To disabled submit button at the beginning.
-    form.validateFields()
-  }, [])
-
-  const handleSubmit = () => {
-    form.validateFields((error, values) => {
-      if (!error) onSave(values)
-    })
+  const handleSave = (values) => {
+    onSave(values)
+    form.resetFields()
   }
 
   useEffect(() => {
     form.setFieldsValue({ text: comment.text })
   }, [comment._id])
 
-  const { getFieldsError, getFieldError, isFieldTouched } = form
-
-  // Only show error after a field is touched.
-  const textError = isFieldTouched('text') && getFieldError('text')
-
   return (
-    <Form onFinish={handleSubmit} name="comment-form" form={form}>
+    <Form onFinish={handleSave} name="comment-form" form={form}>
       <Form.Item
         name="text"
-        validateStatus={textError ? 'error' : ''}
-        help={textError || ''}
-        rules={[{ required: true }]}
+        rules={[{ required: true, message: 'Please, add a valid comment', }]}
       >
         <TextArea autosize={{ minRows: 3, maxRows: 5 }} />
       </Form.Item>
 
       <Row>
         <Col span={24} style={{ textAlign: 'right' }}>
-          <Button type="primary" htmlType="submit" disabled={hasErrors(getFieldsError())}>
+          <Button type="primary" htmlType="submit" >
             {!!comment._id ? 'Save Comment' : 'Add Comment'}
           </Button>
 
