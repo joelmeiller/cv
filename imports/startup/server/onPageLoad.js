@@ -27,62 +27,69 @@ onPageLoad(async (sink) => {
   const isHealthChecker = userAgent.startsWith('ELB-HealthChecker')
 
   if (!isHealthChecker) {
-    console.log()
-    console.log('******************')
-    console.log('*** 🧨 REQUEST ***')
-    console.log('******************')
+    const pageProtocol = request.headers['x-forwarded-proto'] || 'http'
 
-    let sheet = new ServerStyleSheet()
+    if (Meteor.isProduction && pageProtocol === 'http') {
+      const pageUrl = `${pageProtocol}://${request.headers.host}`
+      sink.redirect(pageUrl, 301)
+    } else {
+      console.log()
+      console.log('******************')
+      console.log('*** 🧨 REQUEST ***')
+      console.log('******************')
 
-    try {
-      /*
-       * Get content data
-       */
+      let sheet = new ServerStyleSheet()
 
-      const contentData = Contents.findOne(
-        { versionNr: { $gte: 4 }, language: 'en' },
-        { sort: { versionNr: -1 } }
-      )
+      try {
+        /*
+         * Get content data
+         */
 
-      if (contentData) {
-        console.log('***** LOADED VERSION NR *****', contentData.versionNr)
-
-        sink.appendToBody(
-          `<script>window.__CONTENT_DATA__ = ${JSON.stringify(contentData)}</script>`
+        const contentData = Contents.findOne(
+          { versionNr: { $gte: 4 }, language: 'en' },
+          { sort: { versionNr: -1 } }
         )
-      }
 
-      /*
-       * Server side rendering of page
-       */
+        if (contentData) {
+          console.log('***** LOADED VERSION NR *****', contentData.versionNr)
 
-      const pathname = request.url.pathname
-      
-      if (!rangeErrorThrown) {
-        sink.renderIntoElementById(
-          'react-target',
-          renderToString(
-            <StyleSheetManager sheet={sheet.instance}>
-              <App contentData={contentData} pathname={pathname} />
-            </StyleSheetManager>
+          sink.appendToBody(
+            `<script>window.__CONTENT_DATA__ = ${JSON.stringify(contentData)}</script>`
           )
-        )
-        sink.appendToHead(sheet.getStyleTags())
-      }
-    } catch (exception) {
-      if (exception.name === 'RangeError') {
-        if (!rangeErrorThrown) {
-          console.error(`💥 ${new Date().toISOString()} - NODE BUFFER EXCEPTION:`, exception)
-          rangeErrorThrown = true
         }
-      } else {
-        console.error(`💥 ${new Date().toISOString()} - PAGE EXCEPTION:`, exception)
-      }
 
-      throw 'Page error'
-    } finally {
-      sheet.seal()
-      sheet = undefined
+        /*
+         * Server side rendering of page
+         */
+
+        const pathname = request.url.pathname
+
+        if (!rangeErrorThrown) {
+          sink.renderIntoElementById(
+            'react-target',
+            renderToString(
+              <StyleSheetManager sheet={sheet.instance}>
+                <App contentData={contentData} pathname={pathname} />
+              </StyleSheetManager>
+            )
+          )
+          sink.appendToHead(sheet.getStyleTags())
+        }
+      } catch (exception) {
+        if (exception.name === 'RangeError') {
+          if (!rangeErrorThrown) {
+            console.error(`💥 ${new Date().toISOString()} - NODE BUFFER EXCEPTION:`, exception)
+            rangeErrorThrown = true
+          }
+        } else {
+          console.error(`💥 ${new Date().toISOString()} - PAGE EXCEPTION:`, exception)
+        }
+
+        throw 'Page error'
+      } finally {
+        sheet.seal()
+        sheet = undefined
+      }
     }
   }
   return sink
