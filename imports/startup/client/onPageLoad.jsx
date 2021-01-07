@@ -9,5 +9,8 @@ import { onPageLoad } from 'meteor/server-render'
 import { App } from '../../ui/App'
 
 onPageLoad(() => {
-  hydrate(<App contentData={window.__CONTENT_DATA__} />, document.getElementById('react-target'))
+  hydrate(
+    <App contentData={window.__CONTENT_DATA__} pathname={window.location.pathname} />,
+    document.getElementById('react-target')
+  )
 })

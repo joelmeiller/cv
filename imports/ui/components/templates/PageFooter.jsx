@@ -47,22 +47,26 @@ const Title = styled.h1`
   }
 `
 
-export const PageFooter = ({ backgroundPicture, footer }) => (
-  <FooterContainer>
-    <FooterBackground picture={backgroundPicture} className="no-print" />
+export const PageFooter = ({ backgroundPicture, footer, isPersonalCV }) => {
+  const footerParagraphs = isPersonalCV ? footer.paragraphsPersonal : footer.paragraphs
+  
+  return (
+    <FooterContainer>
+      <FooterBackground picture={backgroundPicture} className="no-print" />
 
-    <Section>
-      <Title className="font-20-bold">{footer.title}</Title>
-      <Row>
-      {footer.paragraphs.map((paragraph, index) => (
-        <Column third key={`footer-${index}`}>
-          <ContactParagraph {...paragraph} />
-        </Column>
-        ))}
-      </Row>
-    </Section>
-  </FooterContainer>
-)
+      <Section>
+        <Title className="font-20-bold">{footer.title}</Title>
+        <Row>
+          {footerParagraphs.map((paragraph, index) => (
+            <Column third key={`footer-${index}`}>
+              <ContactParagraph {...paragraph} />
+            </Column>
+          ))}
+        </Row>
+      </Section>
+    </FooterContainer>
+  )
+}
 
 PageFooter.propTypes = {
   footer: PropTypes.shape({

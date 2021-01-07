@@ -39,24 +39,31 @@ onPageLoad(async (sink) => {
        * Get content data
        */
 
-      const contentData = Contents.findOne({ versionNr: { $gte: 4 }, language: 'en' }, { sort: { versionNr: -1 } })
+      const contentData = Contents.findOne(
+        { versionNr: { $gte: 4 }, language: 'en' },
+        { sort: { versionNr: -1 } }
+      )
 
       if (contentData) {
         console.log('***** LOADED VERSION NR *****', contentData.versionNr)
 
-        sink.appendToBody(`<script>window.__CONTENT_DATA__ = ${JSON.stringify(contentData)}</script>`)
+        sink.appendToBody(
+          `<script>window.__CONTENT_DATA__ = ${JSON.stringify(contentData)}</script>`
+        )
       }
 
       /*
        * Server side rendering of page
        */
 
+      const pathname = request.url.pathname
+      
       if (!rangeErrorThrown) {
         sink.renderIntoElementById(
           'react-target',
           renderToString(
             <StyleSheetManager sheet={sheet.instance}>
-              <App contentData={contentData} />
+              <App contentData={contentData} pathname={pathname} />
             </StyleSheetManager>
           )
         )

@@ -79,29 +79,23 @@ const Description = styled.h2`
   }
 `
 
-export const PageHeader = ({
-  name,
-  description,
-  backgroundPicture,
-  profilePicturePreview,
-  profilePicture,
-  profilePictureAccent,
-  profilePictureAccentPreview,
-}) => (
+export const PageHeader = ({ header }) => (
   <PageHeaderContainer>
-    <TitleBackground picture={backgroundPicture} className="no-print" />
+    <TitleBackground picture={header.backgroundPicture} className="no-print" />
 
     <PersonContainer>
       <StyledProfilePicture
-        profilePicturePreview={profilePicturePreview}
-        profilePicture={profilePicture}
-        profilePictureAccent={profilePictureAccent}
-        profilePictureAccentPreview={profilePictureAccentPreview}
+        profilePicturePreview={header.profilePicturePreview}
+        profilePicture={header.profilePicture}
+        profilePictureAccent={header.profilePictureAccent}
+        profilePictureAccentPreview={header.profilePictureAccentPreview}
       />
 
       <PersonInfoContainer>
-        <Name className="font-header-title">{name}</Name>
-        {description && <Description className="font-header-subtitle">{description}</Description>}
+        <Name className="font-header-title">{header.name}</Name>
+        {header.description && (
+          <Description className="font-header-subtitle">{header.description}</Description>
+        )}
       </PersonInfoContainer>
     </PersonContainer>
   </PageHeaderContainer>

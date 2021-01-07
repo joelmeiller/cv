@@ -1,13 +1,17 @@
 {
   "versionNr": 5,
   "language": "en",
-  "profilePicture": "https://res.cloudinary.com/optune-me/image/upload/v1609756219/custom/joel.oscillate.ch/profilePicture.jpg",
-  "profilePicturePreview": "https://res.cloudinary.com/optune-me/image/upload/v1609873233/custom/joel.oscillate.ch/profilePicture_preview.jpg",
-  "profilePictureAccent": "https://res.cloudinary.com/optune-me/image/upload/v1609756219/custom/joel.oscillate.ch/profilePictureHover.jpg",
-  "profilePictureAccentPreview": "https://res.cloudinary.com/optune-me/image/upload/v1609873234/custom/joel.oscillate.ch/profilePictureHover_preview.jpg",
-  "backgroundPicture": "https://res.cloudinary.com/optune-me/image/upload/v1609872971/custom/joel.oscillate.ch/headerBackground_web.jpg",
-  "name": "Joël Meiller",
-  "description": "As passionate full-stack web developer, service designer, software architect and CTO I ❤️ to help creating the digital future.",
+  "header": {
+    "profilePicture": "https://res.cloudinary.com/optune-me/image/upload/v1609756219/custom/joel.oscillate.ch/profilePicture.jpg",
+    "profilePicturePreview": "https://res.cloudinary.com/optune-me/image/upload/v1609873233/custom/joel.oscillate.ch/profilePicture_preview.jpg",
+    "profilePictureAccent": "https://res.cloudinary.com/optune-me/image/upload/v1609756219/custom/joel.oscillate.ch/profilePictureHover.jpg",
+    "profilePictureAccentPreview": "https://res.cloudinary.com/optune-me/image/upload/v1609873234/custom/joel.oscillate.ch/profilePictureHover_preview.jpg",
+    "backgroundPicture": "https://res.cloudinary.com/optune-me/image/upload/v1609872971/custom/joel.oscillate.ch/headerBackground_web.jpg",
+    "name": "Joël Meiller",
+    "email": "joel@oscillate.ch",
+    "buttonText": "Get in touch",
+    "description": "As passionate full-stack web developer, service designer, software architect and CTO I ❤️ to help creating the digital future."
+  },
   "sections": [
     {
       "type": "TEXT_COLUMNS",
@@ -395,7 +399,12 @@
       },
       {
         "title": "Address",
-        "address": ["Joël Meiller", "Mühlestrasse 7", "8157 Dielsdorf", "Zürich - Switzerland"],
+        "address": [
+          "Joël Meiller",
+          "Mühlestrasse 7",
+          "8157 Dielsdorf",
+          "Zürich - Switzerland"
+        ],
         "links": [
           {
             "type": "email",
@@ -403,6 +412,43 @@
             "url": "mailto:joel@oscillate.ch"
           }
         ]
+      }
+    ],
+    "paragraphsPersonal": [
+      {
+        "title": "Connect",
+        "links": [
+          {
+            "type": "linkedIn",
+            "text": "Joel@LinkedIn",
+            "url": "https://www.linkedin.com/in/joel-meiller-810348a5/"
+          },
+          {
+            "type": "github",
+            "text": "Joel@Github",
+            "url": "https://github.com/joelmeiller"
+          }
+        ]
+      },
+      {
+        "title": "Contact",
+        "links": [
+          {
+            "type": "email",
+            "text": "joel@oscillate.ch",
+            "url": "mailto:joel@oscillate.ch"
+          }
+        ]
+      },
+      {
+        "title": "Address",
+        "address": [
+          "Joël Meiller",
+          "Mühlestrasse 7",
+          "8157 Dielsdorf",
+          "Zürich - Switzerland"
+        ],
+        "links": []
       }
     ]
   }

@@ -52,7 +52,7 @@ const AppUserContext = ({ contentId, language, onChangeLanugage }) => {
   )
 }
 
-export const App = ({ contentData }) => {
+export const App = ({ contentData, pathname }) => {
   const [ssrDone, setSsrDone] = useState(false)
   useEffect(() => {
     setSsrDone(true)
@@ -69,6 +69,8 @@ export const App = ({ contentData }) => {
     )
     !!newContent && setContent(newContent)
   }
+  
+  const isPersonalCV = pathname.endsWith('cv')
 
   return (
     <Fragment>
@@ -80,24 +82,15 @@ export const App = ({ contentData }) => {
         />
       )}
 
-      <PageHeader
-        backgroundPicture={content.backgroundPicture}
-        description={content.description}
-        name={content.name}
-        profilePicture={content.profilePicture}
-        profilePictureAccent={content.profilePictureAccent}
-        profilePictureAccentPreview={content.profilePictureAccentPreview}
-        profilePicturePreview={content.profilePicturePreview}
-      />
-
+      <PageHeader header={content.header} />
       <PageContent sections={content.sections.sort(sortSections)} />
-      <PageFooter backgroundPicture={content.backgroundPicture} footer={content.footer} />
+      <PageFooter
+        backgroundPicture={content.header.backgroundPicture}
+        footer={content.footer}
+        isPersonalCV={isPersonalCV}
+      />
     </Fragment>
   )
 }
 
-const AppContainer = ({ contentData }) => {
-  return <App contentData={contentData} />
-}
-
-export default AppContainer
+export default App
