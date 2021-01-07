@@ -8,7 +8,7 @@
     "profilePictureAccentPreview": "https://res.cloudinary.com/optune-me/image/upload/v1609873234/custom/joel.oscillate.ch/profilePictureHover_preview.jpg",
     "backgroundPicture": "https://res.cloudinary.com/optune-me/image/upload/v1609872971/custom/joel.oscillate.ch/headerBackground_web.jpg",
     "name": "Joël Meiller",
-    "email": "joel@oscillate.ch",
+    "email": "joel.meiller@hey.com",
     "website": {
       "linkText": "joel.oscillate.ch",
       "linkUrl": "https://joel.oscillate.ch"
@@ -416,8 +416,8 @@
         "links": [
           {
             "type": "email",
-            "text": "joel@oscillate.ch",
-            "url": "mailto:joel@oscillate.ch"
+            "text": "joel.meiller@hey.com",
+            "url": "mailto:joel.meiller@hey.com"
           }
         ]
       }
@@ -443,8 +443,8 @@
         "links": [
           {
             "type": "email",
-            "text": "joel@oscillate.ch",
-            "url": "mailto:joel@oscillate.ch"
+            "text": "joel.meiller@hey.com",
+            "url": "mailto:joel.meiller@hey.com"
           }
         ]
       },
