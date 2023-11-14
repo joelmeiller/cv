@@ -15,6 +15,7 @@ const ParagraphContainer = styled.div`
 const Title = styled.h1`
   color: var(--color-text-secondary);
   text-align: center;
+  min-height: calc(3 * var(--font-size-20));
 `
 
 const RatedList = styled.ul`

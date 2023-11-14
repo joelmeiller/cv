@@ -1,5 +1,5 @@
 {
-  "versionNr": 5,
+  "versionNr": 7,
   "language": "en",
   "header": {
     "profilePicture": "https://res.cloudinary.com/optune-me/image/upload/v1609756219/custom/joel.oscillate.ch/profilePicture.jpg",
@@ -8,7 +8,7 @@
     "profilePictureAccentPreview": "https://res.cloudinary.com/optune-me/image/upload/v1609873234/custom/joel.oscillate.ch/profilePictureHover_preview.jpg",
     "backgroundPicture": "https://res.cloudinary.com/optune-me/image/upload/v1609872971/custom/joel.oscillate.ch/headerBackground_web.jpg",
     "name": "Joël Meiller",
-    "email": "joel.meiller@hey.com",
+    "email": "joel.meiller@gmail.com",
     "website": {
       "linkText": "joel.oscillate.ch",
       "linkUrl": "https://joel.oscillate.ch"
@@ -18,7 +18,7 @@
       "linkUrl": "https://joel.oscillate.ch/cv"
     },
     "buttonText": "Get in touch",
-    "description": "As passionate full-stack web developer, service designer, software architect and CTO I ❤️ to help creating the digital future."
+    "description": "As a passionate expert in the field of full-stack web development, I will take your web application to the next level 🚀"
   },
   "sections": [
     {
@@ -50,6 +50,18 @@
       "pageBreak": true,
       "paragraphs": [
         {
+          "title": "Senior IT Consultant",
+          "subtitle": "Valdon Group @ bob Finance",
+          "time": "2021 - today",
+          "location": "Zürich, Swizterland",
+          "text": "As external consultant of the Valdon Group for bob Finance, a branch of Valora Schweiz AG",
+          "list": [
+            "Front-end software architecture, UX design and development with React, Redux, Typescript, Node & Ionic",
+            "Building up an E2E Test Automation pipeline using Cypress for a complex loan application flow incl. email sending and SMS verfication",
+            "Implementing Azure DevOps services for deployment with pipelines and tracking with AppInsights"
+          ]
+        },
+        {
           "title": "Co-Founder, CTO and Full-Stack Web Developer",
           "subtitle": "Oscillate AG",
           "time": "2016 - Ongoing",
@@ -57,11 +69,8 @@
           "text": "Oscillate is devoted to create the show business solution for a digital world.",
           "list": [
             "Creating all the products to bring the OpTuNE dream to reality",
-            "Building several professional web applications from scratch including software architecture, environment setup, testing and deployment using React, Meteor and MongoDB",
             "Involved in strategic decision making, product development and sales and marketing initiatives",
-            "Preparing KPIs for investment rounds and user research using Segment, Intercom and Google Analytics",
-            "Leding the job interviews and hiring new developers",
-            "Managing my own distributed team"
+            "Doing User research using Segment, Intercom and Google Analytics"
           ]
         },
         {
@@ -72,12 +81,16 @@
           "list": [
             "Designing the API interfaces for the e-banking and client advisor online services",
             "Implementing high-performant services for the bank's core transaction system",
-            "Involved in the software architecture and design of the front-end for the e-banking solutions",
             "Dealing with Big Data challenges while writing complex and still performant SQL queries for DB2 databases"
           ]
         }
       ],
       "timeline": [
+        {
+          "time": "2021 - today",
+          "text": "Senior IT Consultant",
+          "company": "bob Finance"
+        },
         {
           "time": "2019",
           "text": "Bachelor in Computer Science",
@@ -113,7 +126,7 @@
       "paragraphs": [
         {
           "title": "Bachelor in Computer Science",
-          "subtitle": "FHNW | University of Applied Science Northwestern Switzerland",
+          "subtitle": "FHNW | University of Applied Science Northwestern Switzerland",
           "time": "2013 - 2018",
           "location": "Brugg-Windisch, Switzerland"
         },
@@ -140,34 +153,45 @@
         {
           "title": "Specialized in",
           "tags": [
-            "Responsive web design",
+            "Responsive web desgin",
             "React",
             "Redux",
+            "Express (Node)",
             "Meteor",
             "MongoDB",
             "SQL",
             "GraphQL",
-            "Node",
-            "JavaScript",
             "HTML5",
             "CSS3",
-            "Styled components"
+            "E2E Test Automation w. Cypress",
+            "Performance tuning"
           ]
         },
         {
           "title": "Advanced practical skills in",
           "tags": [
             "Python",
-            "AWS deployment",
-            "Webpack configuration",
-            "Rollup bundling",
+            "Vue.js",
+            "UI Design in Figma",
+            "Webpack Configuration",
+            "Rollup Bundling",
+            "Machine Learning",
             "Android",
-            "GitHub",
-            "User interface design",
-            "Machine learning",
-            "SEO optimisations",
+            "SEO Optimisations",
             "Server-side rendering (SSR)",
-            "KPI tracking"
+            "KPI Tracking"
+          ]
+        },
+        {
+          "title": "Cloud-service specific knowledge in",
+          "tags": [
+            "Google Analytics (GA) & Google Tag Mangaer (GTM)",
+            "AWS Deployment (EC2, S3 Buckets, CloudFront)",
+            "AWS Lambda",
+            "AWS API Gateway",
+            "MS Azure DevOps",
+            "MS Azure Deployment Pipelines",
+            "MS Azure AppInsights"
           ]
         }
       ]
@@ -178,56 +202,73 @@
       "title": "INDUSTRY EXPERTISE",
       "paragraphs": [
         {
+          "title": "As Backend Service Architect at UBS AG",
+          "list": [
+            {
+              "category": "Data modeling",
+              "rating": 5
+            },
+            {
+              "category": "API & aervice design",
+              "rating": 5
+            },
+            {
+              "category": "Test automation",
+              "rating": 4
+            },
+            {
+              "category": "Performance optimisations",
+              "rating": 4
+            }
+          ]
+        },
+        {
           "title": "As CTO at Oscillate AG",
           "list": [
             {
-              "category": "Software Architecture for Web Applications",
+              "category": "Software architecture for web applications",
               "rating": 5
             },
             {
-              "category": "Lean UX Development",
-              "rating": 5
-            },
-            {
-              "category": "User Centered Design",
+              "category": "UX design",
               "rating": 5
             },
             {
               "category": "Agile Development (SCRUM)",
-              "rating": 4
-            },
-            {
-              "category": "Integration & UI Test Automation",
               "rating": 5
             },
             {
-              "category": "Continuous Integration",
+              "category": "Continuous Integration (CI)",
               "rating": 4
             },
             {
-              "category": "Deployment",
+              "category": "AWS Service Management & Deployment",
               "rating": 3
             }
           ]
         },
         {
-          "title": "As Backend Service Architect at UBS AG",
+          "title": "Addditonally at bob Finance as hands-on consultant",
           "list": [
             {
-              "category": "Data Modeling",
+              "category": "Cypress test-automation",
               "rating": 5
             },
             {
-              "category": "API & Service Design",
-              "rating": 5
-            },
-            {
-              "category": "Test Automation",
+              "category": "Project planning in Azure DevOps",
               "rating": 4
             },
             {
-              "category": "Performance Optimisations",
+              "category": "Azure AppInsights tracking",
               "rating": 4
+            },
+            {
+              "category": "Creating Azure Pipelines",
+              "rating": 3
+            },
+            {
+              "category": "REST API in .net (C#)",
+              "rating": 2
             }
           ]
         }
@@ -239,6 +280,23 @@
       "title": "REFERENCES",
       "style": "dark",
       "paragraphs": [
+         {
+          "title": "bob Finance",
+          "type": "bob",
+          "category": "Progressive Web App",
+          "images": {
+            "background": "https://res.cloudinary.com/optune-me/image/upload/v1699977583/custom/joel.oscillate.ch/bob_finance_background.png",
+            "screen": "",
+            "logo": "https://res.cloudinary.com/optune-me/image/upload/v1699977515/custom/joel.oscillate.ch/bob-logo-white.svg"
+          },
+          "text": "A \"Buy now - pay later\" and credit application service for the Swiss market.",
+          "links": [
+            {
+              "text": "bob.ch",
+              "url": "https://www.bob.ch"
+            }
+          ]
+        },
         {
           "title": "OpTuNE",
           "type": "oscillate",
@@ -259,7 +317,7 @@
         {
           "title": "ONESCREENER",
           "type": "oscillate",
-          "category": "Progressive Web App",
+          "category": "Web Page Generator",
           "images": {
             "background": "https://res.cloudinary.com/optune-me/image/upload/v1609762371/custom/joel.oscillate.ch/background_onescreener_reference.png",
             "screen": "",
@@ -272,23 +330,6 @@
               "url": "https://www.onescreener.com"
             }
           ]
-        },
-        {
-          "title": "ONsTAgE",
-          "type": "oscillate",
-          "category": "Public Online Service",
-          "images": {
-            "background": "https://res.cloudinary.com/optune-me/image/upload/c_scale,fl_progressive,q_auto,w_400/v1557737169/artist-booking-app/main-hero.jpg",
-            "screen": "",
-            "logo": "https://res.cloudinary.com/optune-me/image/upload/v1562921014/artist-booking-app/logo-onstage.svg"
-          },
-          "text": "The artist booking solution to book the perfect act for an event.",
-          "links": [
-            {
-              "text": "www.onstage.show",
-              "url": "https://www.onstage.show"
-            }
-          ]
         }
       ]
     },
@@ -298,23 +339,20 @@
       "title": "PROJECTS",
       "style": "bright",
       "paragraphs": [
-        {
+         {
           "type": "other",
-          "title": "Sphero Panther",
-          "category": "Android App",
+          "title": "Cypress plugin for Microsoft Azure login",
+          "category": "Open source / npm package",
           "images": {
-            "background": "https://res.cloudinary.com/optune-me/image/upload/c_pad,g_south,h_320,q_auto:eco,w_250/v1609756219/custom/joel.oscillate.ch/background_spheropanther2.png",
-            "backgroundStyle": "contain"
+            "background": "https://res.cloudinary.com/optune-me/image/upload/b_auto,bo_20px_solid_rgb:ffffff,c_pad,h_280,q_auto:eco,w_500/v1699971115/custom/joel.oscillate.ch/Cypress_-_Azure_Logo.png",
+            "backgroundStyle": "top"
           },
-          "text": "The own implementation of the sphero roboter controller.",
+          "icon": "plugin",
+          "text": "Cypress plugin to log in to a web application via Microsoft AD credentials. The npm package has already been downloaded several times 😬",
           "links": [
             {
-              "text": "github/joelmeiller/spheropanther",
-              "url": "https://github.com/joelmeiller/spheropanther"
-            },
-            {
-              "text": "www.sphero.com",
-              "url": "https://www.sphero.com/sphero-sprk-plus"
+              "text": "npmjs.com/package/cypress-msal-login",
+              "url": "https://www.npmjs.com/package/cypress-msal-login"
             }
           ]
         },
@@ -396,28 +434,23 @@
         "title": "Agency Contact",
         "logo": "/logo_rockstar_agency.gif",
         "company": "Rockstar Agency",
-        "name": "Melinda",
+        "name": "Justus",
         "links": [
           {
             "type": "email",
-            "text": "mb@rockstar.jobs",
-            "url": "mailto:mb@rockstar.jobs"
+            "text": "js@rockstar.jobs",
+            "url": "mailto:js@rockstar.jobs"
           }
         ]
       },
       {
         "title": "Address",
-        "address": [
-          "Joël Meiller",
-          "Mühlestrasse 7",
-          "8157 Dielsdorf",
-          "Zürich - Switzerland"
-        ],
+        "address": ["Joël Meiller", "Thiersteinerallee 53", "4053 Basel", "Basel - Switzerland"],
         "links": [
           {
             "type": "email",
-            "text": "joel.meiller@hey.com",
-            "url": "mailto:joel.meiller@hey.com"
+            "text": "joel.meiller@gmail.com",
+            "url": "mailto:joel.meiller@gmail.com"
           }
         ]
       }
@@ -443,19 +476,14 @@
         "links": [
           {
             "type": "email",
-            "text": "joel.meiller@hey.com",
-            "url": "mailto:joel.meiller@hey.com"
+            "text": "joel.meiller@gmail.com",
+            "url": "mailto:joel.meiller@gmail.com"
           }
         ]
       },
       {
         "title": "Address",
-        "address": [
-          "Joël Meiller",
-          "Mühlestrasse 7",
-          "8157 Dielsdorf",
-          "Zürich - Switzerland"
-        ],
+        "address": ["Joël Meiller", "Thiersteinerallee 53", "4053 Basel", "Basel - Switzerland"],
         "links": []
       }
     ]

@@ -70,7 +70,7 @@ export const App = ({ contentData, pathname }) => {
     !!newContent && setContent(newContent)
   }
 
-  const isPersonalCV = pathname.endsWith('cv')
+  const isAgencyCV = pathname === '/rockstar'
 
   return (
     <Fragment>
@@ -82,12 +82,12 @@ export const App = ({ contentData, pathname }) => {
         />
       )}
 
-      <PageHeader header={content.header} isPersonalCV={isPersonalCV} ssrDone={ssrDone} />
+      <PageHeader header={content.header} isPersonalCV={!isAgencyCV} ssrDone={ssrDone} />
       <PageContent sections={content.sections.sort(sortSections)} />
       <PageFooter
         backgroundPicture={content.header.backgroundPicture}
         footer={content.footer}
-        isPersonalCV={isPersonalCV}
+        isPersonalCV={!isAgencyCV}
       />
     </Fragment>
   )

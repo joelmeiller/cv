@@ -18,16 +18,11 @@ a {
 
 :root {
   /* colors */
-  --color-accent: #27e200;
+  --color-accent: rgb(68, 201, 41);
   --color-accent-shadow: #27e20055;
 
-  --color-gradient: linear-gradient(
-      180.09deg,
-      rgba(250, 250, 250, 0.1) 0%,
-      #fafafa 99.92%
-    ),
+  --color-gradient: linear-gradient(180.09deg, rgba(250, 250, 250, 0.1) 0%, #fafafa 99.92%),
     linear-gradient(252.35deg, #00f7cb 0%, #5aeb3c 52.6%, #fbd900 100%);
-
 
   --color-text-primary: #0a0f2c;
   --color-text-inverse: #ffffff;
@@ -55,7 +50,7 @@ a {
   --font-size-48: 3rem;
   --font-size-36: 2.4rem;
   --font-size-24: 1.8rem;
-  --font-size-20: 1.5rem;
+  --font-size-20: 1.4rem;
   --font-size-16: 1.2rem;
   --font-size-14: 1rem;
   --font-size-12: 0.8rem;
@@ -172,12 +167,14 @@ ul {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-24);
   font-weight: 700;
+  line-height: 1.2;
   letter-spacing: -0.3px;
 }
 .font-24-regular {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-24);
   font-weight: 400;
+  line-height: 1.2;
   letter-spacing: -0.3px;
 }
 
@@ -296,6 +293,12 @@ ul {
   stroke: none !important;
 }
 
+.card {
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), 0px -1px 12px 4px rgba(65, 65, 65, 0.15);
+}
+
 /*
  * Print styles
  */
@@ -308,7 +311,7 @@ ul {
 @media print {
   :root {
     --color-text-primary: #000;
-    --color-accent: #4a90e2;
+    /* --color-accent: #4a90e2; */
     --color-white: #fff;
 
     /* font-size */
@@ -384,14 +387,18 @@ ul {
     fill: var(--color-black);
     stroke: var(--color-black);
   }
+
+  .card {
+    border-radius: 0;
+    box-shadow: none;
+  }
 }
 
 @page {
   size: A4 portrait;
 
-
   @bottom-right {
-    content: counter(page) " / " counter(pages);
+    content: counter(page) ' / ' counter(pages);
     font-weight: 400;
     font-family: var(--font-family-regular);
     font-size: var(--font-size);

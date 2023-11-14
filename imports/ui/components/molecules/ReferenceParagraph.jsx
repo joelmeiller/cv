@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { LinkText } from '../atoms/text/LinkText'
 
-import { MediaSmall} from '../../styles/variables'
+import { MediaSmall } from '../../styles/variables'
 
 // styling
 import styled from 'styled-components'
@@ -12,7 +12,7 @@ const ParagraphContainer = styled.div`
   position: relative;
   width: 100%;
   height: 350px;
-  background: ${({ dark }) => dark ? 'var(--color-black)' : '#FFFFFF'};
+  background: ${({ dark }) => (dark ? 'var(--color-black)' : '#FFFFFF')};
 
   @media ${MediaSmall} {
     height: 280px;
@@ -20,7 +20,7 @@ const ParagraphContainer = styled.div`
 
   @media print {
     height: 250px;
-    background: #FFFFFF;
+    background: #ffffff;
   }
 `
 
@@ -31,11 +31,12 @@ const Background = styled.div`
   left: 0;
   right: 0;
 
-  background-size: ${({ size }) => size === 'top' && 'contain' || size || 'cover'};
+  background-size: ${({ size }) => size || 'cover'};
   background-repeat: no-repeat;
-  background-position: 50% ${({ size }) => size === 'top' ? '15%' : '50%'};
+  background-position: 50% 50%;
   background-image: url(${({ picture }) => picture});
-  margin: ${({ size }) => size === 'contain' ? 'var(--size-16) var(--size-16) var(--size-64)': 0};
+  margin: ${({ size }) =>
+    size === 'contain' ? 'var(--size-16) var(--size-16) var(--size-64)' : 0};
   z-index: 1;
 
   &::after {
@@ -46,7 +47,20 @@ const Background = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: ${({ dark }) => dark ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.05)'};
+    background-color: ${({ dark }) => (dark ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.05)')};
+  }
+`
+
+const BackgroundTop = styled(Background)`
+  bottom: 100px;
+  left: 10px;
+  right: 10px;
+
+  background-position: 50% 50%;
+  background-size: contain;
+
+  @media print {
+    background-position: 0 50%;
   }
 `
 
@@ -72,7 +86,7 @@ const Paragraph = styled.div`
 `
 
 const Title = styled.h1`
-  color: ${({ dark }) => dark ? 'var(--color-text-inverse)' : 'var(--color-primary)'};
+  color: ${({ dark }) => (dark ? 'var(--color-text-inverse)' : 'var(--color-primary)')};
   padding: var(--size-16);
 `
 
@@ -89,10 +103,12 @@ const TextContainer = styled.div`
   bottom: 0;
   min-height: 155px;
   padding: var(--size-16);
-  background-color: ${({ dark }) => dark ? 'var(--color-black-shadow)' : 'var(--color-white-shadow)'};
+  background-color: ${({ dark }) =>
+    dark ? 'var(--color-black-shadow)' : 'var(--color-white-shadow)'};
 
-  & p, h3 {
-    color: ${({ dark }) => dark ? 'var(--color-text-inverse)' : 'var(--color-text-primary)'};
+  & p,
+  h3 {
+    color: ${({ dark }) => (dark ? 'var(--color-text-inverse)' : 'var(--color-text-primary)')};
   }
 
   @media ${MediaSmall} {
@@ -109,13 +125,16 @@ const Category = styled.h3`
   margin-bottom: 0.3rem;
 `
 const Text = styled.p`
-  color: ${({ dark }) => dark ? 'var(--color-text-inverse)' : 'var(--color-text-primary)'};
+  color: ${({ dark }) => (dark ? 'var(--color-text-inverse)' : 'var(--color-text-primary)')};
   margin-bottom: 0.3rem;
 `
 
 export const ReferenceParagraph = ({ images, title, category, Icon, text, links, type, dark }) => (
-  <ParagraphContainer dark={dark}>
-    {images.background && <Background picture={images.background} dark={dark} size={images.backgroundStyle} />}
+  <ParagraphContainer dark={dark} className="card">
+    {images.background &&
+      ((images.backgroundStyle === 'top' && (
+        <BackgroundTop picture={images.background} dark={dark} size={images.backgroundStyle} />
+      )) || <Background picture={images.background} dark={dark} size={images.backgroundStyle} />)}
 
     <Paragraph>
       {images.logo ? (
@@ -125,10 +144,16 @@ export const ReferenceParagraph = ({ images, title, category, Icon, text, links,
           </a>
         </Logo>
       ) : (
-        <Title dark={dark} className="font-24-bold">{title}</Title>
+        <Title dark={dark} className="font-24-bold">
+          {title}
+        </Title>
       )}
 
-      {Icon && !images.background && <IconContainer><Icon /></IconContainer>}
+      {Icon && !images.background && (
+        <IconContainer>
+          <Icon />
+        </IconContainer>
+      )}
 
       <TextContainer dark={dark}>
         {!!category && <Category className="font-16-bold">{category}</Category>}

@@ -30,7 +30,8 @@ const Text = styled.p`
 `
 
 const Info = styled.p`
-  min-width: 100px;
+  min-width: 120px;
+  width: 120px;
   color: var(--color-text-secondary);
   margin-left: 20px;
   margin-right: 10px;

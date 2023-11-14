@@ -182,21 +182,21 @@ export const PageHeader = ({ header, isPersonalCV, ssrDone }) => (
       />
 
       <PersonInfoContainer>
-        <Name className="font-header-title">{header.name}</Name>
+        <Name className="card font-header-title">{header.name}</Name>
         <Link>
           {isPersonalCV ? (
-            <a className="font-header-subtitle" href={header.websitePersonal.linkUrl}>
+            <a className="card font-header-subtitle" href={header.websitePersonal.linkUrl}>
               {header.websitePersonal.linkText}
             </a>
           ) : (
-            <a className="font-header-subtitle" href={header.website.linkUrl}>
+            <a className="card font-header-subtitle" href={header.website.linkUrl}>
               {header.website.linkText}
             </a>
           )}
         </Link>
 
         {header.description && (
-          <Description className="font-header-subtitle">{header.description}</Description>
+          <Description className="card font-header-subtitle">{header.description}</Description>
         )}
       </PersonInfoContainer>
     </PersonContainer>

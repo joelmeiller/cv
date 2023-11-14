@@ -2,7 +2,7 @@
   "name": "cv",
   "private": true,
   "scripts": {
-    "start": "meteor run --settings settings/dev.json",
+    "start": "meteor run --settings settings/dev.json --port 4000 --exclude-archs web.browser.legacy",
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
     "visualize": "meteor --production --extra-packages bundle-visualizer --settings settings/dev.json",
