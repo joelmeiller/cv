@@ -6,7 +6,8 @@
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
     "visualize": "meteor --production --extra-packages bundle-visualizer --settings settings/dev.json",
-    "deploy": "waves deploy cv-app"
+    "deploy:waves": "waves deploy cv-app",
+    "deploy": "meteor npm version minor DEPLOY_HOSTNAME=eu-west-1.galaxy.meteor.com meteor deploy cv.joel --settings settings/live.json"
   },
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
