@@ -2,3 +2,6 @@ node_modules/
 
 settings/live.json
 settings/dev.json
+
+.deploy/settings.json
+.deploy/mup.js
