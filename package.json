@@ -1,6 +1,6 @@
 {
   "name": "cv-joel",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "start": "meteor run --settings settings/dev.json --port 4000 --exclude-archs web.browser.legacy",
