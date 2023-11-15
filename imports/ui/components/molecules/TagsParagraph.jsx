@@ -9,12 +9,18 @@ const ParagraphContainer = styled.li`
   width: 100%;
   padding-top: var(--size-16);
   padding-bottom: var(--size-16);
+  
 `
 
 const TagList = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: var(--size-16);
+  margin-left: -15px;
+
+  @media print {
+    margin-left: -12px;
+  }
 `
 
 const Tag = styled.p`

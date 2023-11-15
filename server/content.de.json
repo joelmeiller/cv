@@ -9,6 +9,8 @@
     "backgroundPicture": "https://res.cloudinary.com/optune-me/image/upload/v1609872971/custom/joel.oscillate.ch/headerBackground_web.jpg",
     "name": "Joël Meiller",
     "email": "joel.meiller@gmail.com",
+    "emailAgency": "js@rockstar.jobs",
+    "emailSubject": "Kontaktanfrage (via CV)",
     "website": {
       "linkText": "joel.oscillate.ch",
       "linkUrl": "https://joel.oscillate.ch"
@@ -37,8 +39,7 @@
       ]
     },
     {
-      "type": "TEXT_COLUMNS",
-      "columns": "half",
+      "type": "TEXT",
       "sequenceNr": 10,
       "title": "Stolz bin ich auf die ...",
       "paragraphs": [
@@ -49,6 +50,7 @@
         },
         {
           "icon": "optuneBrain",
+          "isNoPrint": true,
           "title": "OpTuNE Cloud",
           "titleLink": {
             "text": "www.optune.me",
@@ -168,7 +170,7 @@
         {
           "title": "Spezialisiert in",
           "tags": [
-            "Responsive Web Desgin",
+            "Responsive Web Design",
             "React",
             "Redux",
             "Express (Node)",
@@ -216,7 +218,7 @@
       "title": "INDUSTRIE ERFAHRUNG",
       "paragraphs": [
         {
-          "title": "Als Backend Service Architekt bei der UBS AG",
+          "title": ["Als Backend Service Architekt", "bei der UBS AG"],
           "list": [
             {
               "category": "Data Modelierung",
@@ -262,7 +264,7 @@
           ]
         },
         {
-          "title": "Zusätzlich bei bob Finance als hands-on Consultant",
+          "title": ["Zusätzlich bei bob Finance", "als hands-on Consultant"],
           "list": [
             {
               "category": "Cypress Test-Automation",
@@ -297,9 +299,10 @@
         {
           "title": "bob Finance",
           "type": "bob",
-          "category": "Progressive Web App",
+          "category": "Kundenportal & Dashboard",
           "images": {
             "background": "https://res.cloudinary.com/optune-me/image/upload/v1699977583/custom/joel.oscillate.ch/bob_finance_background.png",
+            "backgroundStyle": "full",
             "screen": "",
             "logo": "https://res.cloudinary.com/optune-me/image/upload/v1699977515/custom/joel.oscillate.ch/bob-logo-white.svg"
           },
@@ -314,9 +317,10 @@
         {
           "title": "OpTuNE",
           "type": "oscillate",
-          "category": "Progressive Web App",
+          "category": "Kollaborative Booking App",
           "images": {
             "background": "https://res.cloudinary.com/optune-me/image/upload/c_scale,fl_progressive,q_auto,w_400/v1557845008/artist-booking-app/dJ-profile-pic.jpg",
+            "backgroundStyle": "full",
             "screen": "",
             "logo": "https://res.cloudinary.com/optune-me/image/upload/v1479213946/optune/app/logo-optune-neongreen-rgb.png"
           },
@@ -334,6 +338,7 @@
           "category": "Web Page Generator",
           "images": {
             "background": "https://res.cloudinary.com/optune-me/image/upload/v1609762371/custom/joel.oscillate.ch/background_onescreener_reference.png",
+            "backgroundStyle": "full",
             "screen": "",
             "logo": "https://res.cloudinary.com/optune-me/image/upload/v1598618825/onescreener-v2/app/onescreener-logo-new.svg"
           },
@@ -362,7 +367,7 @@
             "backgroundStyle": "top"
           },
           "icon": "plugin",
-          "text": "Cypress Plugin, um sich via Microsoft AD Credentials bei einer Web Applikation anzumelden. Das npm-Package verbucht bereits einige Downloads 😬.",
+          "text": "Cypress Plugin, um sich via Microsoft AD Credentials anzumelden. Das npm-Package verbucht bereits einige Downloads 😬.",
           "links": [
             {
               "text": "npmjs.com/package/cypress-msal-login",

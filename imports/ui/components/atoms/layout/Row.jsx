@@ -12,6 +12,10 @@ const RowContainer = styled.div`
   margin-top: ${({ marginTop }) => (marginTop ? 1 : 0)}rem;
   margin-bottom: ${({ marginBottom }) => (marginBottom ? 'var(--font-size-48)' : 0)};
 
+  @media print {
+    margin-bottom: 0;
+  }
+
   &.center {
     display: flex;
     justify-content: center;

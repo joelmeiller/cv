@@ -9,6 +9,8 @@
     "backgroundPicture": "https://res.cloudinary.com/optune-me/image/upload/v1609872971/custom/joel.oscillate.ch/headerBackground_web.jpg",
     "name": "Joël Meiller",
     "email": "joel.meiller@gmail.com",
+    "emailAgency": "js@rockstar.jobs",
+    "emailSubject": "Contact request (via CV)",
     "website": {
       "linkText": "joel.oscillate.ch",
       "linkUrl": "https://joel.oscillate.ch"
@@ -37,30 +39,30 @@
       ]
     },
     {
-      "type": "TEXT_COLUMNS",
-      "columns": "half",
-      "sequenceNr": 1,
+      "type": "TEXT",
+      "sequenceNr": 10,
       "title": "MOST PROUD OF",
       "paragraphs": [
         {
+          "icon": "financialService",
+          "title": "Realization of the Cash Transaction Service as Core for the Online Banking Solutions",
+          "text": "Dealing with tera bytes of data and complex business cases designing an interface and implementing the underlying service in a performant way was a piece of work. I earned my promotion with it and the service is still running more or less untouched in the productive environment of one of the biggest banks in Switzerland serving several hundreds requests a minute to different business solutions and applications."
+        },
+        {
           "icon": "optuneBrain",
+          "isNoPrint": true,
           "title": "Creating the OpTuNE Cloud",
           "titleLink": {
             "text": "www.optune.me",
             "url": "https://www.optune.me"
           },
           "text": "Over the last decade web development has become a large and highly complex net of processes, technologies and expectations. Therefore, to make the right decisions, choose the right framework and implement it the right way is a demanding task. As CTO of OpTuNE I managed to create an application system that allows to have daily deployments, is solid and performant while still remaining reactive to business demands. That's why I am proud of what I achieved!"
-        },
-        {
-          "icon": "financialService",
-          "title": "Realization of the Cash Transaction Service as Core for the Online Banking Solutions",
-          "text": "Dealing with tera bytes of data and complex business cases designing an interface and implementing the underlying service in a performant way was a piece of work. I earned my promotion with it and the service is still running more or less untouched in the productive environment of one of the biggest banks in Switzerland serving several hundreds requests a minute to different business solutions and applications."
         }
       ]
     },
     {
       "type": "TEXT",
-      "sequenceNr": 3,
+      "sequenceNr": 30,
       "title": "EXPERIENCE",
       "pageBreak": true,
       "paragraphs": [
@@ -135,7 +137,7 @@
     },
     {
       "type": "TEXT",
-      "sequenceNr": 6,
+      "sequenceNr": 60,
       "title": "EDUCATION",
       "pageBreak": true,
       "paragraphs": [
@@ -161,14 +163,14 @@
     },
     {
       "type": "TAGS",
-      "sequenceNr": 4,
+      "sequenceNr": 40,
       "title": "SKILLS",
       "pageBreak": true,
       "paragraphs": [
         {
           "title": "Specialized in",
           "tags": [
-            "Responsive web desgin",
+            "Responsive web design",
             "React",
             "Redux",
             "Express (Node)",
@@ -212,18 +214,18 @@
     },
     {
       "type": "RATED_LIST",
-      "sequenceNr": 5,
+      "sequenceNr": 50,
       "title": "INDUSTRY EXPERTISE",
       "paragraphs": [
         {
-          "title": "As Backend Service Architect at UBS AG",
+          "title": ["As Backend Service Architect", "at UBS AG"],
           "list": [
             {
               "category": "Data modeling",
               "rating": 5
             },
             {
-              "category": "API & aervice design",
+              "category": "API & service design",
               "rating": 5
             },
             {
@@ -262,7 +264,7 @@
           ]
         },
         {
-          "title": "Addditonally at bob Finance as hands-on consultant",
+          "title": ["Addditonally at bob Finance", "as hands-on consultant"],
           "list": [
             {
               "category": "Cypress test-automation",
@@ -290,16 +292,17 @@
     },
     {
       "type": "REFERENCES",
-      "sequenceNr": 2,
+      "sequenceNr": 20,
       "title": "REFERENCES",
       "style": "dark",
       "paragraphs": [
         {
           "title": "bob Finance",
           "type": "bob",
-          "category": "Progressive Web App",
+          "category": "Customer Portal & Dashboard",
           "images": {
             "background": "https://res.cloudinary.com/optune-me/image/upload/v1699977583/custom/joel.oscillate.ch/bob_finance_background.png",
+            "backgroundStyle": "full",
             "screen": "",
             "logo": "https://res.cloudinary.com/optune-me/image/upload/v1699977515/custom/joel.oscillate.ch/bob-logo-white.svg"
           },
@@ -314,9 +317,10 @@
         {
           "title": "OpTuNE",
           "type": "oscillate",
-          "category": "Progressive Web App",
+          "category": "Collaborative Booking App",
           "images": {
             "background": "https://res.cloudinary.com/optune-me/image/upload/c_scale,fl_progressive,q_auto,w_400/v1557845008/artist-booking-app/dJ-profile-pic.jpg",
+            "backgroundStyle": "full",
             "screen": "",
             "logo": "https://res.cloudinary.com/optune-me/image/upload/v1479213946/optune/app/logo-optune-neongreen-rgb.png"
           },
@@ -334,6 +338,7 @@
           "category": "Web Page Generator",
           "images": {
             "background": "https://res.cloudinary.com/optune-me/image/upload/v1609762371/custom/joel.oscillate.ch/background_onescreener_reference.png",
+            "backgroundStyle": "full",
             "screen": "",
             "logo": "https://res.cloudinary.com/optune-me/image/upload/v1598618825/onescreener-v2/app/onescreener-logo-new.svg"
           },
@@ -349,7 +354,7 @@
     },
     {
       "type": "REFERENCES",
-      "sequenceNr": 7,
+      "sequenceNr": 70,
       "title": "PROJECTS",
       "style": "bright",
       "paragraphs": [
@@ -362,7 +367,7 @@
             "backgroundStyle": "top"
           },
           "icon": "plugin",
-          "text": "Cypress plugin to log in to a web application via Microsoft AD credentials. The npm package has already been downloaded several times 😬",
+          "text": "Cypress plugin to log in with Microsoft AD credentials. The npm package has been downloaded several times already 😬",
           "links": [
             {
               "text": "npmjs.com/package/cypress-msal-login",
@@ -408,7 +413,7 @@
     {
       "type": "TEXT_COLUMNS",
       "columns": "third",
-      "sequenceNr": 9,
+      "sequenceNr": 90,
       "title": "LANGUAGES",
       "paragraphs": [
         {

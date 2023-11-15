@@ -11,7 +11,7 @@ import styled from 'styled-components'
 const ParagraphContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 380px;
   background: ${({ dark }) => (dark ? 'var(--color-black)' : '#FFFFFF')};
 
   @media ${MediaSmall} {
@@ -19,7 +19,7 @@ const ParagraphContainer = styled.div`
   }
 
   @media print {
-    height: 250px;
+    height: ${({ printLarge }) => (printLarge ? 320 : 250)}px;
     background: #ffffff;
   }
 `
@@ -27,17 +27,21 @@ const ParagraphContainer = styled.div`
 const Background = styled.div`
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: ${({ size }) => (size === 'full' ? 0 : 120)}px;
   left: 0;
   right: 0;
 
-  background-size: ${({ size }) => size || 'cover'};
+  background-size: ${({ size }) => (size > '' && size !== 'full' ? size : 'cover')};
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-image: url(${({ picture }) => picture});
   margin: ${({ size }) =>
     size === 'contain' ? 'var(--size-16) var(--size-16) var(--size-64)' : 0};
   z-index: 1;
+
+  @media print {
+    bottom: ${({ size }) => (size === 'full' ? 0 : 1.8)}rem;
+  }
 
   &::after {
     display: block;
@@ -52,6 +56,7 @@ const Background = styled.div`
 `
 
 const BackgroundTop = styled(Background)`
+  top: 2.0rem;
   bottom: 100px;
   left: 10px;
   right: 10px;
@@ -60,6 +65,8 @@ const BackgroundTop = styled(Background)`
   background-size: contain;
 
   @media print {
+    top: 0;
+    bottom: 130px;
     background-position: 0 50%;
   }
 `
@@ -130,7 +137,7 @@ const Text = styled.p`
 `
 
 export const ReferenceParagraph = ({ images, title, category, Icon, text, links, type, dark }) => (
-  <ParagraphContainer dark={dark} className="card">
+  <ParagraphContainer dark={dark} className="card" printLarge={images.backgroundStyle !== 'full'}> 
     {images.background &&
       ((images.backgroundStyle === 'top' && (
         <BackgroundTop picture={images.background} dark={dark} size={images.backgroundStyle} />

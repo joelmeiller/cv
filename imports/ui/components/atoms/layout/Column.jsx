@@ -13,15 +13,15 @@ const ColumnContainer = styled.div`
   align-items: center;
   flex-flow: ${({ flow }) => flow || 'column'};
   float: left;
-  padding: ${({ padding }) => padding ? 'var(--size-16)' : 0};
+  padding: ${({ padding }) => (padding ? 'var(--size-16)' : 0)};
   height: 100%;
-  
+
   @media ${MediaSmall} {
     height: auto;
     padding-left: 0;
     padding-right: 0;
   }
-  
+
   &:first-child {
     padding-left: 0;
   }
@@ -55,6 +55,14 @@ const ColumnContainer = styled.div`
 
   &.two-third {
     width: 66.666%;
+
+    @media ${MediaSmall} {
+      width: 100%;
+    }
+  }
+
+  &.two-third-plus-sixth {
+    width: 83.333%;
 
     @media ${MediaSmall} {
       width: 100%;
@@ -130,9 +138,20 @@ const ColumnContainer = styled.div`
     }
   }
 
-  &.print-half {
-    @media print {
+  @media print {
+    &.print-half {
       width: 50%;
+    }
+
+    &.print-reduced {
+      width: 20%;
+    }
+
+    &.print-60 {
+      width: 60%;
+    }
+    &.print-40 {
+      width: 40%;
     }
   }
 `
@@ -147,9 +166,14 @@ export const Column = ({
   third,
   twelfth,
   twoThird,
+  twoThirdPlusSixth,
   golden13,
   golden8,
   printHalf,
+  printTwoThird,
+  print60,
+  print40,
+  printReduced,
   ...other
 }) => (
   <ColumnContainer
@@ -161,9 +185,13 @@ export const Column = ({
       third,
       twelfth,
       'two-third': twoThird,
+      'two-third-plus-sixth': twoThirdPlusSixth,
       'golden-13': golden13,
       'golden-8': golden8,
       'print-half': printHalf,
+      'print-reduced': printReduced,
+      'print-60': print60,
+      'print-40': print40,
     })}
     {...other}
   >

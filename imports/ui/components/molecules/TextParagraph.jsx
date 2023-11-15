@@ -72,6 +72,7 @@ export const TextParagraph = ({
   isIntroduction,
   list,
   location,
+  isNoPrint,
   subtitle,
   text,
   time,
@@ -79,15 +80,15 @@ export const TextParagraph = ({
   titleLink,
 }) => {
   return (
-    <ParagraphContainer>
+    <ParagraphContainer className={isNoPrint ? 'no-print' : ''}>
       <Row>
         {icon && (
-          <Column third>
+          <Column sixth>
             <IconContainer>{Icon[icon]({})}</IconContainer>
           </Column>
         )}
 
-        <Column twoThird={!!icon} fullwidth={!icon}>
+        <Column twoThirdPlusSixth={!!icon} fullwidth={!icon}>
           {title && (
             <Title className="font-20-bold">
               {title}

@@ -201,8 +201,17 @@ export const PageHeader = ({ header, isPersonalCV, ssrDone }) => (
       </PersonInfoContainer>
     </PersonContainer>
 
-    {ssrDone && <ContactContainer>
-      <ContactButton type="primary" href={`mailto:${header.email}`} target="_blank" className="font-24-bold">{header.buttonText}</ContactButton>
-    </ContactContainer>}
+    {ssrDone && (
+      <ContactContainer>
+        <ContactButton
+          type="primary"
+          href={`mailto:${isPersonalCV ? header.email : header.emailAgency}?subject=${header.emailSubject}`}
+          target="_blank"
+          className="font-24-bold"
+        >
+          {header.buttonText}
+        </ContactButton>
+      </ContactContainer>
+    )}
   </PageHeaderContainer>
 )

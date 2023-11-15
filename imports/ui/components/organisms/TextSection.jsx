@@ -18,7 +18,7 @@ export const TextSection = ({ columns, isIntroduction, title, paragraphs, attach
         </Column>
       ))
     ) : (
-      <Column twoThird={!!timeline || !!grade} fullwidth={!timeline && !grade} printHalf={!!timeline} padding>
+      <Column twoThird={!!timeline || !!grade} fullwidth={!timeline && !grade} print60={!!timeline} padding>
         {paragraphs.map((paragraph, index) => (
           <Row key={`paragraph-${index}`} marginBottom>
             <Column fullwidth>
@@ -29,7 +29,7 @@ export const TextSection = ({ columns, isIntroduction, title, paragraphs, attach
       </Column>
     )}
     {timeline && (
-      <Column third center padding printHalf={!!timeline}>
+      <Column third center padding ={!!timeline} print40>
         <TimelineSection timeline={timeline} />
       </Column>
     )}

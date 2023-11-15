@@ -39,7 +39,16 @@ const Text = styled.p`
 
 export const RatedListParagraph = ({ title, list }) => (
   <ParagraphContainer>
-    <Title className="font-20-regular">{title}</Title>
+    <Title className="font-20-regular">
+      {Array.isArray(title)
+        ? title.map((titleItem, titleItemIndex) => (
+            <>
+              <span key={`title-item-${titleItemIndex}`}>{titleItem}</span>
+              {titleItemIndex < title.length - 1 && <br />}
+            </>
+          ))
+        : title}
+    </Title>
 
     <RatedList>
       {list.map(({ category, rating }, index) => (
@@ -54,8 +63,10 @@ export const RatedListParagraph = ({ title, list }) => (
 
 RatedListParagraph.propTypes = {
   title: PropTypes.string,
-  list: PropTypes.arrayOf(PropTypes.shape({
-    category: PropTypes.string,
-    rating: PropTypes.number,
-  })),
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      category: PropTypes.string,
+      rating: PropTypes.number,
+    })
+  ),
 }
