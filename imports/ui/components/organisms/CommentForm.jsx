@@ -1,85 +1,70 @@
-import React, { Component } from 'react'
-import { Row, Col, Form, Icon, Input, Button, Modal } from 'antd'
+import React, { useEffect, useState } from 'react'
+import { Row, Col, Form, Input, Button, Modal } from 'antd'
 
 const { TextArea } = Input
 
 function hasErrors(fieldsError) {
-  return Object.keys(fieldsError).some(field => fieldsError[field])
+  return Object.keys(fieldsError).some((field) => fieldsError[field])
 }
 
-class CommentFormComponent extends Component {
-  componentDidMount() {
-    // To disabled submit button at the beginning.
-    this.props.form.validateFields()
+const CommentFormComponent = ({ onSave, comment, onClose }) => {
+  const [form] = Form.useForm()
+
+  const handleSave = (values) => {
+    onSave(values)
+    form.resetFields()
   }
 
-  handleSubmit = e => {
-    const { form, onSave, commentForm } = this.props
-    e.preventDefault()
-    form.validateFields((error, values) => {
-      if (!error) {
-        onSave &&
-          onSave({
-            ...commentForm.comment,
-            ...values,
-          })
-      }
-    })
-  }
+  useEffect(() => {
+    form.setFieldsValue({ text: comment.text })
+  }, [comment._id])
 
-  componentDidUpdate(prevProps) {
-    const { form, commentForm } = this.props
-    if (prevProps.commentForm.comment._id !== commentForm.comment._id) {
-      form.setFieldsValue({ text: commentForm.comment.text })
-    }
-  }
-
-  render() {
-    const { commentForm, onClose, onCancel } = this.props
-    const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form
-
-    const comment = commentForm.comment
-
-    // Only show error after a field is touched.
-    const textError = isFieldTouched('text') && getFieldError('text')
-
-    return (
-      <Modal
-        title={!!comment._id ? 'Edit Comment' : 'Add Comment'}
-        visible={commentForm.show}
-        style={commentForm.modalStyle}
-        onCancel={onCancel}
-        footer={null}
+  return (
+    <Form onFinish={handleSave} name="comment-form" form={form}>
+      <Form.Item
+        name="text"
+        rules={[{ required: true, message: 'Please, add a valid comment', }]}
       >
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Item validateStatus={textError ? 'error' : ''} help={textError || ''}>
-            {getFieldDecorator('text', {
-              rules: [{ required: true }],
-              initialValue: comment.text,
-            })(<TextArea autosize={{ minRows: 3, maxRows: 5 }} />)}
-          </Form.Item>
+        <TextArea autosize={{ minRows: 3, maxRows: 5 }} />
+      </Form.Item>
 
-          <Row>
-            <Col span={24} style={{ textAlign: 'right' }}>
-              <Button type="primary" htmlType="submit" disabled={hasErrors(getFieldsError())}>
-                {!!comment._id ? 'Save Comment' : 'Add Comment'}
-              </Button>
+      <Row>
+        <Col span={24} style={{ textAlign: 'right' }}>
+          <Button type="primary" htmlType="submit" >
+            {!!comment._id ? 'Save Comment' : 'Add Comment'}
+          </Button>
 
-              {!!comment._id && (
-                <Button
-                  type="secondary"
-                  style={{ marginLeft: 20 }}
-                  onClick={() => onClose(comment)}
-                >
-                  Close Comment
-                </Button>
-              )}
-            </Col>
-          </Row>
-        </Form>
-      </Modal>
-    )
-  }
+          {!!comment._id && (
+            <Button type="secondary" style={{ marginLeft: 20 }} onClick={onClose}>
+              Close Comment
+            </Button>
+          )}
+        </Col>
+      </Row>
+    </Form>
+  )
 }
 
-export const CommentForm = Form.create({ name: 'comment-form' })(CommentFormComponent)
+export const CommentForm = ({ commentForm, onCancel, onSave, onClose }) => {
+  const comment = commentForm.comment
+
+  const handleSave = (values) =>
+    onSave({
+      ...comment,
+      ...values,
+    })
+
+  const handleClose = () => onClose(comment)
+
+  return (
+    <Modal
+      title={!!comment._id ? 'Edit Comment' : 'Add Comment'}
+      visible={commentForm.show}
+      style={commentForm.modalStyle}
+      onCancel={onCancel}
+      footer={null}
+    >
+      <CommentFormComponent comment={comment} onClose={handleClose} onSave={handleSave} />
+    </Modal>
+  )
+}

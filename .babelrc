@@ -1,5 +1,18 @@
 {
+  "presets": [
+    "@babel/env",
+    "@babel/preset-react"
+  ],
   "plugins": [
-    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] // `style: true` for less
+    [
+      "babel-plugin-styled-components",
+      {
+        "displayName": true
+      }
+    ]
+  ],
+  "ignore": [
+    "lib",
+    "node_modules"
   ]
 }

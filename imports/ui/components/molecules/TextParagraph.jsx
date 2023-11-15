@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import CalendarOutlined from '@ant-design/icons/CalendarOutlined'
+import EnvironmentOutlined from '@ant-design/icons/EnvironmentOutlined'
+
 import { Icon } from '../atoms/icons/index'
 
 import { Column } from '../atoms/layout/Column'
@@ -64,70 +67,76 @@ const TaskList = styled.ul`
 `
 
 export const TextParagraph = ({
+  attachment,
   icon,
+  isIntroduction,
+  list,
+  location,
+  isNoPrint,
+  subtitle,
+  text,
+  time,
   title,
   titleLink,
-  subtitle,
-  time,
-  location,
-  text,
-  list,
-  attachment,
-}) => (
-  <ParagraphContainer>
-    <Row>
-      {!!icon && (
-        <Column third>
-          <IconContainer>{Icon[icon]({})}</IconContainer>
-        </Column>
-      )}
+}) => {
+  return (
+    <ParagraphContainer className={isNoPrint ? 'no-print' : ''}>
+      <Row>
+        {icon && (
+          <Column sixth>
+            <IconContainer>{Icon[icon]({})}</IconContainer>
+          </Column>
+        )}
 
-      <Column twoThird={!!icon} fullwidth={!icon}>
-        <Title className="font-20-bold">
-          {title}
-          <br />
-          {titleLink && (
-            <span className="font-16-regular">
-              (<LinkText {...titleLink} accent />)
-            </span>
+        <Column twoThirdPlusSixth={!!icon} fullwidth={!icon}>
+          {title && (
+            <Title className="font-20-bold">
+              {title}
+              <br />
+              {titleLink && (
+                <span className="font-16-regular">
+                  (<LinkText {...titleLink} accent />)
+                </span>
+              )}
+            </Title>
           )}
-        </Title>
 
-        {!!subtitle && <Subtitle className="font-16-bold">{subtitle}</Subtitle>}
+          {subtitle && <Subtitle className="font-16-bold">{subtitle}</Subtitle>}
 
-        {(!!time || !!location) && (
-          <IconTextContainer>
-            {!!time && <IconText icon="calendar" text={time} />}
-            {!!location && <IconText icon="environment" text={location} />}
-          </IconTextContainer>
-        )}
+          {(time || location) && (
+            <IconTextContainer>
+              {time && <IconText Icon={CalendarOutlined} text={time} />}
+              {location && <IconText Icon={EnvironmentOutlined} text={location} />}
+            </IconTextContainer>
+          )}
 
-        {!!text && <p className="font-14-regular">{text}</p>}
+          {text && <p className={isIntroduction ? 'font-20-regular' : 'font-14-regular'}>{text}</p>}
 
-        {!!list && list.length && (
-          <TaskList>
-            {list.map((task, index) => (
-              <li key={`task-${index}`} className="font-14-regular">
-                {task}
-              </li>
-            ))}
-          </TaskList>
-        )}
+          {list && list.length && (
+            <TaskList>
+              {list.map((task, index) => (
+                <li key={`task-${index}`} className="font-14-regular">
+                  {task}
+                </li>
+              ))}
+            </TaskList>
+          )}
 
-        {!!attachment && (
-          <a
-            href={attachment.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            download={attachment.fileName}
-          >
-            <FileLinkText className="font-20-bold">{attachment.text}</FileLinkText>
-          </a>
-        )}
-      </Column>
-    </Row>
-  </ParagraphContainer>
-)
+          {attachment && (
+            <a
+              href={attachment.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              download={attachment.fileName}
+            >
+              <FileLinkText className="font-20-bold">{attachment.text}</FileLinkText>
+            </a>
+          )}
+        </Column>
+      </Row>
+    </ParagraphContainer>
+  )
+}
 
 TextParagraph.propTypes = {
   icon: PropTypes.string,

@@ -1,10 +1,15 @@
-import React from 'react'
-import { Meteor } from 'meteor/meteor'
-import { render } from 'react-dom'
-import App from '/imports/ui/App'
+// Ant styles
+import 'antd/es/style/index.css'
+import 'antd/es/timeline/style/index.css'
+import 'antd/es/rate/style/index.css'
+import 'antd/es/form/style/index.css'
+import 'antd/es/input/style/index.css'
+import 'antd/es/button/style/index.css'
+import 'antd/es/modal/style/index.css'
+import 'antd/es/message/style/index.css'
+import 'antd/es/popover/style/index.css'
 
-import 'antd/dist/antd.css'
 
-Meteor.startup(() => {
-  render(<App />, document.getElementById('react-target'))
-});
+// On page load
+import '../imports/startup/client/onPageLoad'
+

@@ -1,24 +1,29 @@
 {
-  "name": "cv",
+  "name": "cv-joel",
+  "version": "1.6.0",
   "private": true,
   "scripts": {
-    "start": "meteor run --settings settings/dev.json",
+    "start": "meteor run --settings settings/dev.json --port 4000 --exclude-archs web.browser.legacy",
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
-    "visualize": "meteor --production --extra-packages bundle-visualizer",
-    "deploy": "waves deploy cv-app"
+    "visualize": "meteor --production --extra-packages bundle-visualizer --settings settings/dev.json",
+    "deploy": "meteor npm version minor && DEPLOY_HOSTNAME=eu-west-1.galaxy.meteor.com meteor deploy joel.oscillate.ch --settings settings/live.json"
   },
   "dependencies": {
-    "@babel/runtime": "^7.5.4",
-    "antd": "^3.20.1",
-    "bcrypt": "^3.0.6",
+    "@ant-design/icons": "^4.3.0",
+    "@babel/runtime": "^7.12.5",
+    "antd": "^4.10.0",
+    "bcrypt": "^5.0.0",
     "classnames": "^2.2.6",
     "indexof": "0.0.1",
-    "meteor-node-stubs": "^0.4.1",
-    "react": "^16.5.0",
-    "react-dom": "^16.5.0",
+    "meteor-node-stubs": "^1.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-komposer": "^2.0.0",
-    "styled-components": "^4.3.2"
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.2.1"
   },
   "prettier": {
     "semi": false,
@@ -75,5 +80,10 @@
       "server": "server/main.js"
     },
     "testModule": "tests/main.js"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.13.3",
+    "babel-plugin-styled-components": "^1.12.0",
+    "prettier": "^2.2.1"
   }
 }

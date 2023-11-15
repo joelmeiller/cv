@@ -1,24 +1,23 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Icon } from 'antd';
-
-import { ColorTextPrimary } from '../../../styles/variables'
-
-const IconTextContainer = styled.div`
+const StyledIconText = styled.div`
   display: flex;
   margin-right: 20px;
 `
 
-const IconWrapper = styled(Icon)`
+const IconWrapper = styled.p`
   margin-right: 10px;
+  color: var(--color-text-primary);
 `
 
-
-export const IconText = ({ icon, text }) => (
-  <IconTextContainer>
-    <IconWrapper type={icon} twoToneColor={ColorTextPrimary} />
-    <p className="font-14-regular">{text}</p>
-  </IconTextContainer>
-)
+export const IconText = ({ Icon, text }) => {
+  return (
+    <StyledIconText>
+      <IconWrapper className="font-14-regular">
+        <Icon />
+      </IconWrapper>
+      <p className="font-14-regular">{text}</p>
+    </StyledIconText>
+  )
+}

@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from 'react'
-import { withTracker } from 'meteor/react-meteor-data'
+import React, { Fragment, Suspense, useState, useEffect } from 'react'
+import { useTracker } from 'meteor/react-meteor-data'
 
-import { Modal, message } from 'antd'
+import { message } from 'antd'
 
 import styled from 'styled-components'
 
@@ -11,76 +11,86 @@ import { PageFooter } from './components/templates/PageFooter'
 import { PageLoading } from './components/templates/PageLoading'
 import { Navigation } from './components/templates/Navigation'
 
-import { LoginForm } from './components/organisms/LoginForm'
+import { Contents } from '/imports/api'
 
-import { CommentOverlay } from './containers/CommentOverlay'
-
-import { Contents, Comments } from '/imports/api'
+// Dynamic imports
+//import { LoginForm } from './components/organisms/LoginForm'
+const LoginOverlay = React.lazy(() => import('./containers/LoginOverlay'))
+//import { CommentOverlay } from './containers/CommentOverlay'
+const CommentOverlay = React.lazy(() => import('./containers/CommentOverlay'))
 
 const sortSections = (a, b) => a.sequenceNr - b.sequenceNr
 
-const App = ({ content, comments, user }) => {
+const AppUserContext = ({ contentId, language, onChangeLanugage }) => {
   const [showLogin, setShowLogin] = useState(false)
   const [showComments, setShowComments] = useState(false)
 
-  if (content) console.log('***** LOADED VERSION NR *****', content.versionNr)
+  const user = useTracker(() => Meteor.user(), [])
 
-  return !!content ? (
-    <Fragment>
+  return (
+    <Suspense fallback={<div />}>
       <Navigation
         user={user}
         showComments={showComments}
+        language={language}
         onShowComments={() => setShowComments(!showComments)}
         onLogin={() => setShowLogin(true)}
         onLogout={() => {
           setShowLogin(false)
           setShowComments(false)
           Meteor.logout()
+          message('You are logged out')
         }}
+        onChangeLanugage={onChangeLanugage}
         onPrint={() => window.print()}
       />
-      <CommentOverlay comments={comments} showComments={showComments} contentId={content._id}>
-        <PageHeader
-          backgroundPicture={content.backgroundPicture}
-          profilePicture={content.profilePicture}
-          profilePictureAccent={content.profilePictureAccent}
-          description={content.description}
-          name={content.name}
-          onShowLogin={() => setShowLogin(true)}
-        />
-        <PageContent sections={content.sections.sort(sortSections)} />
 
-        <PageFooter backgroundPicture={content.backgroundPicture} footer={content.footer} />
-      </CommentOverlay>
+      {contentId && showComments && <CommentOverlay show={showComments} contentId={contentId} />}
 
-      <LoginForm
-        show={showLogin && !user}
-        onCancel={() => setShowLogin(false)}
-        onLogin={values => {
-          Meteor.loginWithPassword(values.user, values.password, error => {
-            if (error) {
-              message.error('Login failed')
-            } else {
-              message.success('Logged in')
-              setShowLogin(false)
-            }
-          })
-        }}
-      />
-    </Fragment>
-  ) : (
-    <PageLoading />
+      {showLogin && !user && <LoginOverlay onClose={() => setShowLogin(false)} />}
+    </Suspense>
   )
 }
 
-const AppContainer = withTracker(() => {
-  const content = Contents.findOne({}, { sort: { versionNr: -1 } })
+export const App = ({ contentData, pathname }) => {
+  const [ssrDone, setSsrDone] = useState(false)
+  useEffect(() => {
+    setSsrDone(true)
+  }, [])
 
-  return {
-    content,
-    comments: content ? Comments.find({ contentId: content._id }).fetch() : [],
-    user: Meteor.user(),
+  const [content, setContent] = useState(contentData)
+
+  if (content && ssrDone) console.log('***** LOADED VERSION NR *****', content.versionNr)
+
+  const handleChangeLanguage = (language) => {
+    const newContent = Contents.findOne(
+      { versionNr: { $gte: 4 }, language },
+      { sort: { versionNr: -1 } }
+    )
+    !!newContent && setContent(newContent)
   }
-})(App)
 
-export default AppContainer
+  const isAgencyCV = pathname === '/rockstar'
+
+  return (
+    <Fragment>
+      {ssrDone && (
+        <AppUserContext
+          contentId={content._id}
+          language={content.language}
+          onChangeLanugage={handleChangeLanguage}
+        />
+      )}
+
+      <PageHeader header={content.header} isPersonalCV={!isAgencyCV} ssrDone={ssrDone} />
+      <PageContent sections={content.sections.sort(sortSections)} />
+      <PageFooter
+        backgroundPicture={content.header.backgroundPicture}
+        footer={content.footer}
+        isPersonalCV={!isAgencyCV}
+      />
+    </Fragment>
+  )
+}
+
+export default App

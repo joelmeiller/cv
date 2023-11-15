@@ -1,17 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Timeline, Icon as AntIcon } from 'antd'
+import { Timeline } from 'antd'
 
 import { Icon } from '../atoms/icons/index'
 
 // styling
 import styled from 'styled-components'
 
-import { ColorAccent } from '../../styles/variables'
-
 const TimelineContainer = styled.div`
   margin-top: 85px;
+  margin-left: 20px;
+
+  @media print {
+    margin-left: 20px;
+  }
 
   & .ant-timeline-item-head-green {
     color: var(--color-accent);
@@ -26,16 +29,27 @@ const TimelineContainer = styled.div`
 
 const TimelineText = styled.div`
   display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  gap: 0 20px;
+
+  @media print {
+    gap: 0 10px;
+  }
 `
 
 const Text = styled.p`
 `
 
 const Info = styled.p`
-  min-width: 100px;
+  min-width: 110px;
+  width: 110px;
   color: var(--color-text-secondary);
-  margin-left: 20px;
-  margin-right: 10px;
+
+  @media print {
+    min-width: 90px;
+    width: 90px;
+  }
 `
 
 export const TimelineSection = ({ timeline }) => (
@@ -44,7 +58,7 @@ export const TimelineSection = ({ timeline }) => (
       {timeline.map(({ time, text, company }) => (
         <Timeline.Item
           key={`timeline-item-${time}`}
-          dot={<AntIcon component={Icon.timeline} style={{ fontSize: '16px' }} />}
+          dot={<Icon.timeline style={{ fontSize: '16px' }} />}
           color={'green'}
         >
           <TimelineText>

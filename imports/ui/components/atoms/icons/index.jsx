@@ -1,3 +1,4 @@
+import { Bob } from './Bob'
 import { CV } from './CV'
 import { Email } from './Email'
 import { FinancialService } from './FinancialService'
@@ -11,6 +12,7 @@ import { Timeline } from './Timeline'
 
 
 export const Icon = {
+  bob: Bob,
   cv: CV,
   email: Email,
   financialService: FinancialService,

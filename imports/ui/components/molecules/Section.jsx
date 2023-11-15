@@ -8,15 +8,18 @@ import { SectionTitle } from '../atoms/text/SectionTitle'
 import styled from 'styled-components'
 
 const SectionContainer = styled.div`
-  padding-top: var(--size-64);
+  padding-top: ${(props) => (props.isIntroduction ? 'var(--size-32)' : 'var(--size-64)')};
   padding-bottom: var(--size-64);
+
+  @media print {
+    padding-top: var(--size-32);
+    padding-bottom: var(--size-32);
+  }
 `
 
-export const Section = ({ title, children, columnMargin }) => (
-  <SectionContainer>
+export const Section = ({ title, children, columnMargin, isIntroduction }) => (
+  <SectionContainer isIntroduction={isIntroduction}>
     <SectionTitle title={title} />
-    <Row columnMargin={columnMargin}>
-      {children}  
-    </Row>
+    <Row columnMargin={columnMargin}>{children}</Row>
   </SectionContainer>
 )

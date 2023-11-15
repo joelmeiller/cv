@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from 'antd'
+import DeploymentUnitOutlined from '@ant-design/icons/DeploymentUnitOutlined'
 import styled, { keyframes } from "styled-components"
 
 const Loading = styled.div`
@@ -48,7 +48,7 @@ const Text = styled.span`
 export const PageLoading = () => (
   <Loading>
     <p className="font-20-bold">
-      <Icon type="deployment-unit" spin /><Text>Loading CV</Text>
+      <DeploymentUnitOutlined spin /><Text>Loading CV</Text>
       <LoadingDots>
         <span>. </span>
         <span>. </span>

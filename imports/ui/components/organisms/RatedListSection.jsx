@@ -9,7 +9,7 @@ import { Section } from '../molecules/Section'
 export const RatedListSection = ({ title, paragraphs, graph, pageBreak }) => (
   <Section title={title} >
     {paragraphs.map((paragraph, index) => (
-      <Column half key={`paragraph-${index}`}>
+      <Column third key={`paragraph-${index}`}>
         <RatedListParagraph {...paragraph} />
       </Column>
     ))}

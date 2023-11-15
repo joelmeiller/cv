@@ -1,0 +1,510 @@
+{
+  "versionNr": 7,
+  "language": "de",
+  "header": {
+    "profilePicture": "https://res.cloudinary.com/optune-me/image/upload/v1609756219/custom/joel.oscillate.ch/profilePicture.jpg",
+    "profilePicturePreview": "https://res.cloudinary.com/optune-me/image/upload/v1609873233/custom/joel.oscillate.ch/profilePicture_preview.jpg",
+    "profilePictureAccent": "https://res.cloudinary.com/optune-me/image/upload/v1609756219/custom/joel.oscillate.ch/profilePictureHover.jpg",
+    "profilePictureAccentPreview": "https://res.cloudinary.com/optune-me/image/upload/v1609873234/custom/joel.oscillate.ch/profilePictureHover_preview.jpg",
+    "backgroundPicture": "https://res.cloudinary.com/optune-me/image/upload/v1609872971/custom/joel.oscillate.ch/headerBackground_web.jpg",
+    "name": "Joël Meiller",
+    "email": "joel.meiller@gmail.com",
+    "emailAgency": "js@rockstar.jobs",
+    "emailSubject": "Kontaktanfrage (via CV)",
+    "website": {
+      "linkText": "joel.oscillate.ch",
+      "linkUrl": "https://joel.oscillate.ch"
+    },
+    "websitePersonal": {
+      "linkText": "joel.oscillate.ch",
+      "linkUrl": "https://joel.oscillate.ch/cv"
+    },
+    "buttonText": "Kontaktiere mich",
+    "description": "Als leidenschaftlicher Experte im Bereich der Full-Stack Webentwicklung bringe ich Ihre Web-Application auf den nächsten Level 🚀"
+  },
+  "sections": [
+    {
+      "type": "TEXT_INTROCUTION",
+      "sequenceNr": 1,
+      "paragraphs": [
+        {
+          "text": "Dank langjähriger Grossbank- & early stage Start-Up Erfahrung, dank einem sehr breit aufgestelltem Studium und dank meinem Streben nach Perfektion, habe ich mich über die Jahre zu einem Top-Experten für Webentwicklung entwickelt."
+        },
+        {
+          "text": "In meinem Rucksack bringe ich ein Wissen mit, das zumindest die Basics fast aller gängigen Web Frameworks (wie React, Angular, Vue.js) und aktuellen Programmiersprachen (wie Node.js, Python, Java, C#) abdeckt und es mir erlaubt, die best möglichen technischen Entscheidungen zu treffen und Projekte gezielt, schnell und strukturiert umzusetzen."
+        },
+        {
+          "text": "Kurz um: ein leidenschaftlicher Full-Stack Webentwickler  ❤️ und Seele."
+        }
+      ]
+    },
+    {
+      "type": "TEXT",
+      "sequenceNr": 10,
+      "title": "Stolz bin ich auf die ...",
+      "paragraphs": [
+        {
+          "icon": "financialService",
+          "title": "Realisierung der Services für die Kontobewegungen in e-Banking Solutions",
+          "text": "Der Umgang mit Terabytes an Daten und komplexen Geschäftsfällen, das Entwerfen einer Schnittstelle und die Implementierung des zugrunde liegenden Dienstes in einer performanten Art und Weise war ein Stück Arbeit. Ich habe mir damit meine Beförderung verdient und der Dienst läuft immer noch mehr oder weniger unangetastet in der produktiven Umgebung einer der größten Banken der Schweiz und bedient mehrere hundert Anfragen pro Minute an verschiedene Geschäftslösungen und Anwendungen."
+        },
+        {
+          "icon": "optuneBrain",
+          "isNoPrint": true,
+          "title": "OpTuNE Cloud",
+          "titleLink": {
+            "text": "www.optune.me",
+            "url": "https://www.optune.me"
+          },
+          "text": "Im Laufe des letzten Jahrzehnts ist die Webentwicklung zu einem großen und hochkomplexen Netz von Prozessen, Technologien und Erwartungen geworden. Daher ist es eine anspruchsvolle Aufgabe, die richtigen Entscheidungen zu treffen, das richtige Framework zu wählen und es auf die richtige Weise zu implementieren. Als CTO von OpTuNE ist es mir gelungen, ein Anwendungssystem zu schaffen, das tägliche Einsätze ermöglicht, solide und performant ist und trotzdem reaktiv auf Geschäftsanforderungen reagiert. Deshalb bin ich stolz auf das, was ich erreicht habe!"
+        }
+      ]
+    },
+    {
+      "type": "TEXT",
+      "sequenceNr": 30,
+      "title": "ERFAHRUNG",
+      "pageBreak": true,
+      "paragraphs": [
+        {
+          "title": "Senior IT Consultant",
+          "subtitle": "Valdon Group @ bob Finance",
+          "time": "2021 - heute",
+          "location": "Zürich, Schweiz",
+          "text": "Als externer Berater der Valdon Group für Kleinkreditunternehmen bob Finance, eine Zweigniederlassung der Valora Schweiz AG",
+          "list": [
+            "Front-end Software Architektur, UX Design und Umsetzung mit React, Redux, Typescript, Node & Ionic",
+            "Aufbau der E2E Test Automation Pipeline mit Cypress für komplexe Kreditantragsstrecke inkl. Mailversand und OTP Verifikation via SMS",
+            "Umsetzung von Azure DevOps Services für Deployment mit Pipelines und Tracking mit AppInsights"
+          ]
+        },
+        {
+          "title": "Co-Founder, CTO & Full-Stack Web Developer",
+          "subtitle": "Oscillate AG",
+          "time": "2016 - 2021",
+          "location": "Zürich, Schweiz",
+          "text": "Oscillate gestaltet die digitale Zukunft der Unterhaltungsindustrie.",
+          "list": [
+            "Aufbau aller Produkte, um den OpTuNE Traum in die Realität umzusetzen",
+            "Mitwirken bei den strategischen Entscheiden, bei der Produkt Entwicklung und bei den Sales & Marketing Initiativen",
+            "Durchführung von User Research unter Verwendung von Segment, Intercom und Google Analytics (GA)"
+          ]
+        },
+        {
+          "title": "Senior Backend Developer & Software Architekt für e-Banking Services",
+          "subtitle": "UBS AG",
+          "time": "2011 - 2016",
+          "location": "Zürich, Schweiz",
+          "list": [
+            "Design der API Schnittstellen für die e-Banking und Client Advisor Online Services",
+            "Implementieren von Hochleistungsservices für das Transaktionsreporting im IT-Kern der Grossbank",
+            "Umgang mit Big Data Herausforderungen beim Schreiben von komplexen und performanten SQL Queries für DB2 Datenbanken"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2021 - heute",
+          "text": "Senior IT Consultant",
+          "company": "bob Finance"
+        },
+        {
+          "time": "2017 - 2021",
+          "text": "CTO bei Oscillate",
+          "company": "Oscillate AG "
+        },
+        {
+          "time": "2019",
+          "text": "Bachelor in Computer Science",
+          "company": "FHNW"
+        },
+        {
+          "time": "2016 - 2017",
+          "text": "Co-Founder von OpTuNE & Full-Stack Web Developer",
+          "company": "Oscillate AG"
+        },
+        {
+          "time": "2011 - 2016",
+          "text": "Software Architekt & Service Designer",
+          "company": "UBS AG"
+        },
+        {
+          "time": "2005 - 2011",
+          "text": "Backend Applikationsentwickler",
+          "company": "UBS AG"
+        }
+      ]
+    },
+    {
+      "type": "TEXT",
+      "sequenceNr": 60,
+      "title": "AUSBILDUNG",
+      "pageBreak": true,
+      "paragraphs": [
+        {
+          "title": "Bachelor in Computer Science",
+          "subtitle": "FHNW | Fachhochschule Nordwestschweiz",
+          "time": "2013 - 2018",
+          "location": "Brugg-Windisch, Schweiz"
+        },
+        {
+          "title": "IBM DB2 Performance Tuning",
+          "subtitle": "IBM Training Center",
+          "time": "2014",
+          "location": "Zürich-Altstetten, Schweiz"
+        }
+      ],
+      "grade": {
+        "title": "Bewertung",
+        "rating": "A",
+        "description": "Unter den besten 10% aller Studenten, welche Computer Science an der FHNW studieren",
+        "weightedRate": "5.3"
+      }
+    },
+    {
+      "type": "TAGS",
+      "sequenceNr": 40,
+      "title": "FÄHIGKEITEN",
+      "pageBreak": true,
+      "paragraphs": [
+        {
+          "title": "Spezialisiert in",
+          "tags": [
+            "Responsive Web Design",
+            "React",
+            "Redux",
+            "Express (Node)",
+            "Meteor",
+            "MongoDB",
+            "SQL",
+            "GraphQL",
+            "HTML5",
+            "CSS3",
+            "E2E Test Automation mit Cypress",
+            "Performance tuning"
+          ]
+        },
+        {
+          "title": "Erweiterte und praktische Fähigkeiten in",
+          "tags": [
+            "Python",
+            "UI Design in Figma",
+            "Webpack Configuration",
+            "Rollup Bundling",
+            "Machine Learning",
+            "Android",
+            "SEO Optimisations",
+            "Server-side rendering (SSR)",
+            "KPI Tracking"
+          ]
+        },
+        {
+          "title": "Cloud-Service spezifisches Wissen in",
+          "tags": [
+            "Google Analytics (GA) & Google Tag Mangaer (GTM)",
+            "AWS Deployment (EC2, S3 Buckets, CloudFront)",
+            "AWS Lambda",
+            "AWS API Gateway",
+            "MS Azure DevOps",
+            "MS Azure Deployment Pipelines",
+            "MS Azure AppInsights"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "RATED_LIST",
+      "sequenceNr": 50,
+      "title": "INDUSTRIE ERFAHRUNG",
+      "paragraphs": [
+        {
+          "title": ["Als Backend Service Architekt", "bei der UBS AG"],
+          "list": [
+            {
+              "category": "Data Modelierung",
+              "rating": 5
+            },
+            {
+              "category": "API & Service Design",
+              "rating": 5
+            },
+            {
+              "category": "Test Automation",
+              "rating": 4
+            },
+            {
+              "category": "Performance Optimierungen",
+              "rating": 4
+            }
+          ]
+        },
+        {
+          "title": "Als CTO bei der Oscillate AG",
+          "list": [
+            {
+              "category": "Software Architektur für Web Applications",
+              "rating": 5
+            },
+            {
+              "category": "UX Design",
+              "rating": 5
+            },
+            {
+              "category": "Agile Umsetzung (SCRUM)",
+              "rating": 5
+            },
+            {
+              "category": "Continuous Integration (CI)",
+              "rating": 4
+            },
+            {
+              "category": "AWS Service Management & Deployment",
+              "rating": 3
+            }
+          ]
+        },
+        {
+          "title": ["Zusätzlich bei bob Finance", "als hands-on Consultant"],
+          "list": [
+            {
+              "category": "Cypress Test-Automation",
+              "rating": 5
+            },
+            {
+              "category": "Project Planning in Azure DevOps",
+              "rating": 4
+            },
+            {
+              "category": "Azure AppInsights Tracking",
+              "rating": 4
+            },
+            {
+              "category": "Creating Azure Pipelines",
+              "rating": 3
+            },
+            {
+              "category": "REST API in .net (C#)",
+              "rating": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "REFERENCES",
+      "sequenceNr": 20,
+      "title": "REFERENZEN",
+      "style": "dark",
+      "paragraphs": [
+        {
+          "title": "bob Finance",
+          "type": "bob",
+          "category": "Kundenportal & Dashboard",
+          "images": {
+            "background": "https://res.cloudinary.com/optune-me/image/upload/v1699977583/custom/joel.oscillate.ch/bob_finance_background.png",
+            "backgroundStyle": "full",
+            "screen": "",
+            "logo": "https://res.cloudinary.com/optune-me/image/upload/v1699977515/custom/joel.oscillate.ch/bob-logo-white.svg"
+          },
+          "text": "Ein \"Buy now - pay later\" und Kreditantragsservice für den Schweizer Markt.",
+          "links": [
+            {
+              "text": "bob.ch",
+              "url": "https://www.bob.ch"
+            }
+          ]
+        },
+        {
+          "title": "OpTuNE",
+          "type": "oscillate",
+          "category": "Kollaborative Booking App",
+          "images": {
+            "background": "https://res.cloudinary.com/optune-me/image/upload/c_scale,fl_progressive,q_auto,w_400/v1557845008/artist-booking-app/dJ-profile-pic.jpg",
+            "backgroundStyle": "full",
+            "screen": "",
+            "logo": "https://res.cloudinary.com/optune-me/image/upload/v1479213946/optune/app/logo-optune-neongreen-rgb.png"
+          },
+          "text": "Die Management Lösung für die Unterhaltungsindustrie der digitalen Welt.",
+          "links": [
+            {
+              "text": "www.optune.me",
+              "url": "https://www.optune.me"
+            }
+          ]
+        },
+        {
+          "title": "ONESCREENER",
+          "type": "oscillate",
+          "category": "Web Page Generator",
+          "images": {
+            "background": "https://res.cloudinary.com/optune-me/image/upload/v1609762371/custom/joel.oscillate.ch/background_onescreener_reference.png",
+            "backgroundStyle": "full",
+            "screen": "",
+            "logo": "https://res.cloudinary.com/optune-me/image/upload/v1598618825/onescreener-v2/app/onescreener-logo-new.svg"
+          },
+          "text": "Alles auf einer einfachen Promo-Page. Eine Website. Eine Domain. Zusammengestellt in 10 Minuten.",
+          "links": [
+            {
+              "text": "www.onescreener.com",
+              "url": "https://www.onescreener.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "REFERENCES",
+      "sequenceNr": 70,
+      "title": "PROJECTS",
+      "style": "bright",
+      "paragraphs": [
+        {
+          "type": "other",
+          "title": "Cypress Plugin für Microsoft Azure Login",
+          "category": "Open Source / npm Package",
+          "images": {
+            "background": "https://res.cloudinary.com/optune-me/image/upload/b_auto,bo_20px_solid_rgb:ffffff,c_pad,h_280,q_auto:eco,w_500/v1699971115/custom/joel.oscillate.ch/Cypress_-_Azure_Logo.png",
+            "backgroundStyle": "top"
+          },
+          "icon": "plugin",
+          "text": "Cypress Plugin, um sich via Microsoft AD Credentials anzumelden. Das npm-Package verbucht bereits einige Downloads 😬.",
+          "links": [
+            {
+              "text": "npmjs.com/package/cypress-msal-login",
+              "url": "https://www.npmjs.com/package/cypress-msal-login"
+            }
+          ]
+        },
+        {
+          "type": "other",
+          "title": "OpTRiS",
+          "category": "Machine Learning / Python",
+          "images": {
+            "background": "https://res.cloudinary.com/optune-me/image/upload/c_scale,q_auto:good,h_350/v1609756218/custom/joel.oscillate.ch/machine-learning-python.jpg"
+          },
+          "icon": "optris",
+          "text": "Bachelor Thesis im Bereich Machine Learning mit dem Ziel passende Künstlervorschläge zu finden und den Erfolg eines Events vorherzusagen.",
+          "links": [
+            {
+              "text": "Final Project Flyer",
+              "url": "https://drive.google.com/file/d/0B9fb2Q_FU6o1NUY1aUpPbHc3ZUk/view?usp=sharing"
+            }
+          ]
+        },
+        {
+          "type": "other",
+          "title": "Dieses CV",
+          "category": "Meteor / React Web App",
+          "images": {
+            "background": "https://res.cloudinary.com/optune-me/image/upload/c_pad,h_310,q_auto:eco,w_500/v1609756219/custom/joel.oscillate.ch/meteor-react.png",
+            "backgroundStyle": "top"
+          },
+          "icon": "cv",
+          "text": "Dieses CV ist eine responsiv Full-Stack Meteor/React App mit einem CRM, welches als generaler CV Generator verwendet werden könnte 😎.",
+          "links": [
+            {
+              "text": "github/joelmeiller/cv",
+              "url": "https://github.com/joelmeiller/cv"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TEXT_COLUMNS",
+      "columns": "third",
+      "sequenceNr": 90,
+      "title": "SPRACHEN",
+      "paragraphs": [
+        {
+          "title": "Deutsch",
+          "text": "Muttersprache"
+        },
+        {
+          "title": "Englisch",
+          "text": "Fliessend in Schrift & Sprache"
+        },
+        {
+          "title": "Französisch",
+          "text": "Fliessend in der Sprache"
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "title": "CONTACT",
+    "paragraphs": [
+      {
+        "title": "Connect",
+        "links": [
+          {
+            "type": "linkedIn",
+            "text": "Joel@LinkedIn",
+            "url": "https://www.linkedin.com/in/joel-meiller-810348a5/"
+          },
+          {
+            "type": "github",
+            "text": "Joel@Github",
+            "url": "https://github.com/joelmeiller"
+          }
+        ]
+      },
+      {
+        "title": "Agentur Kontakt",
+        "logo": "/logo_rockstar_agency.gif",
+        "company": "Rockstar Agency",
+        "name": "Justus",
+        "links": [
+          {
+            "type": "email",
+            "text": "js@rockstar.jobs",
+            "url": "mailto:js@rockstar.jobs"
+          }
+        ]
+      },
+      {
+        "title": "Adresse",
+        "address": ["Joël Meiller", "Thiersteinerallee 53", "4053 Basel", "Basel - Switzerland"],
+        "links": [
+          {
+            "type": "email",
+            "text": "joel.meiller@gmail.com",
+            "url": "mailto:joel.meiller@gmail.com"
+          }
+        ]
+      }
+    ],
+    "paragraphsPersonal": [
+      {
+        "title": "Connect",
+        "links": [
+          {
+            "type": "linkedIn",
+            "text": "Joel@LinkedIn",
+            "url": "https://www.linkedin.com/in/joel-meiller-810348a5/"
+          },
+          {
+            "type": "github",
+            "text": "Joel@Github",
+            "url": "https://github.com/joelmeiller"
+          }
+        ]
+      },
+      {
+        "title": "Kontakt",
+        "links": [
+          {
+            "type": "email",
+            "text": "joel.meiller@gmail.com",
+            "url": "mailto:joel.meiller@gmail.com"
+          }
+        ]
+      },
+      {
+        "title": "Adresse",
+        "address": ["Joël Meiller", "Thiersteinerallee 53", "4053 Basel", "Basel - Switzerland"],
+        "links": []
+      }
+    ]
+  }
+}

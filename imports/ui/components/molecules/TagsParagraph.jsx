@@ -1,10 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Icon } from 'antd'
-
-import { IconText } from '../atoms/text/IconText'
-
 // styling
 import styled from 'styled-components'
 
@@ -13,12 +9,18 @@ const ParagraphContainer = styled.li`
   width: 100%;
   padding-top: var(--size-16);
   padding-bottom: var(--size-16);
+  
 `
 
 const TagList = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: var(--size-16);
+  margin-left: -15px;
+
+  @media print {
+    margin-left: -12px;
+  }
 `
 
 const Tag = styled.p`
@@ -28,6 +30,8 @@ const Tag = styled.p`
 
   @media print {
     border-bottom: 1px solid var(--color-text-secondary);
+    margin: 3px 10px;
+    padding: 2px;
   }
 `
 

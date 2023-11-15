@@ -9,16 +9,16 @@ import { Row } from '../atoms/layout/Row'
 import { Column } from '../atoms/layout/Column'
 import { Section } from '../molecules/Section'
 
-export const TextSection = ({ columns, title, paragraphs, attachment, grade, timeline }) => (
-  <Section title={title} >
+export const TextSection = ({ columns, isIntroduction, title, paragraphs, attachment, grade, timeline }) => (
+  <Section title={title} isIntroduction={isIntroduction}>
     {columns ? (
       paragraphs.map((paragraph, index) => (
         <Column half={columns === 'half'} third={columns === 'third'} key={`paragraph-${index}`}>
-          <TextParagraph {...paragraph} />
+          <TextParagraph {...paragraph} isIntroduction={isIntroduction}/>
         </Column>
       ))
     ) : (
-      <Column twoThird={!!timeline || !!grade} fullwidth={!timeline && !grade} printHalf={!!timeline} padding>
+      <Column twoThird={!!timeline || !!grade} fullwidth={!timeline && !grade} print60={!!timeline} padding>
         {paragraphs.map((paragraph, index) => (
           <Row key={`paragraph-${index}`} marginBottom>
             <Column fullwidth>
@@ -29,7 +29,7 @@ export const TextSection = ({ columns, title, paragraphs, attachment, grade, tim
       </Column>
     )}
     {timeline && (
-      <Column third center padding printHalf={!!timeline}>
+      <Column third center padding ={!!timeline} print40>
         <TimelineSection timeline={timeline} />
       </Column>
     )}

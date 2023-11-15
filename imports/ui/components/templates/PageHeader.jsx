@@ -3,26 +3,40 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Ant
-import { Typography } from 'antd'
+import { Button } from 'antd'
 
 // Atoms
 import { ProfilePicture } from '../atoms/images/ProfilePicture'
 import { TitleBackground } from '../atoms/images/TitleBackground'
 
 // Styled
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
-const { Title } = Typography
+// Constatns
+import { MediaSmall } from '../../styles/variables'
 
-const HeaderContainer = styled.div`
-  width: inherit;
+const FadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`
+
+const PageHeaderContainer = styled.div`
+  width: 100%;
   height: var(--size-hero-height);
   position: relative;
   display: flex;
   background-color: var(--color-black);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 
   @media print {
     background-color: transparent;
+    box-shadow: none;
   }
 `
 
@@ -42,10 +56,35 @@ const PersonContainer = styled.div`
   }
 `
 
+const ContactContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+  opacity: 0;
+  animation: ${FadeIn} 0.5s ease-in forwards 0.3s;
+
+  bottom: -27px;
+
+  @media ${MediaSmall} {
+    bottom: -20px;
+  }
+
+  @media print {
+    display: none;
+  }
+`
+
 const StyledProfilePicture = styled(ProfilePicture)`
   height: var(--size-profile-pic);
   width: var(--size-profile-pic);
   margin: var(--size-24);
+
+  @media ${MediaSmall} {
+    margin: 0;
+  }
 `
 
 const PersonInfoContainer = styled.div`
@@ -58,6 +97,7 @@ const PersonInfoContainer = styled.div`
     padding-left: 60px;
   }
 `
+
 const Name = styled.h1`
   width: fit-content;
   color: var(--color-text-inverse);
@@ -68,6 +108,25 @@ const Name = styled.h1`
   @media print {
     color: var(--color-text-primary);
     background-color: transparent;
+    padding: var(--size-16);
+    margin-bottom: var(--size-32);
+  }
+`
+
+const Link = styled.p`
+  @media screen {
+    display: none;
+  }
+
+  @media print {
+    color: var(--color-text-primary);
+    background-color: transparent;
+    margin-bottom: var(--size-32);
+    padding: var(--size-8) var(--size-16);
+
+    a {
+      text-decoration: underline;
+    }
   }
 `
 
@@ -84,23 +143,75 @@ const Description = styled.h2`
   }
 `
 
-export const PageHeader = ({ name, description, backgroundPicture, profilePicture, profilePictureAccent }) => (
-    <HeaderContainer>
-      <TitleBackground picture={backgroundPicture} className="no-print"/>
-      <PersonContainer>
-        <StyledProfilePicture profilePicture={profilePicture} profilePictureAccent={profilePictureAccent} />
+const ContactButton = styled.a`
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  cursor: pointer;  
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 1px var(--color-black-shadow);
+  transition: color 0.2s ease-out, background-color 0.3s ease-out;
 
-        <PersonInfoContainer>
-          <Name className="font-header-title">{name}</Name>
-          {description && <Description className="font-header-subtitle">{description}</Description>}
-        </PersonInfoContainer>
-      </PersonContainer>
-    </HeaderContainer>
+  border-radius: 27px;
+  height: 54px;
+  padding: 0 32px;
+
+  :hover {
+    background-color: var(--color-black);
+  }
+
+  @media ${MediaSmall} {
+    border-radius: 20px;
+    height: 40px;
+    padding: 0 20px;
+  }
+`
+
+export const PageHeader = ({ header, isPersonalCV, ssrDone }) => (
+  <PageHeaderContainer>
+    <TitleBackground picture={header.backgroundPicture} className="no-print" />
+
+    <PersonContainer>
+      <StyledProfilePicture
+        profilePicturePreview={header.profilePicturePreview}
+        profilePicture={header.profilePicture}
+        profilePictureAccent={header.profilePictureAccent}
+        profilePictureAccentPreview={header.profilePictureAccentPreview}
+      />
+
+      <PersonInfoContainer>
+        <Name className="card font-header-title">{header.name}</Name>
+        <Link>
+          {isPersonalCV ? (
+            <a className="card font-header-subtitle" href={header.websitePersonal.linkUrl}>
+              {header.websitePersonal.linkText}
+            </a>
+          ) : (
+            <a className="card font-header-subtitle" href={header.website.linkUrl}>
+              {header.website.linkText}
+            </a>
+          )}
+        </Link>
+
+        {header.description && (
+          <Description className="card font-header-subtitle">{header.description}</Description>
+        )}
+      </PersonInfoContainer>
+    </PersonContainer>
+
+    {ssrDone && (
+      <ContactContainer>
+        <ContactButton
+          type="primary"
+          href={`mailto:${isPersonalCV ? header.email : header.emailAgency}?subject=${header.emailSubject}`}
+          target="_blank"
+          className="font-24-bold"
+        >
+          {header.buttonText}
+        </ContactButton>
+      </ContactContainer>
+    )}
+  </PageHeaderContainer>
 )
-
-PageHeader.propTypes = {
-  description: PropTypes.node,
-  name: PropTypes.string,
-  profilePicture: PropTypes.string,
-  profilePictureAccent: PropTypes.string,
-}

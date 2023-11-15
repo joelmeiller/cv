@@ -1,11 +1,10 @@
-@import '../imports/styles/fonts.css' body {
-  padding: 10px;
+html, body {
+  background: var(--color-white-shadow);
   font-family: sans-serif;
   font-size: 100%;
-}
-
-body {
   overflow: visible;
+  margin: 0;
+  padding: 0;
 }
 
 button,
@@ -19,8 +18,11 @@ a {
 
 :root {
   /* colors */
-  --color-accent: #27e200;
+  --color-accent: rgb(68, 201, 41);
   --color-accent-shadow: #27e20055;
+
+  --color-gradient: linear-gradient(180.09deg, rgba(250, 250, 250, 0.1) 0%, #fafafa 99.92%),
+    linear-gradient(252.35deg, #00f7cb 0%, #5aeb3c 52.6%, #fbd900 100%);
 
   --color-text-primary: #0a0f2c;
   --color-text-inverse: #ffffff;
@@ -40,15 +42,15 @@ a {
   --color-facebook-gray: #d9dbde;
 
   /* font */
-  --font-family-regular: CeraPRO-Regular, Helvetica, sans-serif;
-  --font-family-bold: CeraPRO-Bold, Helvetica, sans-serif;
+  --font-family-regular: CeraPRO, Helvetica, sans-serif;
+  --font-family-bold: CeraPRO, Helvetica, sans-serif;
 
   /* font-size */
   --font-size-title: 4rem;
   --font-size-48: 3rem;
   --font-size-36: 2.4rem;
   --font-size-24: 1.8rem;
-  --font-size-20: 1.5rem;
+  --font-size-20: 1.4rem;
   --font-size-16: 1.2rem;
   --font-size-14: 1rem;
   --font-size-12: 0.8rem;
@@ -114,7 +116,7 @@ a {
     --size-8: 4px;
     --size-4: 4px;
 
-    --size-hero-height: 348px;
+    --size-hero-height: 360px;
     --size-profile-pic: 170px;
     --max-size-title-info: 80%;
   }
@@ -133,13 +135,13 @@ ul {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-title);
   line-height: 1;
-  font-weight: bold;
+  font-weight: 700;
 }
 .font-header-subtitle {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-24);
   line-height: 1.33;
-  font-weight: normal;
+  font-weight: 400;
   letter-spacing: -0.3px;
 }
 @media (max-width: 768px) {
@@ -152,25 +154,27 @@ ul {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-36);
   line-height: 1.17;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .font-48-bold {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-48);
   line-height: 1;
-  font-weight: bold;
+  font-weight: 700;
 }
 .font-24-bold {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-24);
-  font-weight: bold;
+  font-weight: 700;
+  line-height: 1.2;
   letter-spacing: -0.3px;
 }
 .font-24-regular {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-24);
-  font-weight: normal;
+  font-weight: 400;
+  line-height: 1.2;
   letter-spacing: -0.3px;
 }
 
@@ -178,28 +182,28 @@ ul {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-20);
   line-height: 1;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .font-20-regular {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-20);
   line-height: 1.33;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 .font-16-bold {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-16);
   line-height: 1;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .font-16-regular {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-16);
   line-height: 1.4;
-  font-weight: normal;
+  font-weight: 400;
   letter-spacing: -0.2px;
 }
 
@@ -207,21 +211,28 @@ ul {
   font-family: var(--font-family-bold);
   font-size: var(--font-size-14);
   line-height: 1.4;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .font-14-regular {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-14);
   line-height: 1.4;
-  font-weight: normal;
+  font-weight: 400;
 }
 
+.font-12-bold {
+  font-family: var(--font-family-regular);
+  font-size: var(--font-size-12);
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
 .font-12-regular {
   font-family: var(--font-family-regular);
   font-size: var(--font-size-12);
   line-height: 1.4;
-  font-weight: normal;
+  font-weight: 400;
   letter-spacing: -0.2px;
 }
 
@@ -282,6 +293,12 @@ ul {
   stroke: none !important;
 }
 
+.card {
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), 0px -1px 12px 4px rgba(65, 65, 65, 0.15);
+}
+
 /*
  * Print styles
  */
@@ -294,7 +311,7 @@ ul {
 @media print {
   :root {
     --color-text-primary: #000;
-    --color-accent: #4a90e2;
+    /* --color-accent: #4a90e2; */
     --color-white: #fff;
 
     /* font-size */
@@ -304,8 +321,8 @@ ul {
     --font-size-48: 1.8rem;
     --font-size-36: 1.3rem;
     --font-size-24: 1.1rem;
-    --font-size-20: 1rem;
-    --font-size-16: 1rem;
+    --font-size-20: 0.9rem;
+    --font-size-16: 0.9rem;
     --font-size-14: 0.9rem;
     --font-size-12: 0.8rem;
 
@@ -369,5 +386,25 @@ ul {
   .icon.white ellipse {
     fill: var(--color-black);
     stroke: var(--color-black);
+  }
+
+  .card {
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+@page {
+  size: A4 portrait;
+
+  @bottom-right {
+    content: counter(page) ' / ' counter(pages);
+    font-weight: 400;
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    vertical-align: top;
+    margin-top: 14px;
+    font-variant-numeric: oldstyle-nums;
   }
 }
