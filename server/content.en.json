@@ -22,6 +22,21 @@
   },
   "sections": [
     {
+      "type": "TEXT_INTROCUTION",
+      "sequenceNr": 1,
+      "paragraphs": [
+        {
+          "text": "Thanks to many years of experience in a large bank, as well as in a early stage start-up, having a very broad-based degree and my striving for perfection, I have developed over the years into a top expert in web development."
+        },
+        {
+          "text": "In my backpack I bring a knowledge that covers at least the basics of almost all common web frameworks (like React, Angular, Vue.js) and current programming languages (like Node.js, Python, Java, C#) which allows me to make the best possible technical decisions and implement projects in a targeted, fast and structured manner."
+        },
+        {
+          "text": "In short: I am a passionate full-stack web developer with ❤️ and soul."
+        }
+      ]
+    },
+    {
       "type": "TEXT_COLUMNS",
       "columns": "half",
       "sequenceNr": 1,
@@ -171,7 +186,6 @@
           "title": "Advanced practical skills in",
           "tags": [
             "Python",
-            "Vue.js",
             "UI Design in Figma",
             "Webpack Configuration",
             "Rollup Bundling",
@@ -280,7 +294,7 @@
       "title": "REFERENCES",
       "style": "dark",
       "paragraphs": [
-         {
+        {
           "title": "bob Finance",
           "type": "bob",
           "category": "Progressive Web App",
@@ -339,7 +353,7 @@
       "title": "PROJECTS",
       "style": "bright",
       "paragraphs": [
-         {
+        {
           "type": "other",
           "title": "Cypress plugin for Microsoft Azure login",
           "category": "Open source / npm package",

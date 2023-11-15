@@ -63,27 +63,31 @@ export const PageContent = ({ sections }) => (
 
       switch (section.type) {
         case 'TEXT':
-          sectionComponent = <TextSection  {...section} />
+          sectionComponent = <TextSection {...section} />
           break
 
         case 'TEXT_COLUMNS':
           sectionComponent = <TextSection columns {...section} />
           break
 
+        case 'TEXT_INTROCUTION':
+          sectionComponent = <TextSection columns {...section} isIntroduction />
+          break
+
         case 'TAGS':
-          sectionComponent = <TagsSection  {...section} />
+          sectionComponent = <TagsSection {...section} />
           break
 
         case 'RATED_LIST':
-          sectionComponent = <RatedListSection  {...section} />
+          sectionComponent = <RatedListSection {...section} />
           break
 
         case 'REFERENCES':
-          sectionComponent = <ReferenceSection  {...section} />
+          sectionComponent = <ReferenceSection {...section} />
           break
 
         default:
-          // No component
+        // No component
       }
        
       return !!sectionComponent ?

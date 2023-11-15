@@ -22,9 +22,24 @@
   },
   "sections": [
     {
+      "type": "TEXT_INTROCUTION",
+      "sequenceNr": 1,
+      "paragraphs": [
+        {
+          "text": "Dank langjähriger Grossbank- & early stage Start-Up Erfahrung, dank einem sehr breit aufgestelltem Studium und dank meinem Streben nach Perfektion, habe ich mich über die Jahre zu einem Top-Experten für Webentwicklung entwickelt."
+        },
+        {
+          "text": "In meinem Rucksack bringe ich ein Wissen mit, das zumindest die Basics fast aller gängigen Web Frameworks (wie React, Angular, Vue.js) und aktuellen Programmiersprachen (wie Node.js, Python, Java, C#) abdeckt und es mir erlaubt, die best möglichen technischen Entscheidungen zu treffen und Projekte gezielt, schnell und strukturiert umzusetzen."
+        },
+        {
+          "text": "Kurz um: ein leidenschaftlicher Full-Stack Webentwickler  ❤️ und Seele."
+        }
+      ]
+    },
+    {
       "type": "TEXT_COLUMNS",
       "columns": "half",
-      "sequenceNr": 1,
+      "sequenceNr": 10,
       "title": "Stolz bin ich auf die ...",
       "paragraphs": [
         {
@@ -45,7 +60,7 @@
     },
     {
       "type": "TEXT",
-      "sequenceNr": 3,
+      "sequenceNr": 30,
       "title": "ERFAHRUNG",
       "pageBreak": true,
       "paragraphs": [
@@ -120,7 +135,7 @@
     },
     {
       "type": "TEXT",
-      "sequenceNr": 6,
+      "sequenceNr": 60,
       "title": "AUSBILDUNG",
       "pageBreak": true,
       "paragraphs": [
@@ -146,7 +161,7 @@
     },
     {
       "type": "TAGS",
-      "sequenceNr": 4,
+      "sequenceNr": 40,
       "title": "FÄHIGKEITEN",
       "pageBreak": true,
       "paragraphs": [
@@ -171,7 +186,6 @@
           "title": "Erweiterte und praktische Fähigkeiten in",
           "tags": [
             "Python",
-            "Vue.js",
             "UI Design in Figma",
             "Webpack Configuration",
             "Rollup Bundling",
@@ -198,7 +212,7 @@
     },
     {
       "type": "RATED_LIST",
-      "sequenceNr": 5,
+      "sequenceNr": 50,
       "title": "INDUSTRIE ERFAHRUNG",
       "paragraphs": [
         {
@@ -276,7 +290,7 @@
     },
     {
       "type": "REFERENCES",
-      "sequenceNr": 2,
+      "sequenceNr": 20,
       "title": "REFERENZEN",
       "style": "dark",
       "paragraphs": [
@@ -335,7 +349,7 @@
     },
     {
       "type": "REFERENCES",
-      "sequenceNr": 7,
+      "sequenceNr": 70,
       "title": "PROJECTS",
       "style": "bright",
       "paragraphs": [
@@ -394,7 +408,7 @@
     {
       "type": "TEXT_COLUMNS",
       "columns": "third",
-      "sequenceNr": 9,
+      "sequenceNr": 90,
       "title": "SPRACHEN",
       "paragraphs": [
         {

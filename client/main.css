@@ -1,4 +1,4 @@
-body {
+html, body {
   background: var(--color-white-shadow);
   font-family: sans-serif;
   font-size: 100%;

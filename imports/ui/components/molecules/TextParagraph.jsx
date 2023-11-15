@@ -67,48 +67,51 @@ const TaskList = styled.ul`
 `
 
 export const TextParagraph = ({
+  attachment,
   icon,
+  isIntroduction,
+  list,
+  location,
+  subtitle,
+  text,
+  time,
   title,
   titleLink,
-  subtitle,
-  time,
-  location,
-  text,
-  list,
-  attachment,
 }) => {
   return (
     <ParagraphContainer>
       <Row>
-        {!!icon && (
+        {icon && (
           <Column third>
             <IconContainer>{Icon[icon]({})}</IconContainer>
           </Column>
         )}
 
         <Column twoThird={!!icon} fullwidth={!icon}>
-          <Title className="font-20-bold">
-            {title}
-            <br />
-            {titleLink && (
-              <span className="font-16-regular">
-                (<LinkText {...titleLink} accent />)
-              </span>
-            )}
-          </Title>
+          {title && (
+            <Title className="font-20-bold">
+              {title}
+              <br />
+              {titleLink && (
+                <span className="font-16-regular">
+                  (<LinkText {...titleLink} accent />)
+                </span>
+              )}
+            </Title>
+          )}
 
-          {!!subtitle && <Subtitle className="font-16-bold">{subtitle}</Subtitle>}
+          {subtitle && <Subtitle className="font-16-bold">{subtitle}</Subtitle>}
 
-          {(!!time || !!location) && (
+          {(time || location) && (
             <IconTextContainer>
-              {!!time && <IconText Icon={CalendarOutlined} text={time} />}
-              {!!location && <IconText Icon={EnvironmentOutlined} text={location} />}
+              {time && <IconText Icon={CalendarOutlined} text={time} />}
+              {location && <IconText Icon={EnvironmentOutlined} text={location} />}
             </IconTextContainer>
           )}
 
-          {!!text && <p className="font-14-regular">{text}</p>}
+          {text && <p className={isIntroduction ? 'font-20-regular' : 'font-14-regular'}>{text}</p>}
 
-          {!!list && list.length && (
+          {list && list.length && (
             <TaskList>
               {list.map((task, index) => (
                 <li key={`task-${index}`} className="font-14-regular">
@@ -118,7 +121,7 @@ export const TextParagraph = ({
             </TaskList>
           )}
 
-          {!!attachment && (
+          {attachment && (
             <a
               href={attachment.url}
               target="_blank"

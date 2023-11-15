@@ -24,6 +24,8 @@ const Tag = styled.p`
 
   @media print {
     border-bottom: 1px solid var(--color-text-secondary);
+    margin: 3px 10px;
+    padding: 2px;
   }
 `
 
