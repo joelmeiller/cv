@@ -1,9 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
+import React, { Fragment } from 'react'
 import { Rate } from 'antd'
-
-// styling
 import styled from 'styled-components'
 
 const ParagraphContainer = styled.div`
@@ -37,15 +33,15 @@ const Text = styled.p`
   margin-bottom: var(--size-8);
 `
 
-export const RatedListParagraph = ({ title, list }) => (
+export const RatedListParagraph = ({ title, list }: RatedListParagraphProps) => (
   <ParagraphContainer>
     <Title className="font-20-regular">
       {Array.isArray(title)
         ? title.map((titleItem, titleItemIndex) => (
-            <>
-              <span key={`title-item-${titleItemIndex}`}>{titleItem}</span>
+            <Fragment key={`title-item-${titleItemIndex}`}>
+              <span>{titleItem}</span>
               {titleItemIndex < title.length - 1 && <br />}
-            </>
+            </Fragment>
           ))
         : title}
     </Title>
@@ -61,12 +57,10 @@ export const RatedListParagraph = ({ title, list }) => (
   </ParagraphContainer>
 )
 
-RatedListParagraph.propTypes = {
-  title: PropTypes.string,
-  list: PropTypes.arrayOf(
-    PropTypes.shape({
-      category: PropTypes.string,
-      rating: PropTypes.number,
-    })
-  ),
+type RatedListParagraphProps = {
+  title: string | Array<string>
+  list: Array<{
+    category: string
+    rating: number
+  }>
 }

@@ -17,40 +17,44 @@ import contentDe from './content.de.json'
 
 const contents = [contentEn, contentDe]
 
-Meteor.startup(() => {
+Meteor.startup(async () => {
   // CDN Setup
   useCDN()
 
   // Load users
   const users = Meteor.settings.private.users
 
-  users.forEach((user) => {
-    const existingUser = Meteor.users.findOne({ 'emails.address': user.email })
+  await Promise.all(
+    users.map(async (user) => {
+      const existingUser = Meteor.users.findOne({ 'emails.address': user.email })
 
-    if (!existingUser) {
-      const newUserId = Accounts.createUser({
-        username: user.username,
-        email: user.email,
-        password: user.password,
-        profile: {
-          firstName: user.firstName,
-          lastName: user.lastName,
+      if (!existingUser) {
+        const newUserId = await Accounts.createUserAsync({
+          username: user.username,
           email: user.email,
-          color: user.color,
-          role: user.role,
-        },
-      })
-    }
+          password: user.password,
+          profile: {
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            color: user.color,
+            role: user.role,
+          },
+        })
+      }
+    })
+  )
 
-    // Load content
-    contents.forEach((content) => {
-      const existingContentVersion = Contents.findOne({
+  // Load content
+  await Promise.all(
+    contents.map(async (content) => {
+      const existingContentVersion = await Contents.findOneAsync({
         versionNr: content.versionNr,
         language: content.language,
       })
 
       if (SHOULD_RELOAD || !existingContentVersion) {
-        Contents.upsert(
+        await Contents.upsertAsync(
           { _id: existingContentVersion?._id },
           {
             $set: {
@@ -61,5 +65,5 @@ Meteor.startup(() => {
         )
       }
     })
-  })
+  )
 })
