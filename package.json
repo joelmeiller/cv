@@ -10,20 +10,20 @@
     "deploy": "meteor npm version minor && DEPLOY_HOSTNAME=eu-west-1.galaxy.meteor.com meteor deploy joel.oscillate.ch --settings settings/live.json"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.3.0",
-    "@babel/runtime": "^7.12.5",
-    "antd": "^4.10.0",
-    "bcrypt": "^5.0.0",
-    "classnames": "^2.2.6",
+    "@ant-design/icons": "^4.8.1",
+    "@babel/runtime": "^7.23.2",
+    "antd": "^4.24.14",
+    "bcrypt": "^5.1.1",
+    "classnames": "^2.3.2",
     "indexof": "0.0.1",
-    "meteor-node-stubs": "^1.0.1",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "meteor-node-stubs": "^1.2.5",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-komposer": "^2.0.0",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
-    "styled-components": "^5.2.1"
+    "react-router": "^5.3.4",
+    "react-router-dom": "^5.3.4",
+    "styled-components": "^5.3.11"
   },
   "prettier": {
     "semi": false,
@@ -85,8 +85,8 @@
     "@types/node": "^14.18.63",
     "@types/react": "^18.2.37",
     "@types/styled-components": "^5.1.30",
-    "babel-plugin-import": "^1.13.3",
-    "babel-plugin-styled-components": "^1.12.0",
-    "prettier": "^2.2.1"
+    "babel-plugin-import": "^1.13.8",
+    "babel-plugin-styled-components": "^1.13.3",
+    "prettier": "^2.8.8"
   }
 }
