@@ -1,0 +1,544 @@
+{
+  "style": "Finance",
+  "header": {
+    "profilePicture": "https://res.cloudinary.com/optune-me/image/upload/v1609756219/custom/joel.oscillate.ch/profilePicture.jpg",
+    "profilePicturePreview": "https://res.cloudinary.com/optune-me/image/upload/v1609873233/custom/joel.oscillate.ch/profilePicture_preview.jpg",
+    "profilePictureAccent": "https://res.cloudinary.com/optune-me/image/upload/v1609756219/custom/joel.oscillate.ch/profilePictureHover.jpg",
+    "profilePictureAccentPreview": "https://res.cloudinary.com/optune-me/image/upload/v1609873234/custom/joel.oscillate.ch/profilePictureHover_preview.jpg",
+    "backgroundPicture": "https://res.cloudinary.com/optune-me/image/upload/v1609872971/custom/joel.oscillate.ch/headerBackground_web.jpg",
+    "name": "Joël Meiller",
+    "email": "joel.meiller@gmail.com",
+    "emailAgency": "js@rockstar.jobs",
+    "emailSubject": "Contact request (via CV)",
+    "website": {
+      "linkText": "joel.oscillate.ch",
+      "linkUrl": "https://joel.oscillate.ch"
+    },
+    "websitePersonal": {
+      "linkText": "joel.oscillate.ch",
+      "linkUrl": "https://joel.oscillate.ch/cv"
+    },
+    "buttonText": "Get in touch",
+    "description": "IT Service Management, Service Design, and the operation of business-critical systems in the banking and financial sector"
+  },
+  "sections": [
+    {
+      "type": "TEXT_INTROCUTION",
+      "sequenceNr": 1,
+      "paragraphs": [
+        {
+          "text": "I have been engaged in IT Service Management, Service Design, and the operation of business-critical systems in the banking and financial sector for more than 15 years."
+        },
+        {
+          "text": "During my tenure at UBS, bob Finance, and as CTO of a technology start-up, I have designed, built, operated, and continuously evolved complex IT services across their entire lifecycle. My focus lies in bridging business requirements, stable IT processes, and sustainable service structures."
+        },
+        {
+          "text": "I possess extensive experience in Service Design, Service Ownership, stakeholder management, process optimisation, KPI and quality management, as well as in operating highly available applications and IT infrastructures. Through my long-standing work in the banking sector, I am intimately familiar with the requirements for stability, compliance, security, and operational excellence."
+        },
+        {
+          "text": "My strength lies in combining technical and business perspectives, communicating complex relationships clearly, and successfully implementing sustainable solutions with diverse stakeholder groups."
+        }
+      ]
+    },
+    {
+      "type": "TAGS",
+      "sequenceNr": 5,
+      "title": "CORE COMPETENCIES",
+      "paragraphs": [
+        {
+          "tags": [
+            "IT Service Management",
+            "Service Portfolio Management",
+            "Service Ownership",
+            "Service Lifecycle Management",
+            "SLA/KPI Management",
+            "Incident & Problem Management",
+            "Process Optimisation",
+            "Stakeholder Management",
+            "Banking Services",
+            "Digitalisation",
+            "Service Governance"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TEXT",
+      "sequenceNr": 10,
+      "title": "MOST PROUD OF",
+      "paragraphs": [
+        {
+          "icon": "financialService",
+          "title": "Realization of the Cash Transaction Service as Core for the Online Banking Solutions",
+          "text": "Dealing with tera bytes of data and complex business cases designing an interface and implementing the underlying service in a performant way was a piece of work. I earned my promotion with it and the service is still running more or less untouched in the productive environment of one of the biggest banks in Switzerland serving several hundreds requests a minute to different business solutions and applications."
+        },
+        {
+          "icon": "optuneBrain",
+          "isNoPrint": true,
+          "title": "Creating the OpTuNE Cloud",
+          "titleLink": {
+            "text": "www.optune.me",
+            "url": "https://www.optune.me"
+          },
+          "text": "Over the last decade web development has become a large and highly complex net of processes, technologies and expectations. Therefore, to make the right decisions, choose the right framework and implement it the right way is a demanding task. As CTO of OpTuNE I managed to create an application system that allows to have daily deployments, is solid and performant while still remaining reactive to business demands. That's why I am proud of what I achieved!"
+        }
+      ]
+    },
+    {
+      "type": "TEXT",
+      "sequenceNr": 30,
+      "title": "EXPERIENCE",
+      "pageBreak": true,
+      "paragraphs": [
+        {
+          "title": "Senior IT Consultant",
+          "subtitle": "Valdon Group / bob Finance",
+          "time": "2021 - present",
+          "location": "Zürich, Switzerland",
+          "list": [
+            "Consulting on the development and evolution of digital financial services",
+            "Responsibility for the technical service architecture of various customer portals and back-office systems",
+            "Introduction and optimisation of monitoring, KPI, and reporting solutions using Azure App Insights",
+            "Definition and implementation of operational, deployment, and quality processes",
+            "Coordination between business units, development teams, and external partners",
+            "Support for the digitalisation and automation of business processes",
+            "Ensuring stable operation of business-critical applications"
+          ]
+        },
+        {
+          "title": "Co-Founder & CTO",
+          "subtitle": "Oscillate AG",
+          "time": "2016 - 2021",
+          "location": "Zürich, Switzerland",
+          "list": [
+            "Overall responsibility for technology, service operations, and software architecture",
+            "Development and evolution of multiple cloud-based SaaS products",
+            "Definition of operational processes, quality standards, and service structures",
+            "Management of external partners and service providers",
+            "Responsibility for availability, monitoring, incident management, and release management",
+            "Leadership of technical projects and coordination of diverse stakeholders"
+          ]
+        },
+        {
+          "title": "Senior Backend Developer & Service Architect for e-Banking Services",
+          "subtitle": "UBS AG",
+          "time": "2011 - 2016",
+          "location": "Zürich, Switzerland",
+          "list": [
+            "Responsibility for the design and further development of business-critical e-banking services",
+            "Definition of service interfaces and service structures for various online banking solutions",
+            "Operation and optimisation of highly available backend systems with demanding performance and availability requirements",
+            "Close collaboration with business units, architecture, operations, and infrastructure teams",
+            "Analysis and resolution of complex production issues in business-critical banking applications",
+            "Definition and implementation of quality and performance measures for production services",
+            "Contribution to service governance, release planning, and lifecycle management"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "time": "2021 - present",
+          "text": "Senior IT Consultant",
+          "company": "bob Finance"
+        },
+        {
+          "time": "2017 - 2021",
+          "text": "CTO at Oscillate",
+          "company": "Oscillate AG "
+        },
+        {
+          "time": "2019",
+          "text": "Bachelor in Computer Science",
+          "company": "FHNW"
+        },
+        {
+          "time": "2016 - 2017",
+          "text": "Co-Founder of OpTuNE & Full-Stack Web Developer",
+          "company": "Oscillate AG"
+        },
+        {
+          "time": "2011 - 2016",
+          "text": "Service Architect for e-Banking Services",
+          "company": "UBS AG"
+        },
+        {
+          "time": "2005 - 2011",
+          "text": "Backend Application Engineer",
+          "company": "UBS AG"
+        }
+      ]
+    },
+    {
+      "type": "TEXT",
+      "sequenceNr": 60,
+      "title": "EDUCATION",
+      "pageBreak": true,
+      "paragraphs": [
+        {
+          "title": "Bachelor in Computer Science",
+          "subtitle": "FHNW | University of Applied Science Northwestern Switzerland",
+          "time": "2013 - 2018",
+          "location": "Brugg-Windisch, Switzerland"
+        },
+        {
+          "title": "IBM DB2 Performance Tuning",
+          "subtitle": "IBM Training Center",
+          "time": "2014",
+          "location": "Zürich-Altstetten, Switzerland"
+        }
+      ],
+      "grade": {
+        "title": "Rating",
+        "rating": "A",
+        "description": "Among the best 10% of all students studying Computer Science at the FHNW",
+        "weightedRate": "5.3"
+      }
+    },
+    {
+      "type": "TAGS",
+      "sequenceNr": 40,
+      "title": "SKILLS",
+      "pageBreak": true,
+      "paragraphs": [
+        {
+          "title": "IT Service Management & Governance",
+          "tags": [
+            "Service Lifecycle Management",
+            "Service Design",
+            "Stakeholder Management",
+            "KPI & SLA Management",
+            "Incident & Problem Management",
+            "Process Management & Process Optimisation",
+            "Operational Excellence",
+            "Digitalisation of Business Processes"
+          ]
+        },
+        {
+          "title": "Banking & Financial Services",
+          "tags": [
+            "e-Banking Services",
+            "Highly Available Systems",
+            "IT Security Fundamentals",
+            "Compliance-oriented System Landscapes",
+            "Data and Service Architectures"
+          ]
+        },
+        {
+          "title": "Platforms & Technologies",
+          "tags": [
+            "Azure DevOps",
+            "Azure App Insights",
+            "AWS",
+            "SQL / Databases",
+            "API Design",
+            "Monitoring & Reporting",
+            "Test Automation"
+          ]
+        },
+        {
+          "title": "Leadership & Collaboration",
+          "tags": [
+            "Project Leadership",
+            "Technical Leadership",
+            "Communication between Business and IT",
+            "Agile Methods (SCRUM)"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "RATED_LIST",
+      "sequenceNr": 50,
+      "title": "INDUSTRY EXPERTISE",
+      "paragraphs": [
+        {
+          "title": ["As Backend Service Architect", "at UBS AG"],
+          "list": [
+            {
+              "category": "Data modeling",
+              "rating": 5
+            },
+            {
+              "category": "API & service design",
+              "rating": 5
+            },
+            {
+              "category": "Test automation",
+              "rating": 4
+            },
+            {
+              "category": "Performance optimisations",
+              "rating": 4
+            }
+          ]
+        },
+        {
+          "title": "As CTO at Oscillate AG",
+          "list": [
+            {
+              "category": "Software architecture for web applications",
+              "rating": 5
+            },
+            {
+              "category": "UX design",
+              "rating": 5
+            },
+            {
+              "category": "Agile Development (SCRUM)",
+              "rating": 5
+            },
+            {
+              "category": "Continuous Integration (CI)",
+              "rating": 4
+            },
+            {
+              "category": "AWS Service Management & Deployment",
+              "rating": 3
+            }
+          ]
+        },
+        {
+          "title": ["Addditonally at bob Finance", "as hands-on consultant"],
+          "list": [
+            {
+              "category": "Cypress test-automation",
+              "rating": 5
+            },
+            {
+              "category": "Project planning in Azure DevOps",
+              "rating": 4
+            },
+            {
+              "category": "Azure AppInsights tracking",
+              "rating": 4
+            },
+            {
+              "category": "Creating Azure Pipelines",
+              "rating": 3
+            },
+            {
+              "category": "REST API in .net (C#)",
+              "rating": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "REFERENCES",
+      "sequenceNr": 20,
+      "title": "REFERENCES",
+      "style": "dark",
+      "paragraphs": [
+        {
+          "title": "bob Finance",
+          "type": "bob",
+          "category": "Customer Portal & Dashboard",
+          "images": {
+            "background": "https://res.cloudinary.com/optune-me/image/upload/v1699977583/custom/joel.oscillate.ch/bob_finance_background.png",
+            "backgroundStyle": "full",
+            "screen": "",
+            "logo": "https://res.cloudinary.com/optune-me/image/upload/v1699977515/custom/joel.oscillate.ch/bob-logo-white.svg"
+          },
+          "text": "A \"Buy now - pay later\" and credit application service for the Swiss market.",
+          "links": [
+            {
+              "text": "bob.ch",
+              "url": "https://www.bob.ch"
+            }
+          ]
+        },
+        {
+          "title": "OpTuNE",
+          "type": "oscillate",
+          "category": "Collaborative Booking App",
+          "images": {
+            "background": "https://res.cloudinary.com/optune-me/image/upload/c_scale,fl_progressive,q_auto,w_400/v1557845008/artist-booking-app/dJ-profile-pic.jpg",
+            "backgroundStyle": "full",
+            "screen": "",
+            "logo": "https://res.cloudinary.com/optune-me/image/upload/v1479213946/optune/app/logo-optune-neongreen-rgb.png"
+          },
+          "text": "The show business solution for a digital world",
+          "links": [
+            {
+              "text": "www.optune.me",
+              "url": "https://www.optune.me"
+            }
+          ]
+        },
+        {
+          "title": "ONESCREENER",
+          "type": "oscillate",
+          "category": "Web Page Generator",
+          "images": {
+            "background": "https://res.cloudinary.com/optune-me/image/upload/v1609762371/custom/joel.oscillate.ch/background_onescreener_reference.png",
+            "backgroundStyle": "full",
+            "screen": "",
+            "logo": "https://res.cloudinary.com/optune-me/image/upload/v1598618825/onescreener-v2/app/onescreener-logo-new.svg"
+          },
+          "text": "All On One Simple Promo Page. One Website. One Domain. Built in 10 minutes.",
+          "links": [
+            {
+              "text": "www.onescreener.com",
+              "url": "https://www.onescreener.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "REFERENCES",
+      "sequenceNr": 70,
+      "title": "PROJECTS",
+      "style": "bright",
+      "paragraphs": [
+        {
+          "type": "other",
+          "title": "Cypress plugin for Microsoft Azure login",
+          "category": "Open source / npm package",
+          "images": {
+            "background": "https://res.cloudinary.com/optune-me/image/upload/b_auto,bo_20px_solid_rgb:ffffff,c_pad,h_280,q_auto:eco,w_500/v1699971115/custom/joel.oscillate.ch/Cypress_-_Azure_Logo.png",
+            "backgroundStyle": "top"
+          },
+          "icon": "plugin",
+          "text": "Cypress plugin to log in with Microsoft AD credentials. The npm package has been downloaded several times already 😬",
+          "links": [
+            {
+              "text": "npmjs.com/package/cypress-msal-login",
+              "url": "https://www.npmjs.com/package/cypress-msal-login"
+            }
+          ]
+        },
+        {
+          "type": "other",
+          "title": "OpTRiS",
+          "category": "Machine Learning / Python",
+          "images": {
+            "background": "https://res.cloudinary.com/optune-me/image/upload/c_scale,q_auto:good,h_350/v1609756218/custom/joel.oscillate.ch/machine-learning-python.jpg"
+          },
+          "icon": "optris",
+          "text": "Bachelor Thesis about finding artist suggestions and predict successful events with machine learning.",
+          "links": [
+            {
+              "text": "Final Project Flyer",
+              "url": "https://drive.google.com/file/d/0B9fb2Q_FU6o1NUY1aUpPbHc3ZUk/view?usp=sharing"
+            }
+          ]
+        },
+        {
+          "type": "other",
+          "title": "This CV",
+          "category": "Meteor/React Web App",
+          "images": {
+            "background": "https://res.cloudinary.com/optune-me/image/upload/c_pad,h_350,q_auto:eco,w_500/v1609756219/custom/joel.oscillate.ch/meteor-react.png",
+            "backgroundStyle": "top"
+          },
+          "icon": "cv",
+          "text": "This CV is a responsive full-stack Meteor/React app with a CRM that could be used as general CV generator 😎.",
+          "links": [
+            {
+              "text": "github/joelmeiller/cv",
+              "url": "https://github.com/joelmeiller/cv"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TEXT_COLUMNS",
+      "columns": "third",
+      "sequenceNr": 90,
+      "title": "LANGUAGES",
+      "paragraphs": [
+        {
+          "title": "German",
+          "text": "Native"
+        },
+        {
+          "title": "English",
+          "text": "Fluent in Speaking & Writing"
+        },
+        {
+          "title": "French",
+          "text": "Fluent in Speaking"
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "title": "CONTACT",
+    "paragraphs": [
+      {
+        "title": "Connect",
+        "links": [
+          {
+            "type": "linkedIn",
+            "text": "Joel@LinkedIn",
+            "url": "https://www.linkedin.com/in/joel-meiller-810348a5/"
+          },
+          {
+            "type": "github",
+            "text": "Joel@Github",
+            "url": "https://github.com/joelmeiller"
+          }
+        ]
+      },
+      {
+        "title": "Agency Contact",
+        "logo": "/logo_rockstar_agency.gif",
+        "company": "Rockstar Agency",
+        "name": "Justus",
+        "links": [
+          {
+            "type": "email",
+            "text": "js@rockstar.jobs",
+            "url": "mailto:js@rockstar.jobs"
+          }
+        ]
+      },
+      {
+        "title": "Address",
+        "address": ["Joël Meiller", "Thiersteinerallee 53", "4053 Basel", "Basel - Switzerland"],
+        "links": [
+          {
+            "type": "email",
+            "text": "joel.meiller@gmail.com",
+            "url": "mailto:joel.meiller@gmail.com"
+          }
+        ]
+      }
+    ],
+    "paragraphsPersonal": [
+      {
+        "title": "Connect",
+        "links": [
+          {
+            "type": "linkedIn",
+            "text": "Joel@LinkedIn",
+            "url": "https://www.linkedin.com/in/joel-meiller-810348a5/"
+          },
+          {
+            "type": "github",
+            "text": "Joel@Github",
+            "url": "https://github.com/joelmeiller"
+          }
+        ]
+      },
+      {
+        "title": "Contact",
+        "links": [
+          {
+            "type": "email",
+            "text": "joel.meiller@gmail.com",
+            "url": "mailto:joel.meiller@gmail.com"
+          }
+        ]
+      },
+      {
+        "title": "Address",
+        "address": ["Joël Meiller", "Thiersteinerallee 53", "4053 Basel", "Basel - Switzerland"],
+        "links": []
+      }
+    ]
+  }
+}

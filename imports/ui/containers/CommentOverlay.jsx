@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
-import { useTracker } from 'meteor/react-meteor-data'
+import { useTracker } from 'meteor/react-meteor-data/suspense'
 
 import { message } from 'antd'
 
@@ -46,8 +46,8 @@ const initialCommentFormState = {
   modalStyle: {},
 }
 
-const getUser = (userId) => {
-  const user = Meteor.users.findOne(userId)
+const getUser = (userId, usersById) => {
+  const user = usersById[userId]
 
   let initials = ''
   let name = 'Unknown'
@@ -86,8 +86,8 @@ const getSequenceNr = (userId) => {
 const filterComment = (comment) => comment.status === CommentStatus.OPEN
 const sortComment = (a, b) => (a.userId < b.userId && -1) || a.createdAt - b.createdAt
 let commentUserId
-const mapComment = (comment) => {
-  const user = getUser(comment.userId)
+const mapComment = (comment, usersById) => {
+  const user = getUser(comment.userId, usersById)
   return {
     ...comment,
     sequenceNr: getSequenceNr(comment.userId),
@@ -116,29 +116,33 @@ const getModalStyle = (e) => {
 
   return { marginLeft, top }
 }
-const saveComment = (values, contentId) => {
+const saveComment = async (values, contentId) => {
   const method = values._id ? Method.updateComment : Method.addComment
 
-  Meteor.call(method, { ...values, contentId }, (error) => {
-    if (error) {
-      message.error('Comment could no be saved')
-    } else {
-      message.success('Comment successfully saved')
-    }
-  })
+  try {
+    await Meteor.callAsync(method, { ...values, contentId })
+    message.success('Comment successfully saved')
+  } catch {
+    message.error('Comment could no be saved')
+  }
 }
-const closeComment = (comment) => {
-  Meteor.call(Method.updateComment, { ...comment, close: true }, (error) => {
-    if (error) {
-      message.error('Comment could no be closed')
-    } else {
-      message.success('Comment successfully closed')
-    }
-  })
+const closeComment = async (comment) => {
+  try {
+    await Meteor.callAsync(Method.updateComment, { ...comment, close: true })
+    message.success('Comment successfully closed')
+  } catch {
+    message.error('Comment could no be closed')
+  }
 }
 
 export const CommentOverlay = ({ show, contentId }) => {
-  const comments = useTracker(() => Comments.find({ contentId }).fetch(), [contentId])
+  const comments = useTracker('comments', () => Comments.find({ contentId }).fetchAsync())
+
+  const usersById = useTracker('commentUsers', async () => {
+    const userIds = [...new Set(comments.map((comment) => comment.userId))]
+    const users = await Meteor.users.find({ _id: { $in: userIds } }).fetchAsync()
+    return Object.fromEntries(users.map((user) => [user._id, user]))
+  })
 
   const containerRef = React.createRef()
   const [commentForm, setCommentForm] = useState(initialCommentFormState)
@@ -196,7 +200,7 @@ export const CommentOverlay = ({ show, contentId }) => {
 
                 setCommentForm({ show: true, comment, modalStyle })
               }}
-              {...mapComment(comment)}
+              {...mapComment(comment, usersById)}
             />
           ))}
       </CommentContainer>

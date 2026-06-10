@@ -12,6 +12,8 @@ import App from '../../ui/App'
 
 // Collections
 import { Contents } from '../../api/collections/Contents'
+import { getLatestStyleAsync } from '../../api/utils/getLatestStyle'
+import { getStyleVariableCss } from '../../ui/utils/applyStyleVariables'
 
 // Utils
 let rangeErrorThrown = false
@@ -45,16 +47,29 @@ onPageLoad(async (sink) => {
          * Get content data
          */
 
-        const contentData = Contents.findOne(
-          { versionNr: { $gte: 4 }, language: 'en' },
+        const versionNr = Meteor.settings.public.VERSION
+
+        const contentData = await Contents.findOneAsync(
+          { versionNr, language: 'en' },
           { sort: { versionNr: -1 } }
         )
 
+        const styleData = contentData
+          ? await getLatestStyleAsync(contentData.style)
+          : null
+
         if (contentData) {
-          console.log('***** LOADED VERSION NR *****', contentData.versionNr)
+          console.log(`***** LOADED VERSION NR ***** ${contentData.versionNr} *****`)
 
           sink.appendToBody(
             `<script>window.__CONTENT_DATA__ = ${JSON.stringify(contentData)}</script>`
+          )
+        }
+
+        if (styleData) {
+          sink.appendToHead(`<style id="page-style-variables">${getStyleVariableCss(styleData)}</style>`)
+          sink.appendToBody(
+            `<script>window.__STYLE_DATA__ = ${JSON.stringify(styleData)}</script>`
           )
         }
 
@@ -69,7 +84,7 @@ onPageLoad(async (sink) => {
             'react-target',
             renderToString(
               <StyleSheetManager sheet={sheet.instance}>
-                <App contentData={contentData} pathname={pathname} />
+                <App contentData={contentData} pathname={pathname} styleData={styleData} />
               </StyleSheetManager>
             )
           )

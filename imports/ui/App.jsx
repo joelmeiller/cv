@@ -12,6 +12,8 @@ import { PageLoading } from './components/templates/PageLoading'
 import { Navigation } from './components/templates/Navigation'
 
 import { Contents } from '/imports/api'
+import { getLatestStyleAsync } from '/imports/api/utils/getLatestStyle'
+import { applyStyleVariables } from './utils/applyStyleVariables'
 
 // Dynamic imports
 //import { LoginForm } from './components/organisms/LoginForm'
@@ -35,10 +37,10 @@ const AppUserContext = ({ contentId, language, onChangeLanugage }) => {
         language={language}
         onShowComments={() => setShowComments(!showComments)}
         onLogin={() => setShowLogin(true)}
-        onLogout={() => {
+        onLogout={async () => {
           setShowLogin(false)
           setShowComments(false)
-          Meteor.logout()
+          await Meteor.logoutAsync()
           message('You are logged out')
         }}
         onChangeLanugage={onChangeLanugage}
@@ -52,22 +54,40 @@ const AppUserContext = ({ contentId, language, onChangeLanugage }) => {
   )
 }
 
-export const App = ({ contentData, pathname }) => {
+export const App = ({ contentData, pathname, styleData }) => {
   const [ssrDone, setSsrDone] = useState(false)
   useEffect(() => {
     setSsrDone(true)
   }, [])
 
   const [content, setContent] = useState(contentData)
+  const [style, setStyle] = useState(styleData || window.__STYLE_DATA__)
 
-  if (content && ssrDone) console.log('***** LOADED VERSION NR *****', content.versionNr)
+  useEffect(() => {
+    if (style) {
+      applyStyleVariables(style)
+    }
+  }, [style])
 
-  const handleChangeLanguage = (language) => {
-    const newContent = Contents.findOne(
-      { versionNr: { $gte: 4 }, language },
-      { sort: { versionNr: -1 } }
-    )
-    !!newContent && setContent(newContent)
+  if (content && ssrDone) console.log(`***** LOADED VERSION NR ${content.versionNr} *****`)
+
+  const handleChangeLanguage = async (language) => {
+    const newContent = await Contents.findOneAsync({
+      versionNr: content.versionNr,
+      language,
+    })
+
+    if (!newContent) {
+      return
+    }
+
+    setContent(newContent)
+
+    const newStyle = await getLatestStyleAsync(newContent.style)
+
+    if (newStyle) {
+      setStyle(newStyle)
+    }
   }
 
   const isAgencyCV = pathname === '/rockstar'

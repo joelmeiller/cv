@@ -11,14 +11,13 @@ export const LoginOverlay = ({ onClose }) => {
     <LoginForm
       show
       onCancel={onClose}
-      onLogin={(values) => {
-        Meteor.loginWithPassword(values.user, values.password, (error) => {
-          if (error) {
-            message.error('Log in failed')
-          } else {
-            message.success('Logged in')
-          }
-        })
+      onLogin={async (values) => {
+        try {
+          await Meteor.loginWithPasswordAsync(values.user, values.password)
+          message.success('Logged in')
+        } catch {
+          message.error('Log in failed')
+        }
         onClose()
       }}
     />

@@ -10,7 +10,11 @@ import { App } from '../../ui/App'
 
 onPageLoad(() => {
   hydrate(
-    <App contentData={window.__CONTENT_DATA__} pathname={window.location.pathname} />,
+    <App
+      contentData={window.__CONTENT_DATA__}
+      pathname={window.location.pathname}
+      styleData={window.__STYLE_DATA__}
+    />,
     document.getElementById('react-target')
   )
 })

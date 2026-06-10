@@ -5,6 +5,12 @@ import styled from 'styled-components'
 const Link = styled.a`
   color: ${({ accent }) => (accent ? 'var(--color-accent)' : 'var(--color-text-mark)')};
   text-decoration-line: underline;
+  transition: color 0.2s;
+
+  :hover {
+    text-decoration-line: underline;
+    color: var(--color-primary);
+  }
 `
 
 export const LinkText = ({ text, url, accent }) => (

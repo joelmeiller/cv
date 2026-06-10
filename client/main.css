@@ -1,5 +1,5 @@
 html, body {
-  background: var(--color-white-shadow);
+  background: var(--color-page-background, var(--color-white-shadow));
   font-family: sans-serif;
   font-size: 100%;
   overflow: visible;
@@ -12,12 +12,20 @@ li,
 a {
   -webkit-tap-highlight-color: transparent;
 }
+
+.ant-btn-primary,
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
 :focus {
   outline: none;
 }
 
 :root {
   /* colors */
+  --color-page-background: rgba(255, 255, 255, 0.65);
   --color-accent: rgb(68, 201, 41);
   --color-accent-shadow: #27e20055;
 

@@ -145,7 +145,7 @@ const Description = styled.h2`
 
 const ContactButton = styled.a`
   color: var(--color-white);
-  background-color: var(--color-accent);
+  background-color: var(--color-primary);
   cursor: pointer;  
   border: none;
   display: flex;
