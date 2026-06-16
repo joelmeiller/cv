@@ -13,10 +13,19 @@ import App from '../../ui/App'
 // Collections
 import { Contents } from '../../api/collections/Contents'
 import { getLatestStyleAsync } from '../../api/utils/getLatestStyle'
-import { getStyleVariableCss } from '../../ui/utils/applyStyleVariables'
+import { getStyleFontLink, getStyleVariableCss } from '../../ui/utils/applyStyleVariables'
+import { fetchProfilePictureDataUri } from './fetchProfilePictureDataUri'
 
 // Utils
 let rangeErrorThrown = false
+
+const getParseLanguage = (queryLang) => {
+  if (queryLang === 'en' || queryLang === 'de') {
+    return queryLang
+  }
+
+  return 'en'
+}
 
 onPageLoad(async (sink) => {
   const request = sink.request
@@ -47,26 +56,47 @@ onPageLoad(async (sink) => {
          * Get content data
          */
 
+        const pathname = request.url.pathname
+        const isParseCV = pathname === '/cv-parse'
+        const language = isParseCV ? getParseLanguage(request.url.query?.lang) : 'en'
         const versionNr = Meteor.settings.public.VERSION
 
         const contentData = await Contents.findOneAsync(
-          { versionNr, language: 'en' },
+          { versionNr, language },
           { sort: { versionNr: -1 } }
         )
 
-        const styleData = contentData
-          ? await getLatestStyleAsync(contentData.style)
-          : null
+        const styleData =
+          contentData && !isParseCV ? await getLatestStyleAsync(contentData.style) : null
+
+        let profilePictureDataUri = null
+
+        if (isParseCV && contentData?.header?.profilePicture) {
+          profilePictureDataUri = await fetchProfilePictureDataUri(contentData.header.profilePicture)
+        }
 
         if (contentData) {
           console.log(`***** LOADED VERSION NR ***** ${contentData.versionNr} *****`)
 
-          sink.appendToBody(
-            `<script>window.__CONTENT_DATA__ = ${JSON.stringify(contentData)}</script>`
-          )
+          if (isParseCV) {
+            sink.appendToBody(
+              `<script>window.__PARSE_CV_DATA__ = ${JSON.stringify({
+                contentData,
+                profilePictureDataUri,
+              })}</script>`
+            )
+          } else {
+            sink.appendToBody(
+              `<script>window.__CONTENT_DATA__ = ${JSON.stringify(contentData)}</script>`
+            )
+          }
         }
 
         if (styleData) {
+          const fontLink = getStyleFontLink(styleData)
+          if (fontLink) {
+            sink.appendToHead(fontLink)
+          }
           sink.appendToHead(`<style id="page-style-variables">${getStyleVariableCss(styleData)}</style>`)
           sink.appendToBody(
             `<script>window.__STYLE_DATA__ = ${JSON.stringify(styleData)}</script>`
@@ -77,18 +107,30 @@ onPageLoad(async (sink) => {
          * Server side rendering of page
          */
 
-        const pathname = request.url.pathname
-
         if (!rangeErrorThrown) {
+          const app = (
+            <App
+              contentData={contentData}
+              pathname={pathname}
+              profilePictureDataUri={profilePictureDataUri}
+              styleData={styleData}
+            />
+          )
+
           sink.renderIntoElementById(
             'react-target',
             renderToString(
-              <StyleSheetManager sheet={sheet.instance}>
-                <App contentData={contentData} pathname={pathname} styleData={styleData} />
-              </StyleSheetManager>
+              isParseCV ? (
+                app
+              ) : (
+                <StyleSheetManager sheet={sheet.instance}>{app}</StyleSheetManager>
+              )
             )
           )
-          sink.appendToHead(sheet.getStyleTags())
+
+          if (!isParseCV) {
+            sink.appendToHead(sheet.getStyleTags())
+          }
         }
       } catch (exception) {
         if (exception.name === 'RangeError') {

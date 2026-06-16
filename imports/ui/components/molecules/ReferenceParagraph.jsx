@@ -93,7 +93,7 @@ const Paragraph = styled.div`
 `
 
 const Title = styled.h1`
-  color: ${({ dark }) => (dark ? 'var(--color-text-inverse)' : 'var(--color-accent)')};
+  color: ${({ dark }) => (dark ? 'var(--color-text-inverse)' : 'var(--color-primary)')};
   padding: var(--size-16);
 `
 

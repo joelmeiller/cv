@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Link = styled.a`
-  color: ${({ accent }) => (accent ? 'var(--color-accent)' : 'var(--color-text-mark)')};
+  color: ${({ accent }) => (accent ? 'var(--color-primary)' : 'var(--color-text-mark)')};
   text-decoration-line: underline;
   transition: color 0.2s;
 
   :hover {
     text-decoration-line: underline;
-    color: var(--color-primary);
+    color: var(--color-accent);
   }
 `
 

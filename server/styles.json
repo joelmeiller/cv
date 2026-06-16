@@ -2,26 +2,21 @@
   {
     "type": "Default",
     "backgroundColor": "rgba(255, 255, 255, 0.65)",
+    "backgroundColorFooter": "#000000",
     "colorAccent": "rgb(68, 201, 41)",
     "colorPrimary": "rgb(68, 201, 41)",
     "colorMark": "#4a90e2",
-    "version": "1"
-  },
-  {
-    "type": "Default",
-    "backgroundColor": "rgba(255, 255, 255, 0.65)",
-    "colorAccent": "rgb(68, 201, 41)",
-    "colorPrimary": "rgb(68, 201, 41)",
-    "colorMark": "#4a90e2",
+    "fontFamily": "CeraPRO, Helvetica, sans-serif",
     "version": "1"
   },
   {
     "type": "Finance",
     "backgroundColor": "#f7f7f5",
-    "colorPrimary": "#eb1919",
-    "colorAccent": "#640014",
+    "backgroundColorFooter": "#373734",
+    "colorAccent": "#eb1919",
+    "colorPrimary": "#640014",
     "colorMark": "#640014",
-    "fontFamily": "\"Lato\", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, \"Helvetica Neue\", Arial, sans-serif;",
+    "fontFamily": "Lato, Segoe UI, Roboto, sans-serif",
     "version": "1"
   }
 ]

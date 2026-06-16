@@ -13,7 +13,7 @@ import styled from 'styled-components'
 const FooterContainer = styled.div`
   position: relative;
   width: 100%;
-  background-color: var(--color-black);
+  background-color: var(--color-footer-background, var(--color-black));
   padding: 0 var(--size-64);
 
   @media print {
@@ -52,7 +52,7 @@ export const PageFooter = ({ backgroundPicture, footer, isPersonalCV }) => {
   
   return (
     <FooterContainer>
-      <FooterBackground picture={backgroundPicture} className="no-print" />
+      {/* <FooterBackground picture={backgroundPicture} className="no-print" /> */}
 
       <Section>
         <Title className="font-20-bold">{footer.title}</Title>

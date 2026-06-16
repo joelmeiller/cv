@@ -14,6 +14,7 @@ import { Navigation } from './components/templates/Navigation'
 import { Contents } from '/imports/api'
 import { getLatestStyleAsync } from '/imports/api/utils/getLatestStyle'
 import { applyStyleVariables } from './utils/applyStyleVariables'
+import { ParseCV } from './containers/ParseCV'
 
 // Dynamic imports
 //import { LoginForm } from './components/organisms/LoginForm'
@@ -54,7 +55,17 @@ const AppUserContext = ({ contentId, language, onChangeLanugage }) => {
   )
 }
 
-export const App = ({ contentData, pathname, styleData }) => {
+export const App = ({ contentData, pathname, profilePictureDataUri, styleData }) => {
+  if (pathname === '/cv-parse') {
+    return <ParseCV content={contentData} profilePictureDataUri={profilePictureDataUri} />
+  }
+
+  return (
+    <CvApp contentData={contentData} pathname={pathname} styleData={styleData} />
+  )
+}
+
+const CvApp = ({ contentData, pathname, styleData }) => {
   const [ssrDone, setSsrDone] = useState(false)
   useEffect(() => {
     setSsrDone(true)

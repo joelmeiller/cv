@@ -19,7 +19,7 @@ const RatingCircle = styled.div`
   position: relative;
   width: 64px;
   height: 64px;
-  border: 3px solid var(--color-primary);
+  border: 3px solid var(--color-accent);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -28,7 +28,7 @@ const RatingCircle = styled.div`
 `
 const Rating = styled.p`
   font-size: 40px;
-  color: var(--color-primary);
+  color: var(--color-accent);
   text-align: center;
   margin: 0;
 

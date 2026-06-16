@@ -46,16 +46,23 @@ const Link = styled.a`
   & p {
     color: var(--color-text-inverse);
     margin: 0.3rem 0;
+    transition: color 0.2s;
 
     @media print {
       color: var(--color-text-primary);
     }
   }
 
+  & .icon {
+    transition: fill 0.2s, stroke 0.2s;
+  }
+
   &:hover {
+    text-decoration-line: underline;
+
     & p {
       color: var(--color-accent);
-    }
+      }
 
     & .icon.white {
       & path,
